@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLP-1 管线产品数据库 | GLP-1 Pipeline Tracker</title>
+    <title>GLP-1 管线全景图谱 | GLP-1 Pipeline Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -18,21 +18,19 @@
                         sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
                     },
                     colors: {
-                        primary: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a25',
+                            600: '#252535',
+                            500: '#2a2a3a',
                         },
-                        biotech: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
+                        neon: {
+                            blue: '#00d4ff',
+                            purple: '#8b5cf6',
+                            green: '#10b981',
+                            orange: '#f59e0b',
+                            pink: '#ec4899',
                         }
                     }
                 }
@@ -40,371 +38,237 @@
         }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-dark-900 text-white font-sans min-h-screen">
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center gap-2">
-                        <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" opacity="0.3"/>
+    <nav class="bg-dark-800 border-b border-dark-500 sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-blue to-neon-purple flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
-                        <span class="font-bold text-xl text-gray-900">GLP-1 Tracker</span>
                     </div>
-                    <div class="hidden md:ml-8 md:flex md:space-x-6">
-                        <a href="#overview" class="text-primary-600 font-medium border-b-2 border-primary-600 px-1 pt-1">概览</a>
-                        <a href="#database" class="text-gray-500 hover:text-gray-700 font-medium px-1 pt-1">产品数据库</a>
-                        <a href="#charts" class="text-gray-500 hover:text-gray-700 font-medium px-1 pt-1">数据分析</a>
-                        <a href="about.html" class="text-gray-500 hover:text-gray-700 font-medium px-1 pt-1">关于</a>
-                    </div>
+                    <span class="font-bold text-xl text-white">GLP-1 <span class="text-neon-blue">Pipeline</span></span>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button id="compareBtn" class="hidden md:flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                        对比 (<span id="compareCount">0</span>)
-                    </button>
+                <div class="hidden md:flex items-center space-x-1 bg-dark-700 rounded-lg p-1">
+                    <a href="#overview" class="px-4 py-2 rounded-md text-neon-blue font-medium bg-dark-600">概览</a>
+                    <a href="#database" class="px-4 py-2 rounded-md text-gray-400 hover:text-white transition">产品数据库</a>
+                    <a href="#charts" class="px-4 py-2 rounded-md text-gray-400 hover:text-white transition">数据分析</a>
+                    <a href="about.html" class="px-4 py-2 rounded-md text-gray-400 hover:text-white transition">关于</a>
                 </div>
+                <button id="compareBtn" class="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-neon-blue to-neon-purple text-dark-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-neon-blue/30 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    对比 (<span id="compareCount">0</span>)
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- 主要内容 -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        <!-- 概览区域 -->
-        <section id="overview" class="mb-12">
-            <div class="flex items-center justify-between mb-6">
-                <h1 class="text-3xl font-bold text-gray-900">GLP-1 管线产品概览</h1>
-                <span class="text-sm text-gray-500">数据更新: <span id="lastUpdated">--</span></span>
+        <!-- Hero Section -->
+        <section class="mb-12 relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-neon-blue/10 via-neon-purple/10 to-neon-pink/10 rounded-3xl blur-3xl"></div>
+            <div class="relative bg-dark-800 border border-dark-500 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                            <span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">GLP-1 管线</span>
+                            <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">全景图谱</span>
+                        </h1>
+                        <p class="text-gray-400 text-lg max-w-2xl">
+                            全球GLP-1靶点药物研发进展追踪平台 · 多靶点创新 · 中国突破
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 text-sm text-gray-500 bg-dark-700 px-4 py-2 rounded-full border border-dark-500">
+                        <span class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-neon-green rounded-full animate-pulse"></span>
+                            数据更新: <span id="lastUpdated" class="text-gray-300">--</span>
+                        </span>
+                    </div>
+                </div>
             </div>
-            
-            <!-- 统计卡片 -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500">总产品数</p>
-                            <p class="text-3xl font-bold text-gray-900 mt-1" id="totalProducts">--</p>
-                        </div>
-                        <div class="p-3 bg-primary-50 rounded-lg">
-                            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        </section>
+        
+        <!-- 统计卡片 -->
+        <section id="overview" class="mb-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-400 text-sm">总产品数</span>
+                        <div class="w-10 h-10 rounded-lg bg-neon-blue/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
                             </svg>
                         </div>
                     </div>
+                    <div class="stat-value" id="totalProducts">--</div>
+                    <div class="text-gray-500 text-xs mt-1">款产品</div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500">已上市</p>
-                            <p class="text-3xl font-bold text-biotech-600 mt-1" id="approvedCount">--</p>
-                        </div>
-                        <div class="p-3 bg-biotech-50 rounded-lg">
-                            <svg class="w-6 h-6 text-biotech-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-400 text-sm">已上市</span>
+                        <div class="w-10 h-10 rounded-lg bg-neon-green/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-neon-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
                     </div>
+                    <div class="text-3xl font-bold text-neon-green" id="approvedCount">--</div>
+                    <div class="text-gray-500 text-xs mt-1">款获批</div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500">III期临床</p>
-                            <p class="text-3xl font-bold text-primary-600 mt-1" id="phase3Count">--</p>
-                        </div>
-                        <div class="p-3 bg-primary-50 rounded-lg">
-                            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-400 text-sm">多靶点</span>
+                        <div class="w-10 h-10 rounded-lg bg-neon-orange/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
                         </div>
                     </div>
+                    <div class="text-3xl font-bold text-neon-orange" id="multiTargetCount">--</div>
+                    <div class="text-gray-500 text-xs mt-1">款双/三靶点</div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500">中国公司</p>
-                            <p class="text-3xl font-bold text-orange-600 mt-1" id="chinaCount">--</p>
-                        </div>
-                        <div class="p-3 bg-orange-50 rounded-lg">
-                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-400 text-sm">中国产品</span>
+                        <div class="w-10 h-10 rounded-lg bg-neon-pink/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
                     </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500">多靶点产品</p>
-                            <p class="text-3xl font-bold text-amber-600 mt-1" id="multiTargetCount">--</p>
-                        </div>
-                        <div class="p-3 bg-amber-50 rounded-lg">
-                            <span class="text-2xl">🏆</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500">含GCG靶点</p>
-                            <p class="text-3xl font-bold text-red-600 mt-1" id="gcgCount">--</p>
-                        </div>
-                        <div class="p-3 bg-red-50 rounded-lg">
-                            <span class="text-2xl">🎯</span>
-                        </div>
-                    </div>
+                    <div class="text-3xl font-bold text-neon-pink" id="chinaCount">--</div>
+                    <div class="text-gray-500 text-xs mt-1">款国产</div>
                 </div>
             </div>
+        </section>
 
-            <!-- 最新动态时间线 -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-                <h2 class="text-lg font-semibold text-gray-900 mb-4">最新动态</h2>
-                <div class="relative">
-                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-                    <div id="timelineContainer" class="space-y-4">
-                        <!-- 动态生成 -->
+        <!-- 筛选器 -->
+        <section class="mb-8">
+            <div class="bg-dark-800 border border-dark-500 rounded-xl p-4">
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="text-gray-400 text-sm font-medium">筛选:</span>
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="multi">
+                        <span class="text-neon-orange">⚡</span> 多靶点
+                    </button>
+                    <button class="filter-btn" data-filter="gcg">
+                        <span class="text-neon-orange">🎯</span> GCG靶点
+                    </button>
+                    <button class="filter-btn" data-filter="china">
+                        <span class="text-neon-pink">🇨🇳</span> 中国
+                    </button>
+                    <div class="h-6 w-px bg-dark-500 mx-2"></div>
+                    <button class="stage-pill stage-approved text-xs" data-stage="已上市">已上市</button>
+                    <button class="stage-pill stage-nda text-xs" data-stage="NDA审评中">NDA</button>
+                    <button class="stage-pill stage-phase3 text-xs" data-stage="III期临床">III期</button>
+                    <button class="stage-pill stage-phase2 text-xs" data-stage="II期临床">II期</button>
+                    <div class="flex-1"></div>
+                    <div class="view-toggle">
+                        <button class="active" data-view="table">列表</button>
+                        <button data-view="card">卡片</button>
                     </div>
-                </div>
-            </div>
-
-            <!-- 国产多靶点突破板块 -->
-            <div class="bg-gradient-to-r from-amber-50 via-red-50 to-orange-50 rounded-xl shadow-lg border-2 border-amber-300 p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">🇨🇳</span>
-                        <div>
-                            <h2 class="text-xl font-bold text-gray-900">国产多靶点突破</h2>
-                            <p class="text-sm text-gray-600">中国企业在GLP-1多靶点领域的创新成果</p>
-                        </div>
-                    </div>
-                    <span class="china-multi-badge">
-                        <span>🔥</span> <span id="chinaMultiCount">0</span> 款产品
-                    </span>
-                </div>
-                <div id="chinaMultiContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- 动态生成 -->
                 </div>
             </div>
         </section>
 
         <!-- 产品数据库 -->
         <section id="database" class="mb-12">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-gray-900">产品数据库</h2>
-                <div class="flex items-center gap-3">
-                    <button id="viewToggle" class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
-                        </svg>
-                        卡片视图
-                    </button>
-                </div>
-            </div>
-
-            <!-- 筛选栏 -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
-                <div class="flex flex-wrap gap-4 items-center">
-                    <div class="flex-1 min-w-[200px]">
-                        <input type="text" id="searchInput" placeholder="搜索产品、公司、代号..." 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+            <div class="bg-dark-800 border border-dark-500 rounded-2xl overflow-hidden">
+                <div class="p-6 border-b border-dark-500 flex items-center justify-between">
+                    <h2 class="text-xl font-bold text-white">产品管线</h2>
+                    <div class="flex items-center gap-4">
+                        <input type="text" id="searchInput" class="search-input w-64" placeholder="搜索产品、公司...">
                     </div>
-                    
-                    <select id="stageFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500">
-                        <option value="">全部阶段</option>
-                        <option value="已上市">已上市</option>
-                        <option value="NDA">NDA申报/审评</option>
-                        <option value="III期">III期临床</option>
-                        <option value="II期">II期临床</option>
-                        <option value="I期">I期临床</option>
-                        <option value="临床前">临床前</option>
-                    </select>
-                    
-                    <select id="indicationFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500">
-                        <option value="">全部适应症</option>
-                        <option value="肥胖">肥胖</option>
-                        <option value="2型糖尿病">2型糖尿病</option>
-                        <option value="NASH/MASH">NASH/MASH</option>
-                    </select>
-                    
-                    <select id="moleculeFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500">
-                        <option value="">全部类型</option>
-                        <option value="GLP-1受体激动剂">GLP-1单靶点</option>
-                        <option value="GLP-1/GIP双靶点激动剂">GLP-1/GIP双靶点</option>
-                        <option value="GLP-1/GCG双靶点激动剂">GLP-1/GCG双靶点</option>
-                        <option value="GLP-1/GIP/GCG三靶点激动剂">三靶点</option>
-                        <option value="口服小分子GLP-1激动剂">口服小分子</option>
-                    </select>
-                    
-                    <button id="chinaFilter" class="px-4 py-2 border border-orange-300 text-orange-700 rounded-lg hover:bg-orange-50 font-medium">
-                        🇨🇳 中国专区
-                    </button>
-                    
-                    <button id="multiTargetFilter" class="target-filter-btn target-filter-multi">
-                        🏆 多靶点
-                    </button>
-                    
-                    <button id="gcgFilter" class="target-filter-btn target-filter-gcg">
-                        🎯 GCG靶点
-                    </button>
-                    
-                    <button id="clearFilters" class="px-4 py-2 text-gray-500 hover:text-gray-700">
-                        清除筛选
-                    </button>
                 </div>
-            </div>
-
-            <!-- 产品表格 -->
-            <div id="tableView" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="bg-gray-50 border-b border-gray-200">
+                
+                <!-- 表格视图 -->
+                <div id="tableView" class="table-container">
+                    <table class="data-table">
+                        <thead>
                             <tr>
-                                <th class="px-4 py-3 text-left">
-                                    <input type="checkbox" id="selectAll" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500">
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700" data-sort="product_name">
-                                    产品名 <span class="sort-icon">↕</span>
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700" data-sort="company">
-                                    公司 <span class="sort-icon">↕</span>
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    阶段
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    靶点
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    适应症
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    分子类型
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700" data-sort="efficacy_data.weight_loss.week48">
-                                    48周减重 <span class="sort-icon">↕</span>
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    最新动态
-                                </th>
-                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    操作
-                                </th>
+                                <th class="w-12"></th>
+                                <th>产品 <span class="sort-icon" data-sort="product_name">↕</span></th>
+                                <th>公司</th>
+                                <th>靶点</th>
+                                <th>阶段</th>
+                                <th>减重数据</th>
+                                <th>最新进展</th>
                             </tr>
                         </thead>
-                        <tbody id="productTableBody" class="divide-y divide-gray-200">
-                            <!-- 动态生成 -->
+                        <tbody id="productTableBody">
+                            <!-- 动态加载 -->
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <!-- 卡片视图 -->
-            <div id="cardView" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 动态生成 -->
-            </div>
-
-            <!-- 无结果提示 -->
-            <div id="noResults" class="hidden text-center py-12">
-                <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <p class="text-gray-500">没有找到符合条件的产品</p>
+                
+                <!-- 卡片视图 -->
+                <div id="cardView" class="hidden p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- 动态加载 -->
+                </div>
             </div>
         </section>
 
         <!-- 数据分析图表 -->
         <section id="charts" class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">数据分析</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- 阶段分布 -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">产品阶段分布</h3>
-                    <canvas id="stageChart" height="200"></canvas>
+            <h2 class="text-2xl font-bold mb-6">数据分析</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="chart-container">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-300">管线阶段分布</h3>
+                    <canvas id="stageChart"></canvas>
                 </div>
-                
-                <!-- 适应症热度 -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">适应症分布</h3>
-                    <canvas id="indicationChart" height="200"></canvas>
-                </div>
-                
-                <!-- 公司管线对比 -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">公司管线数量</h3>
-                    <canvas id="companyChart" height="200"></canvas>
-                </div>
-                
-                <!-- 分子类型分布 -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">分子类型分布</h3>
-                    <canvas id="moleculeChart" height="200"></canvas>
+                <div class="chart-container">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-300">分子类型分布</h3>
+                    <canvas id="typeChart"></canvas>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- 产品详情弹窗 -->
-    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-                <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-                    <h3 id="modalTitle" class="text-xl font-bold text-gray-900">产品详情</h3>
-                    <button id="closeModal" class="text-gray-400 hover:text-gray-600">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
-                </div>
-                <div id="modalContent" class="p-6">
-                    <!-- 动态生成 -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 对比弹窗 -->
-    <div id="compareModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-xl shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
-                <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-                    <h3 class="text-xl font-bold text-gray-900">产品对比</h3>
-                    <button id="closeCompareModal" class="text-gray-400 hover:text-gray-600">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
-                </div>
-                <div id="compareContent" class="p-6">
-                    <!-- 动态生成 -->
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- 页脚 -->
-    <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <p class="text-gray-500 text-sm">
-                    © 2025 GLP-1 Pipeline Tracker. 数据仅供参考，不构成医疗建议。
-                </p>
-                <div class="flex items-center gap-4 mt-4 md:mt-0">
-                    <a href="about.html" class="text-gray-500 hover:text-gray-700 text-sm">关于</a>
-                    <a href="#" class="text-gray-500 hover:text-gray-700 text-sm">数据来源</a>
-                </div>
-            </div>
+    <footer class="border-t border-dark-500 py-8 mt-12">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-500 text-sm">
+                数据来源: ClinicalTrials.gov, CDE, 公司公告 | 仅供研究参考
+            </p>
+            <p class="text-gray-600 text-xs mt-2">
+                © 2025 GLP-1 Pipeline Tracker | 持续更新中
+            </p>
         </div>
     </footer>
+
+    <!-- 产品详情模态框 -->
+    <div id="productModal" class="modal-backdrop hidden">
+        <div class="modal-content">
+            <div id="modalBody">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 对比面板 -->
+    <div id="comparePanel" class="fixed bottom-0 left-0 right-0 bg-dark-800 border-t border-dark-500 p-4 transform translate-y-full transition-transform duration-300 z-40">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-4" id="compareList">
+                <!-- 动态内容 -->
+            </div>
+            <div class="flex gap-3">
+                <button id="clearCompare" class="px-4 py-2 text-gray-400 hover:text-white transition">清空</button>
+                <button id="doCompare" class="px-6 py-2 bg-gradient-to-r from-neon-blue to-neon-purple text-dark-900 font-semibold rounded-lg">
+                    开始对比
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/app.js"></script>
 </body>

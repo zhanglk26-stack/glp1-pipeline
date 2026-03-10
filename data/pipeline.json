@@ -1,2521 +1,897 @@
 {
+  "metadata": {
+    "version": "2.1",
+    "last_updated": "2025-03-10",
+    "total_products": 57,
+    "search_period": "2025年最新"
+  },
   "products": [
     {
-      "id": "wegovy",
+      "id": 1,
+      "name_cn": "司美格鲁肽",
+      "name_en": "Semaglutide",
       "company": "诺和诺德",
       "company_en": "Novo Nordisk",
-      "country": "DK",
-      "product_name": "Wegovy",
-      "code_name": "司美格鲁肽 2.4mg",
-      "molecule_type": "GLP-1受体激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射/口服",
       "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "15.2%",
-          "week52": "17.8%",
-          "week68": "15.8%",
-          "note": "STEP 1试验"
-        },
-        "nash": {
-          "nash_resolution": "59%",
-          "fibrosis_improvement": "41%",
-          "note": "52周数据"
-        },
-        "cardiovascular": {
-          "mace_reduction": "20%",
-          "note": "SELECT试验，3年随访"
-        }
-      },
-      "safety_data": {
-        "discontinuation_rate": "6.8%",
-        "common_ae": [
-          "恶心 (44%)",
-          "腹泻 (31%)",
-          "呕吐 (24%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT03548935",
-          "phase": "III期",
-          "name": "STEP 1",
-          "url": "https://clinicaltrials.gov/study/NCT03548935"
-        },
-        {
-          "nct": "NCT04184622",
-          "phase": "III期",
-          "name": "SELECT",
-          "url": "https://clinicaltrials.gov/study/NCT04184622"
-        }
-      ],
-      "approvals": [
-        {
-          "region": "美国",
-          "date": "2021-06",
-          "status": "已批准"
-        },
-        {
-          "region": "欧盟",
-          "date": "2022-01",
-          "status": "已批准"
-        },
-        {
-          "region": "中国",
-          "date": "2024-06",
-          "status": "已批准"
-        }
-      ],
-      "latest_update": "2024-12 FDA批准心血管适应症",
-      "timeline": [
-        {
-          "date": "2017-12",
-          "event": "Ozempic获批（糖尿病）"
-        },
-        {
-          "date": "2021-06",
-          "event": "Wegovy获批（肥胖）"
-        },
-        {
-          "date": "2023-08",
-          "event": "SELECT试验心血管获益结果公布"
-        },
-        {
-          "date": "2024-06",
-          "event": "中国获批上市"
-        },
-        {
-          "date": "2024-12",
-          "event": "FDA批准心血管适应症"
-        }
-      ],
-      "sources": [
-        "https://www.novonordisk.com"
-      ],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["2型糖尿病", "肥胖"],
+      "approval_date": "2021年4月(糖尿病), 2024年6月(减重)",
+      "patent_expiry_cn": "2026-03-20",
+      "latest_update": "中国减重适应症专利2026年3月20日到期，仿制药竞争即将开启",
+      "commercial_name": "诺和泰/Ozempic(降糖), 诺和盈/Wegovy(减重)",
+      "market_status": "全球GLP-1市场领导者，2024年全球销售额超250亿美元"
     },
     {
-      "id": "zepbound",
+      "id": 2,
+      "name_cn": "替尔泊肽",
+      "name_en": "Tirzepatide",
       "company": "礼来",
       "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "Zepbound",
-      "code_name": "替尔泊肽",
-      "molecule_type": "GLP-1/GIP双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
+      "targets": ["GLP-1R", "GIPR"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "20.9%",
-          "week52": "22.5%",
-          "week72": "23.6%",
-          "note": "SURMOUNT-1试验"
-        },
-        "nash": {
-          "nash_resolution": "74%",
-          "fibrosis_improvement": "55%",
-          "note": "SYNERGY-NASH试验"
-        }
-      },
-      "safety_data": {
-        "discontinuation_rate": "7.1%",
-        "common_ae": [
-          "恶心 (31%)",
-          "腹泻 (23%)",
-          "便秘 (17%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT04184622",
-          "phase": "III期",
-          "name": "SURMOUNT-1",
-          "url": "https://clinicaltrials.gov/study/NCT04184622"
-        },
-        {
-          "nct": "NCT04847557",
-          "phase": "III期",
-          "name": "SYNERGY-NASH",
-          "url": "https://clinicaltrials.gov/study/NCT04847557"
-        }
-      ],
-      "approvals": [
-        {
-          "region": "美国",
-          "date": "2023-11",
-          "status": "已批准"
-        },
-        {
-          "region": "中国",
-          "date": "2024-07",
-          "status": "已批准"
-        }
-      ],
-      "latest_update": "2025-01 SURMOUNT-5头对头试验启动",
-      "timeline": [
-        {
-          "date": "2022-05",
-          "event": "Mounjaro获批（糖尿病）"
-        },
-        {
-          "date": "2023-11",
-          "event": "Zepbound获批（肥胖）"
-        },
-        {
-          "date": "2024-07",
-          "event": "中国获批上市"
-        },
-        {
-          "date": "2025-01",
-          "event": "SURMOUNT-5 vs Wegovy头对头试验启动"
-        }
-      ],
-      "sources": [
-        "https://www.lilly.com"
-      ],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["2型糖尿病", "肥胖"],
+      "approval_date": "2024年5月(糖尿病), 2024年7月(减重), 2025年1月正式上市",
+      "latest_update": "2025年纳入国家医保目录，月治疗费用从2800元降至560元",
+      "commercial_name": "穆峰达/Mounjaro(降糖), Zepbound(减重)",
+      "market_status": "2025年预售首日销量破10万支"
     },
     {
-      "id": "通化东宝_利拉鲁肽",
-      "company": "通化东宝",
-      "company_en": "600867.SH",
-      "country": "CN",
-      "product_name": "利拉鲁肽",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病"
-      ],
-      "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "已上市销售",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "华东医药_利拉鲁肽注射液",
-      "company": "华东医药",
-      "company_en": "000963.SZ",
-      "country": "CN",
-      "product_name": "利拉鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2023年获批上市，国产首个利拉鲁肽生物类似药",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "Novo_Nordisk_Semaglutide",
-      "company": "诺和诺德",
-      "company_en": "Novo Nordisk",
-      "country": "DK",
-      "product_name": "司美格鲁肽",
-      "code_name": "NN9535",
-      "molecule_type": "GLP-1单靶点受体激动剂",
-      "route": "口服",
-      "indications": [
-        "2型糖尿病",
-        "肥胖",
-        "心血管风险降低",
-        "慢性肾病"
-      ],
-      "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {
-          "week68": "15.1%",
-          "week52": "减重12.4%"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT03548935",
-          "phase": "III期",
-          "name": "STEP 1",
-          "url": "https://clinicaltrials.gov/study/NCT03548935"
-        },
-        {
-          "nct": "NCT04184622",
-          "phase": "III期",
-          "name": "SELECT",
-          "url": "https://clinicaltrials.gov/study/NCT04184622"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2025年12月FDA批准口服Wegovy 25mg用于减重",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Eli_Lilly_Tirzepatide",
-      "company": "礼来",
-      "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "替尔泊肽",
-      "code_name": "LY3298176",
-      "molecule_type": "GLP-1/GIP双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖",
-        "心血管风险",
-        "睡眠呼吸暂停",
-        "MASH/NASH",
-        "膝骨关节炎"
-      ],
-      "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {
-          "week52": "减重15.7%"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT04184622",
-          "phase": "III期",
-          "name": "SURMOUNT-1",
-          "url": "https://clinicaltrials.gov/study/NCT04184622"
-        },
-        {
-          "nct": "NCT04657003",
-          "phase": "III期",
-          "name": "SURMOUNT-OSA",
-          "url": "https://clinicaltrials.gov/study/NCT04657003"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024年12月SURMOUNT-5头对头击败司美格鲁肽，减重适应症扩展中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "信达生物_玛仕度肽（IBI362）",
-      "company": "信达生物",
-      "company_en": "01801.HK",
-      "country": "CN",
-      "product_name": "玛仕度肽（IBI362）",
-      "code_name": "IBI362",
-      "molecule_type": "GLP-1R/GCGR双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖/超重",
-        "2型糖尿病",
-        "NASH"
-      ],
-      "stage": "已上市",
-      "stage_order": 8,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "平均减重15.4%（6mg组）"
-        },
-        "nash": {
-          "note": "48周肝脏脂肪含量相对降幅73.2%（6mg组）"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT05610440",
-          "phase": "已上市",
-          "name": "肥胖/超重",
-          "url": "https://www.chinadrugtrials.org.cn/"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2025年6月获批上市，成为全球首个获批的GCGR/GLP-1R双靶点激动剂",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "Novo_Nordisk_CagriSema",
-      "company": "诺和诺德",
-      "company_en": "Novo Nordisk",
-      "country": "DK",
-      "product_name": "CagriSema",
-      "code_name": "NN9838",
-      "molecule_type": "GLP-1/胰淀素(Amylin)双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "NDA审评中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {
-          "week68": "2型糖尿病肥胖患者减重15.7%"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT05646710",
-          "phase": "III期",
-          "name": "REDEFINE 1/2",
-          "url": "https://clinicaltrials.gov/study/NCT05646710"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2026年预计申请监管批准，REDEFINE 4头对头替尔泊肽试验未达到主要终点",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Hengrui_Medicine_HRS9531",
-      "company": "恒瑞医药",
-      "company_en": "Hengrui Medicine",
-      "country": "US",
-      "product_name": "HRS9531",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP双靶点激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "OSA"
-      ],
-      "stage": "NDA审评中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "6mg剂量减重19.2%"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年9月减重适应症NDA获受理，48周减重19.2%且未达平台期",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "华东医药_司美格鲁肽注射液",
-      "company": "华东医药",
-      "company_en": "000963.SZ",
-      "country": "CN",
-      "product_name": "司美格鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年4月上市申请获CDE受理，国产第5家申报",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "石药集团_司美格鲁肽注射液",
-      "company": "石药集团",
-      "company_en": "01093.HK",
-      "country": "CN",
-      "product_name": "司美格鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年12月减重适应症上市申请获CDE受理",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "联邦制药_司美格鲁肽注射液",
-      "company": "联邦制药",
-      "company_en": "03933.HK",
-      "country": "CN",
-      "product_name": "司美格鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "上市申请已获CDE受理",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "丽珠集团_司美格鲁肽注射液",
-      "company": "丽珠集团",
-      "company_en": "000513.SZ",
-      "country": "CN",
-      "product_name": "司美格鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2024年2月获批体重管理适应症临床试验，上市申请已受理",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "齐鲁制药_司美格鲁肽注射液",
-      "company": "齐鲁制药",
-      "company_en": "非上市",
-      "country": "CN",
-      "product_name": "司美格鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "上市申请已获CDE受理",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "正大天晴_司美格鲁肽注射液",
-      "company": "正大天晴",
-      "company_en": "中国生物制药子公司",
-      "country": "CN",
-      "product_name": "司美格鲁肽注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1受体激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年12月上市申请获CDE受理，为第10家申报企业",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "九源基因_吉优泰",
-      "company": "九源基因",
-      "company_en": "02566.HK",
-      "country": "CN",
-      "product_name": "吉优泰",
-      "code_name": "",
-      "molecule_type": "司美格鲁肽生物类似药",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2024年1月成为国内首个申报上市的司美格鲁肽仿制药（糖尿病适应症），2024年底遭拒",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "九源基因_吉可亲（JY29-2）",
-      "company": "九源基因",
-      "company_en": "02566.HK",
-      "country": "CN",
-      "product_name": "吉可亲（JY29-2）",
-      "code_name": "JY29-2",
-      "molecule_type": "司美格鲁肽生物类似药（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "NDA申报中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2026年2月减重适应症上市申请获CDE受理，为国内首个申报减重适应症的司美格鲁肽仿制药",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "mazdutide",
+      "id": 3,
+      "name_cn": "玛仕度肽",
+      "name_en": "Mazdutide",
       "company": "信达生物/礼来",
       "company_en": "Innovent/Eli Lilly",
-      "country": "CN",
-      "product_name": "玛仕度肽",
-      "code_name": "IBI362",
-      "molecule_type": "GLP-1/GCG双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
+      "targets": ["GLP-1R", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病", "肥胖"],
+      "approval_date": "2025年6月27日(肥胖), 2025年9月19日(糖尿病)",
+      "latest_update": "首款国产双靶点GLP-1创新药，68周平均减重18%，医保谈判推进中",
+      "commercial_name": "信尔美",
+      "market_status": "国产双靶点减肥药标杆"
+    },
+    {
+      "id": 4,
+      "name_cn": "度拉糖肽",
+      "name_en": "Dulaglutide",
+      "company": "礼来",
+      "company_en": "Eli Lilly",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "approval_date": "已上市多年",
+      "latest_update": "全球销售额已见顶，面临专利到期压力",
+      "commercial_name": "度易达/Trulicity",
+      "market_status": "全球销售额下滑趋势"
+    },
+    {
+      "id": 5,
+      "name_cn": "利拉鲁肽",
+      "name_en": "Liraglutide",
+      "company": "诺和诺德/华东医药",
+      "company_en": "Novo Nordisk/Huadong Medicine",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病", "肥胖"],
+      "approval_date": "原研已上市多年；华东医药2023年3月(糖尿病), 2023年7月(减重)",
+      "latest_update": "华东医药利拉鲁肽为国内首款获批的GLP-1类减肥药，已在全国数百家医院销售",
+      "commercial_name": "诺和力/Victoza(降糖), Saxenda(减重); 华东医药:利鲁平",
+      "market_status": "国产替代加速"
+    },
+    {
+      "id": 6,
+      "name_cn": "依苏帕格鲁肽",
+      "name_en": "Efpeglenatide α",
+      "company": "银诺医药",
+      "company_en": "Innogen Pharma",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2025年1月26日",
+      "latest_update": "2025年12月纳入国家医保目录(2026年1月1日生效)，亚洲首个自研人源超长效GLP-1RA，半衰期204小时全球最长，有望实现每两周一次给药",
+      "commercial_name": "怡诺轻",
+      "market_status": "国产首个原研人源长效GLP-1，减重IIa期临床积极"
+    },
+    {
+      "id": 7,
+      "name_cn": "CagriSema",
+      "name_en": "CagriSema",
+      "company": "诺和诺德",
+      "company_en": "Novo Nordisk",
+      "targets": ["GLP-1R", "Amylin"],
+      "type": "复方制剂",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "III期数据显示减重23%，肌肉流失少，预计2026年获批上市；SELECT研究证实心血管获益",
+      "commercial_name": "待定",
+      "market_status": "诺和诺德下一代重磅产品"
+    },
+    {
+      "id": 8,
+      "name_cn": "瑞他鲁肽",
+      "name_en": "Retatrutide",
+      "company": "礼来",
+      "company_en": "Eli Lilly",
+      "targets": ["GLP-1R", "GIPR", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "II期临床减重幅度达24.2%，肌肉流失比例仅2.9%，III期研究2025年底揭盲，预计2027年获批",
+      "commercial_name": "待定",
+      "market_status": "三靶点疗效天花板，下一代重磅产品"
+    },
+    {
+      "id": 9,
+      "name_cn": "Orforglipron",
+      "name_en": "Orforglipron",
+      "company": "礼来",
+      "company_en": "Eli Lilly",
+      "targets": ["GLP-1R"],
+      "type": "小分子",
+      "administration": "口服",
       "stage": "NDA审评中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {
-          "week24": "12.1%",
-          "week48": "18.6%",
-          "note": "6mg剂量，GLORY-1试验"
-        },
-        "nash": {
-          "note": "II期数据待公布"
-        }
-      },
-      "safety_data": {
-        "discontinuation_rate": "5.2%",
-        "common_ae": [
-          "恶心 (28%)",
-          "腹泻 (19%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT05609546",
-          "phase": "III期",
-          "name": "GLORY-1",
-          "url": "https://clinicaltrials.gov/study/NCT05609546"
-        },
-        {
-          "nct": "NCT05111262",
-          "phase": "II期",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/study/NCT05111262"
-        }
-      ],
-      "approvals": [
-        {
-          "region": "中国",
-          "date": "2024-08",
-          "status": "NDA受理"
-        }
-      ],
-      "latest_update": "2024-08 NDA获NMPA受理，预计2025H1获批",
-      "timeline": [
-        {
-          "date": "2021-06",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2022-11",
-          "event": "II期数据公布"
-        },
-        {
-          "date": "2024-01",
-          "event": "III期GLORY-1试验成功"
-        },
-        {
-          "date": "2024-08",
-          "event": "NDA获NMPA受理"
-        }
-      ],
-      "sources": [
-        "https://www.innoventbio.com"
-      ],
-      "targets": [
-        "GLP-1",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": true
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "III期已完成，2026年提交上市申请，小分子结构使生产成本降低30%-50%，月费预计低于1500元",
+      "commercial_name": "待定",
+      "market_status": "首个非肽类口服小分子GLP-1，将发起价格战"
     },
     {
-      "id": "Innovent_Biologics_Mazdutide",
-      "company": "信达生物",
-      "company_en": "Innovent Biologics",
-      "country": "US",
-      "product_name": "玛仕度肽",
-      "code_name": "IBI362",
-      "molecule_type": "GLP-1/GCG双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖",
-        "NASH"
-      ],
-      "stage": "NDA申请中",
-      "stage_order": 7,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "6mg剂量14.37%",
-          "week52": "9mg剂量减重20%以上"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT05612600",
-          "phase": "III期",
-          "name": "GLORY-1(减重)",
-          "url": "https://clinicaltrials.gov/study/NCT05612600"
-        },
-        {
-          "nct": "NCT05612787",
-          "phase": "III期",
-          "name": "DREAMS-1/2(降糖)",
-          "url": "https://clinicaltrials.gov/study/NCT05612787"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "减重适应症2024年2月进入上市审评，预计2025年获批；9mg高剂量减重数据优异",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Amgen_AMG133___MariTide",
-      "company": "安进",
-      "company_en": "Amgen",
-      "country": "US",
-      "product_name": "AMG133 / MariTide",
-      "code_name": "AMG133",
-      "molecule_type": "GLP-1/GIP双靶点抗体多肽偶联物激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week52": "糖尿病肥胖患者最高减重约17%"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT05479082",
-          "phase": "II期",
-          "name": "Phase 2",
-          "url": "https://clinicaltrials.gov/study/NCT05479082"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2025年3月启动III期MARITIME-1/2试验，结果发表于NEJM",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Novo_Nordisk_Amycretin",
-      "company": "诺和诺德",
-      "company_en": "Novo Nordisk",
-      "country": "DK",
-      "product_name": "Amycretin",
-      "code_name": "NN9487",
-      "molecule_type": "GLP-1/胰淀素(Amylin)双受体激动剂",
-      "route": "口服",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2026年Q1启动III期全球开发，口服和注射剂型同步推进",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Brayet_Pharma_BGM0504",
-      "company": "博瑞医药",
-      "company_en": "Brayet Pharma",
-      "country": "US",
-      "product_name": "BGM0504",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2026年1月启动III期BRIGHT-1试验，头对头司美格鲁肽",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "cagrisema",
-      "company": "诺和诺德",
-      "company_en": "Novo Nordisk",
-      "country": "DK",
-      "product_name": "CagriSema",
-      "code_name": "NN9838",
-      "molecule_type": "司美格鲁肽+卡格列肽复方",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week32": "15.6%",
-          "note": "II期数据"
-        }
-      },
-      "safety_data": {
-        "common_ae": [
-          "恶心 (35%)",
-          "腹泻 (20%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT04982575",
-          "phase": "II期",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/study/NCT04982575"
-        },
-        {
-          "nct": "NCT05567796",
-          "phase": "III期",
-          "name": "REDEFINE",
-          "url": "https://clinicaltrials.gov/study/NCT05567796"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-12 REDEFINE-1试验进行中",
-      "timeline": [
-        {
-          "date": "2021-09",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2023-06",
-          "event": "II期数据公布"
-        },
-        {
-          "date": "2024-12",
-          "event": "III期REDEFINE-1进行中"
-        }
-      ],
-      "sources": [
-        "https://www.novonordisk.com"
-      ],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "甘李药业_GZR18（博凡格鲁肽）",
-      "company": "甘李药业",
-      "company_en": "603087.SH",
-      "country": "CN",
-      "product_name": "GZR18（博凡格鲁肽）",
-      "code_name": "博凡格鲁肽",
-      "molecule_type": "GLP-1受体激动剂（多肽，双周制剂）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "IIb期30周减重17.29%（48mg Q2W组）"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20231695（IIb期）, CTR20244647（III期）",
-          "phase": "III期临床",
-          "name": "肥胖",
-          "url": "https://www.chinadrugtrials.org.cn/"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024年12月III期研究（GRADUAL-1）完成首例受试者给药，IIb期30周减重17.29%数据优异",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "Hengrui_Medicine_HRS-7535",
+      "id": 10,
+      "name_cn": "HRS9531",
+      "name_en": "HRS9531",
       "company": "恒瑞医药",
       "company_en": "Hengrui Medicine",
-      "country": "US",
-      "product_name": "HRS-7535",
-      "code_name": "",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
+      "targets": ["GLP-1R", "GIPR"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年EASD公布II期数据，安全性良好，已启动减重适应症III期",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "2025年5月将HRS-7535、HRS9531、HRS-4729三款GLP-1类创新药授权给美国Hercules公司，潜在授权总金额高达60亿美元",
+      "commercial_name": "待定",
+      "market_status": "国产双靶点领先"
     },
     {
-      "id": "恒瑞医药_HRS9531",
+      "id": 11,
+      "name_cn": "HRS-7535",
+      "name_en": "HRS-7535",
       "company": "恒瑞医药",
-      "company_en": "600276.SH",
-      "country": "CN",
-      "product_name": "HRS9531",
-      "code_name": "",
-      "molecule_type": "GLP-1R/GIPR双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
+      "company_en": "Hengrui Medicine",
+      "targets": ["GLP-1R"],
+      "type": "小分子",
+      "administration": "口服",
       "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week24": "16.8%（6.0mg组）"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20232368",
-          "phase": "III期临床",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/search?term=None"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "II期数据优异，24周减重16.8%，已进入III期",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "2025年5月授权美国Hercules公司，首付款及里程碑款总额超10亿美元",
+      "commercial_name": "待定",
+      "market_status": "国产口服小分子GLP-1"
     },
     {
-      "id": "翰森制药_HS-20094",
+      "id": 12,
+      "name_cn": "BGM0504",
+      "name_en": "BGM0504",
+      "company": "博瑞医药",
+      "company_en": "BrightGene",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射/口服",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "III期临床已完成入组，减重效果与司美格鲁肽相当，预计2026年Q3获批",
+      "commercial_name": "待定",
+      "market_status": "注射+口服双剂型布局"
+    },
+    {
+      "id": 13,
+      "name_cn": "TG103",
+      "name_en": "TG103",
+      "company": "石药集团/天境生物",
+      "company_en": "CSPC/TJ Bio",
+      "targets": ["GLP-1R"],
+      "type": "Fc融合蛋白",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["肥胖", "2型糖尿病"],
+      "latest_update": "2025年3月减重III期完成数据库锁库，预计2025年递交上市申请，2026年获批上市；半衰期168小时，每周一次给药",
+      "commercial_name": "待定",
+      "market_status": "石药GLP-1核心产品"
+    },
+    {
+      "id": 14,
+      "name_cn": "司美格鲁肽(石药)",
+      "name_en": "Semaglutide(CSPC)",
+      "company": "石药集团",
+      "company_en": "CSPC",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2025年8月5日上市申请获受理",
+      "latest_update": "III期临床疗效与诺和诺德司美格鲁肽高度一致，胃肠道反应发生率略低；减重适应症III期进行中",
+      "commercial_name": "待定",
+      "market_status": "首仿竞争激烈"
+    },
+    {
+      "id": 15,
+      "name_cn": "RAY1225",
+      "name_en": "RAY1225",
+      "company": "众生药业",
+      "company_en": "Zhongsheng Pharma",
+      "targets": ["GLP-1R", "GIPR"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["肥胖", "2型糖尿病", "MASH", "OSA"],
+      "latest_update": "2026年1月与齐鲁制药达成10亿元级战略合作；肥胖/糖尿病/MASH三大适应症III期均完成入组；每两周给药一次差异化优势",
+      "commercial_name": "待定",
+      "market_status": "两周给药差异化设计"
+    },
+    {
+      "id": 16,
+      "name_cn": "诺利糖肽",
+      "name_en": "Noliglutide",
+      "company": "恒瑞医药",
+      "company_en": "Hengrui Medicine",
+      "targets": ["GLP-1R", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "自主研发双靶点激动剂，减重+降糖双适应症同步推进",
+      "commercial_name": "待定",
+      "market_status": "III期进行中"
+    },
+    {
+      "id": 17,
+      "name_cn": "HDM1005",
+      "name_en": "HDM1005",
+      "company": "华东医药",
+      "company_en": "Huadong Medicine",
+      "targets": ["GLP-1R", "GIPR"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "I期临床",
+      "indications": ["肥胖", "2型糖尿病"],
+      "latest_update": "中美双报，美国IND已于2024年4月获批，计划2025年初启动II期",
+      "commercial_name": "待定",
+      "market_status": "早期临床"
+    },
+    {
+      "id": 18,
+      "name_cn": "HDM1002",
+      "name_en": "HDM1002",
+      "company": "华东医药",
+      "company_en": "Huadong Medicine",
+      "targets": ["GLP-1R"],
+      "type": "小分子",
+      "administration": "口服",
+      "stage": "II期临床",
+      "indications": ["肥胖", "2型糖尿病"],
+      "latest_update": "首个中美双报的国产口服小分子GLP-1，中国和美国IND均已获批",
+      "commercial_name": "待定",
+      "market_status": "口服小分子差异化"
+    },
+    {
+      "id": 19,
+      "name_cn": "DR10624",
+      "name_en": "DR10624",
+      "company": "华东医药/道尔生物",
+      "company_en": "Huadong Medicine/Doer Bio",
+      "targets": ["FGF21R", "GCGR", "GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "II期临床",
+      "indications": ["重度高甘油三酯血症", "肥胖"],
+      "latest_update": "全球首创三靶点激动剂，中国II期启动，新西兰Ib/IIa期进行中",
+      "commercial_name": "待定",
+      "market_status": "三靶点全球首创"
+    },
+    {
+      "id": 20,
+      "name_cn": "聚乙二醇洛塞那肽",
+      "name_en": "PEG-Loxenatide",
       "company": "翰森制药",
-      "company_en": "03692.HK",
-      "country": "CN",
-      "product_name": "HS-20094",
-      "code_name": "",
-      "molecule_type": "GLP-1R/GIPR双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20232091",
-          "phase": "III期临床",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/search?term=None"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "已进入III期临床，预计2026年申报上市",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
+      "company_en": "Hansoh Pharma",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2019年5月",
+      "latest_update": "国产首个长效GLP-1受体激动剂，2024年上半年销售额约2.5亿元",
+      "commercial_name": "孚来美",
+      "market_status": "国产长效GLP-1先行者"
     },
     {
-      "id": "orforglipron",
-      "company": "礼来",
-      "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "Orforglipron",
-      "code_name": "LY3502970",
-      "molecule_type": "口服小分子GLP-1激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week36": "14.7%",
-          "note": "最高剂量，II期数据"
-        }
-      },
-      "safety_data": {
-        "common_ae": [
-          "恶心 (35%)",
-          "呕吐 (18%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT05051579",
-          "phase": "II期",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/study/NCT05051579"
-        },
-        {
-          "nct": "NCT05869903",
-          "phase": "III期",
-          "name": "ACHIEVE-1",
-          "url": "https://clinicaltrials.gov/study/NCT05869903"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-06 III期ACHIEVE试验入组完成",
-      "timeline": [
-        {
-          "date": "2021-12",
-          "event": "收购Protomer Technologies获得"
-        },
-        {
-          "date": "2023-06",
-          "event": "II期数据公布"
-        },
-        {
-          "date": "2024-06",
-          "event": "III期试验入组完成"
-        },
-        {
-          "date": "2025-12",
-          "event": "预计III期数据读出（估计）"
-        }
-      ],
-      "sources": [
-        "https://www.lilly.com"
-      ],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 21,
+      "name_cn": "贝那鲁肽",
+      "name_en": "Benaglutide",
+      "company": "仁会生物",
+      "company_en": "Renben Bio",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病", "肥胖"],
+      "approval_date": "已上市",
+      "latest_update": "短效制剂，2024年上半年同比增长约228%",
+      "commercial_name": "谊生泰",
+      "market_status": "国产短效GLP-1"
     },
     {
-      "id": "Eli_Lilly_Orforglipron",
-      "company": "礼来",
-      "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "Orforglipron",
-      "code_name": "LY3502970",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年12月向FDA递交NDA，预计2026年获批",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 22,
+      "name_cn": "艾塞那肽",
+      "name_en": "Exenatide",
+      "company": "阿斯利康/百特",
+      "company_en": "AstraZeneca/Baxter",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "latest_update": "全球首个GLP-1受体激动剂，市场份额被后续产品挤压",
+      "commercial_name": "百泌达/Byetta",
+      "market_status": "早期GLP-1产品"
     },
     {
-      "id": "retatrutide",
-      "company": "礼来",
-      "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "Retatrutide",
-      "code_name": "LY3437943",
-      "molecule_type": "GLP-1/GIP/GCG三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "NASH/MASH"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "24.2%",
-          "note": "15mg剂量，II期数据"
-        },
-        "nash": {
-          "note": "II期进行中"
-        }
-      },
-      "safety_data": {
-        "common_ae": [
-          "恶心 (38%)",
-          "腹泻 (21%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT04867785",
-          "phase": "II期",
-          "name": "TRIUMPH-1",
-          "url": "https://clinicaltrials.gov/study/NCT04867785"
-        },
-        {
-          "nct": "NCT05521007",
-          "phase": "III期",
-          "name": "TRIUMPH",
-          "url": "https://clinicaltrials.gov/study/NCT05521007"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-08 III期TRIUMPH试验进行中",
-      "timeline": [
-        {
-          "date": "2021-03",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2023-06",
-          "event": "II期数据公布（24.2%减重）"
-        },
-        {
-          "date": "2024-08",
-          "event": "III期TRIUMPH试验进行中"
-        }
-      ],
-      "sources": [
-        "https://www.lilly.com"
-      ],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 23,
+      "name_cn": "艾塞那肽微球",
+      "name_en": "Exenatide ER",
+      "company": "阿斯利康",
+      "company_en": "AstraZeneca",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "latest_update": "每周一次给药，市场份额下滑",
+      "commercial_name": "百达扬/Bydureon",
+      "market_status": "周制剂先驱"
     },
     {
-      "id": "Eli_Lilly_Retatrutide",
-      "company": "礼来",
-      "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "Retatrutide",
-      "code_name": "LY3437943",
-      "molecule_type": "GLP-1/GIP/GCG三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "膝骨关节炎",
-        "心血管",
-        "NASH/MASH",
-        "慢性肾病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week48": "最高减重24.2%",
-          "week68": "TRIUMPH-4试验最高减重28.7%(膝骨关节炎患者)"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT04881760",
-          "phase": "III期",
-          "name": "TRIUMPH系列",
-          "url": "https://clinicaltrials.gov/study/NCT04881760"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2025年12月TRIUMPH-4达到主要终点，68周减重28.7%，预计2027年获批",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 24,
+      "name_cn": "利司那肽",
+      "name_en": "Lixisenatide",
+      "company": "赛诺菲",
+      "company_en": "Sanofi",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "latest_update": "日制剂，市场表现一般",
+      "commercial_name": "利时敏/Lyxumia",
+      "market_status": "市场份额较小"
     },
     {
-      "id": "survodutide",
-      "company": "勃林格殷格翰/ Zealand",
-      "company_en": "BI/Zealand Pharma",
-      "country": "DE",
-      "product_name": "Survodutide",
-      "code_name": "BI 456906",
-      "molecule_type": "GLP-1/GCG双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "NASH/MASH"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week46": "18.7%",
-          "note": "6mg剂量，II期数据"
-        },
-        "nash": {
-          "nash_resolution": "83%",
-          "fibrosis_improvement": "67%",
-          "note": "II期数据，48周"
-        }
-      },
-      "safety_data": {
-        "common_ae": [
-          "恶心 (41%)",
-          "腹泻 (22%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT04667377",
-          "phase": "II期",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/study/NCT04667377"
-        },
-        {
-          "nct": "NCT04771273",
-          "phase": "III期",
-          "name": "SYNCHRONIZE",
-          "url": "https://clinicaltrials.gov/study/NCT04771273"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-11 SYNCHRONIZE-1试验中期分析达标",
-      "timeline": [
-        {
-          "date": "2020-06",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2022-06",
-          "event": "II期数据公布"
-        },
-        {
-          "date": "2023-03",
-          "event": "III期SYNCHRONIZE启动"
-        },
-        {
-          "date": "2024-11",
-          "event": "SYNCHRONIZE-1中期分析达标"
-        }
-      ],
-      "sources": [
-        "https://www.boehringer-ingelheim.com"
-      ],
-      "targets": [
-        "GLP-1",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 25,
+      "name_cn": "司美格鲁肽片",
+      "name_en": "Semaglutide Oral",
+      "company": "诺和诺德",
+      "company_en": "Novo Nordisk",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "口服",
+      "stage": "中国申报中",
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "2026年1月美国获批，中国申报中；68周平均减重13.6%-16.6%",
+      "commercial_name": "Rybelsus",
+      "market_status": "首款口服肽类减肥药"
     },
     {
-      "id": "Boehringer_Ingelheim_Survodutide",
+      "id": 26,
+      "name_cn": "司美格鲁肽鼻喷雾剂",
+      "name_en": "Semaglutide Nasal",
+      "company": "世领制药/诺和诺德",
+      "company_en": "Shiling Pharma/Novo Nordisk",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "鼻喷",
+      "stage": "I期临床",
+      "indications": ["肥胖"],
+      "latest_update": "全球首款GLP-1经黏膜递送制剂，2026年1月获中美临床批件，生物利用度达37.1%-52.1%",
+      "commercial_name": "待定",
+      "market_status": "非注射非口服创新剂型"
+    },
+    {
+      "id": 27,
+      "name_cn": "TTP273",
+      "name_en": "TTP273",
+      "company": "华东医药/vTv",
+      "company_en": "Huadong Medicine/vTv",
+      "targets": ["GLP-1R"],
+      "type": "小分子",
+      "administration": "口服",
+      "stage": "II期完成",
+      "indications": ["2型糖尿病"],
+      "latest_update": "全球创新口服小分子，2021年已授权韩国，总金额最高3900万美元",
+      "commercial_name": "待定",
+      "market_status": "口服小分子布局"
+    },
+    {
+      "id": 28,
+      "name_cn": "SYH2082",
+      "name_en": "SYH2082",
+      "company": "石药集团",
+      "company_en": "CSPC",
+      "targets": ["GLP-1R", "GIPR"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "I期临床",
+      "indications": ["肥胖"],
+      "latest_update": "2026年1月与阿斯利康达成185亿美元合作，每月给药一次，即将进入I期临床",
+      "commercial_name": "待定",
+      "market_status": "月制剂重磅产品"
+    },
+    {
+      "id": 29,
+      "name_cn": "SYH9017",
+      "name_en": "SYH9017",
+      "company": "石药集团",
+      "company_en": "CSPC",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "I期临床",
+      "indications": ["肥胖"],
+      "latest_update": "国内首款获批临床试验的每月给药一次司美格鲁肽制剂",
+      "commercial_name": "待定",
+      "market_status": "月制剂司美格鲁肽"
+    },
+    {
+      "id": 30,
+      "name_cn": "SYH2086",
+      "name_en": "SYH2086",
+      "company": "石药集团",
+      "company_en": "CSPC",
+      "targets": ["GLP-1R"],
+      "type": "小分子",
+      "administration": "口服",
+      "stage": "临床前",
+      "indications": ["肥胖", "MASH"],
+      "latest_update": "2025年7月与Madrigal达成20.75亿美元授权，拟与MASH药物Rezdiffra联合开发",
+      "commercial_name": "待定",
+      "market_status": "口服小分子出海"
+    },
+    {
+      "id": 31,
+      "name_cn": "诺和诺德司美格鲁肽(九源基因)",
+      "name_en": "Semaglutide(Jiuyuan)",
+      "company": "九源基因",
+      "company_en": "Jiuyuan Gene",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2024年4月上市申请获受理",
+      "latest_update": "国内首个提交司美格鲁肽仿制药上市申请的企业",
+      "commercial_name": "待定",
+      "market_status": "首仿竞争"
+    },
+    {
+      "id": 32,
+      "name_cn": "司美格鲁肽(丽珠集团)",
+      "name_en": "Semaglutide(Livzon)",
+      "company": "丽珠集团",
+      "company_en": "Livzon",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2024年6月上市申请获受理",
+      "latest_update": "司美格鲁肽仿制药竞争者",
+      "commercial_name": "待定",
+      "market_status": "首仿竞争"
+    },
+    {
+      "id": 33,
+      "name_cn": "司美格鲁肽(华东医药)",
+      "name_en": "Semaglutide(Huadong)",
+      "company": "华东医药",
+      "company_en": "Huadong Medicine",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病", "肥胖"],
+      "latest_update": "糖尿病适应症III期完成等效性结果达主要终点；减重适应症III期进行中",
+      "commercial_name": "待定",
+      "market_status": "III期完成"
+    },
+    {
+      "id": 34,
+      "name_cn": "司美格鲁肽(正大天晴)",
+      "name_en": "Semaglutide(CTTQ)",
+      "company": "正大天晴",
+      "company_en": "CTTQ",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "latest_update": "2024年上市申请获受理",
+      "commercial_name": "待定",
+      "market_status": "首仿竞争"
+    },
+    {
+      "id": 35,
+      "name_cn": "司美格鲁肽(联邦制药)",
+      "name_en": "Semaglutide(United)",
+      "company": "联邦制药",
+      "company_en": "United Laboratories",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "latest_update": "III期临床完成，上市申请获受理",
+      "commercial_name": "待定",
+      "market_status": "首仿竞争"
+    },
+    {
+      "id": 36,
+      "name_cn": "司美格鲁肽(通化东宝)",
+      "name_en": "Semaglutide(Tonghua)",
+      "company": "通化东宝",
+      "company_en": "Tonghua Dongbao",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病"],
+      "latest_update": "III期临床进行中",
+      "commercial_name": "待定",
+      "market_status": "III期进行中"
+    },
+    {
+      "id": 37,
+      "name_cn": "度拉糖肽(信达生物)",
+      "name_en": "Dulaglutide(Innovent)",
+      "company": "信达生物",
+      "company_en": "Innovent",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2024年获批",
+      "latest_update": "国内首仿度拉糖肽获批上市",
+      "commercial_name": "待定",
+      "market_status": "首仿获批"
+    },
+    {
+      "id": 38,
+      "name_cn": "度拉糖肽(齐鲁制药)",
+      "name_en": "Dulaglutide(Qilu)",
+      "company": "齐鲁制药",
+      "company_en": "Qilu Pharma",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "latest_update": "上市审评中",
+      "commercial_name": "待定",
+      "market_status": "NDA审评"
+    },
+    {
+      "id": 39,
+      "name_cn": "度拉糖肽(联邦制药)",
+      "name_en": "Dulaglutide(United)",
+      "company": "联邦制药",
+      "company_en": "United Laboratories",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "latest_update": "上市审评中",
+      "commercial_name": "待定",
+      "market_status": "NDA审评"
+    },
+    {
+      "id": 40,
+      "name_cn": "利拉鲁肽(通化东宝)",
+      "name_en": "Liraglutide(Tonghua)",
+      "company": "通化东宝",
+      "company_en": "Tonghua Dongbao",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2023年",
+      "latest_update": "利拉鲁肽生物类似药获批",
+      "commercial_name": "待定",
+      "market_status": "已上市"
+    },
+    {
+      "id": 41,
+      "name_cn": "利拉鲁肽(正大天晴)",
+      "name_en": "Liraglutide(CTTQ)",
+      "company": "正大天晴",
+      "company_en": "CTTQ",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "approval_date": "2024年",
+      "latest_update": "利拉鲁肽生物类似药获批",
+      "commercial_name": "待定",
+      "market_status": "已上市"
+    },
+    {
+      "id": 42,
+      "name_cn": "Vupanorsen",
+      "name_en": "Vupanorsen",
+      "company": "诺和诺德",
+      "company_en": "Novo Nordisk",
+      "targets": ["ANGPTL3"],
+      "type": "siRNA",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["高甘油三酯血症"],
+      "latest_update": "心血管风险降低研究进行中",
+      "commercial_name": "待定",
+      "market_status": "siRNA药物"
+    },
+    {
+      "id": 43,
+      "name_cn": "Revusiran",
+      "name_en": "Revusiran",
+      "company": "Alnylam",
+      "company_en": "Alnylam",
+      "targets": ["TTR"],
+      "type": "siRNA",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["ATTR心肌病"],
+      "latest_update": "ATTR淀粉样变性治疗",
+      "commercial_name": "待定",
+      "market_status": "siRNA在研"
+    },
+    {
+      "id": 44,
+      "name_cn": "Pelacarsen",
+      "name_en": "Pelacarsen",
+      "company": "诺华/Ionis",
+      "company_en": "Novartis/Ionis",
+      "targets": ["Lp(a)"],
+      "type": "ASO",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["心血管疾病"],
+      "latest_update": "降低脂蛋白(a)研究",
+      "commercial_name": "待定",
+      "market_status": "心血管siRNA"
+    },
+    {
+      "id": 45,
+      "name_cn": "Survodutide",
+      "name_en": "Survodutide",
       "company": "勃林格殷格翰",
       "company_en": "Boehringer Ingelheim",
-      "country": "US",
-      "product_name": "Survodutide",
-      "code_name": "BI 456906",
-      "molecule_type": "GCGR/GLP-1双重激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "MASH/NASH"
-      ],
+      "targets": ["GLP-1R", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT05829512",
-          "phase": "III期",
-          "name": "SYNCHRONIZE",
-          "url": "https://clinicaltrials.gov/study/NCT05829512"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "II期MASH试验达到主要和所有次要终点",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["2型糖尿病", "肥胖", "MASH"],
+      "latest_update": "双靶点激动剂，MASH适应症II期积极",
+      "commercial_name": "待定",
+      "market_status": "III期进行中"
     },
     {
-      "id": "tirzepatide-oral",
-      "company": "礼来",
-      "company_en": "Eli Lilly",
-      "country": "US",
-      "product_name": "Tirzepatide Oral",
-      "code_name": "Oral GLP-1",
-      "molecule_type": "口服多肽GLP-1/GIP激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week26": "13.6%",
-          "note": "II期数据"
-        }
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT05802037",
-          "phase": "III期",
-          "name": "SURMOUNT-12",
-          "url": "https://clinicaltrials.gov/study/NCT05802037"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-09 III期SURMOUNT-12试验进行中",
-      "timeline": [
-        {
-          "date": "2022-11",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2024-01",
-          "event": "II期数据公布"
-        },
-        {
-          "date": "2024-09",
-          "event": "III期试验启动"
-        }
-      ],
-      "sources": [
-        "https://www.lilly.com"
-      ],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": true,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "联邦制药_UBT251",
-      "company": "联邦制药",
-      "company_en": "03933.HK",
-      "country": "CN",
-      "product_name": "UBT251",
-      "code_name": "",
-      "molecule_type": "GLP-1R/GIPR/GCGR三靶点双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20241289",
-          "phase": "III期临床",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/search?term=None"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "III期临床进行中，三靶点设计对标礼来retatrutide",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": true
-    },
-    {
-      "id": "ecnoglutide",
-      "company": "先为达生物",
-      "company_en": "Sciwind Biosciences",
-      "country": "CN",
-      "product_name": "伊诺格鲁肽",
-      "code_name": "XW003",
-      "molecule_type": "GLP-1受体激动剂（Fc融合蛋白）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week24": "14.7%",
-          "note": "II期数据"
-        }
-      },
-      "safety_data": {
-        "common_ae": [
-          "恶心 (32%)",
-          "腹泻 (18%)"
-        ]
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT05111975",
-          "phase": "II期",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/study/NCT05111975"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-10 III期试验进行中",
-      "timeline": [
-        {
-          "date": "2021-03",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2023-03",
-          "event": "II期数据公布"
-        },
-        {
-          "date": "2024-10",
-          "event": "III期试验进行中"
-        }
-      ],
-      "sources": [
-        "https://www.sciwindbiosciences.com"
-      ],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "双鹭药业_周制剂（GLP-1-Fc融合蛋白）",
-      "company": "双鹭药业",
-      "company_en": "002038.SZ",
-      "country": "CN",
-      "product_name": "周制剂（GLP-1-Fc融合蛋白）",
-      "code_name": "GLP-1-Fc融合蛋白",
-      "molecule_type": "GLP-1受体激动剂（Fc融合蛋白）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "III期临床",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "III期临床入组随访中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "双鹭药业_日制剂（GLP-1类似物）",
-      "company": "双鹭药业",
-      "company_en": "002038.SZ",
-      "country": "CN",
-      "product_name": "日制剂（GLP-1类似物）",
-      "code_name": "GLP-1类似物",
-      "molecule_type": "GLP-1受体激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "III期完成",
-      "stage_order": 6,
-      "efficacy_data": {
-        "weight_loss": {
-          "week24": "III期次要终点观察体重变化"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "III期临床已完成所有受试者随访，数据整理中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "博瑞医药_BGM0504注射液",
-      "company": "博瑞医药",
-      "company_en": "688166.SH",
-      "country": "CN",
-      "product_name": "BGM0504注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1R/GIPR双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "NASH"
-      ],
+      "id": 46,
+      "name_cn": "Efinopegdutide",
+      "name_en": "Efinopegdutide",
+      "company": "强生/默沙东",
+      "company_en": "J&J/Merck",
+      "targets": ["GLP-1R", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {},
-        "nash": {
-          "note": "治疗12周肝脏脂肪含量下降"
-        }
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20232008",
-          "phase": "II期临床",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/search?term=None"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "II期进行中，减重、降糖、NASH三大适应症同步开发",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
+      "indications": ["肥胖", "MASH"],
+      "latest_update": "每周一次给药，MASH适应症开发中",
+      "commercial_name": "待定",
+      "market_status": "II期进行中"
     },
     {
-      "id": "AstraZeneca_Cotadutide",
-      "company": "阿斯利康",
-      "company_en": "AstraZeneca",
-      "country": "GB",
-      "product_name": "Cotadutide",
-      "code_name": "AZD9550",
-      "molecule_type": "GCGR/GLP-1R双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "2型糖尿病",
-        "肥胖",
-        "NASH"
-      ],
+      "id": 47,
+      "name_cn": "Pemvidutide",
+      "name_en": "Pemvidutide",
+      "company": "Altimmune",
+      "company_en": "Altimmune",
+      "targets": ["GLP-1R", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "II期临床进行中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["肥胖", "MASH"],
+      "latest_update": "双靶点激动剂，每周一次给药",
+      "commercial_name": "待定",
+      "market_status": "II期进行中"
     },
     {
-      "id": "Pfizer_Danuglipron",
-      "company": "辉瑞",
-      "company_en": "Pfizer",
-      "country": "US",
-      "product_name": "Danuglipron",
-      "code_name": "PF-06882961",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2024年12月调整研发策略，继续推进",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 48,
+      "name_cn": "AMG133",
+      "name_en": "AMG133",
+      "company": "安进",
+      "company_en": "Amgen",
+      "targets": ["GIPR", "GLP-1R"],
+      "type": "抗体多肽偶联物",
+      "administration": "注射",
+      "stage": "I期临床",
+      "indications": ["肥胖"],
+      "latest_update": "每月一次给药潜力，抗体技术平台",
+      "commercial_name": "待定",
+      "market_status": "早期临床"
     },
     {
-      "id": "Huadong_Medicine_HDM1002",
-      "company": "华东医药",
-      "company_en": "Huadong Medicine",
-      "country": "US",
-      "product_name": "HDM1002",
-      "code_name": "",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 49,
+      "name_cn": "阿必鲁肽",
+      "name_en": "Albiglutide",
+      "company": "葛兰素史克",
+      "company_en": "GSK",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已退市",
+      "indications": ["2型糖尿病"],
+      "latest_update": "因商业失败已停产",
+      "commercial_name": "Eperzan/Tanzeum",
+      "market_status": "已退市"
     },
     {
-      "id": "恒瑞医药_HRS-7535",
-      "company": "恒瑞医药",
-      "company_en": "600276.SH",
-      "country": "CN",
-      "product_name": "HRS-7535",
-      "code_name": "",
-      "molecule_type": "口服小分子GLP-1受体激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2024年2月获批减重适应症II期临床",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
+      "id": 50,
+      "name_cn": "注射用重组人胰高血糖素样肽-1",
+      "name_en": "rE4",
+      "company": "仁会生物",
+      "company_en": "Renben Bio",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市",
+      "indications": ["2型糖尿病"],
+      "latest_update": "国产短效GLP-1",
+      "commercial_name": "谊生泰",
+      "market_status": "已上市"
     },
     {
-      "id": "hs-20094",
-      "company": "豪森药业",
-      "company_en": "Hansoh Pharma",
-      "country": "CN",
-      "product_name": "HS-20094",
-      "code_name": "HS-20094",
-      "molecule_type": "GLP-1/GIP双靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {
-          "week12": "8.2%",
-          "note": "Ib期数据"
-        }
-      },
-      "clinical_trials": [
-        {
-          "nct": "NCT05614875",
-          "phase": "II期",
-          "name": "2型糖尿病",
-          "url": "https://clinicaltrials.gov/study/NCT05614875"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2024-08 II期试验进行中",
-      "timeline": [
-        {
-          "date": "2022-06",
-          "event": "I期临床启动"
-        },
-        {
-          "date": "2024-08",
-          "event": "II期试验进行中"
-        }
-      ],
-      "sources": [
-        "https://www.hansoh.cn"
-      ],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": true
-    },
-    {
-      "id": "Mirati_Bio_MWN101",
-      "company": "民为生物",
-      "company_en": "Mirati Bio",
-      "country": "US",
-      "product_name": "MWN101",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP/GCG三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "II期临床进行中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "众生药业_RAY1225注射液",
-      "company": "众生药业",
-      "company_en": "002317.SZ",
-      "country": "CN",
-      "product_name": "RAY1225注射液",
-      "code_name": "",
-      "molecule_type": "GLP-1R/GIPR双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20231256",
-          "phase": "II期临床",
-          "name": "肥胖",
-          "url": "https://clinicaltrials.gov/search?term=None"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "I期临床数据积极，II期进行中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "United_Laboratories_UBT251",
+      "id": 51,
+      "name_cn": "利拉鲁肽(联邦制药)",
+      "name_en": "Liraglutide(United)",
       "company": "联邦制药",
       "company_en": "United Laboratories",
-      "country": "US",
-      "product_name": "UBT251",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP/GCG三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "CKD",
-        "MAFLD"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年2月授权诺和诺德，国内减重II期、糖尿病I期进行中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "NDA审评中",
+      "indications": ["2型糖尿病"],
+      "latest_update": "预计2025年获批",
+      "commercial_name": "待定",
+      "market_status": "NDA审评"
     },
     {
-      "id": "Sinocelltech_ZX2021",
-      "company": "中新医药",
-      "company_en": "Sinocelltech",
-      "country": "US",
-      "product_name": "ZX2021",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP/GCG三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "II期临床进行中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "id": 52,
+      "name_cn": "苏帕格鲁肽",
+      "name_en": "Supaglutide",
+      "company": "银诺医药",
+      "company_en": "Innogen Pharma",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "已上市(依苏帕格鲁肽)",
+      "indications": ["2型糖尿病"],
+      "latest_update": "已更名为依苏帕格鲁肽α上市",
+      "commercial_name": "怡诺轻",
+      "market_status": "已上市"
     },
     {
-      "id": "通化东宝_注射用THDBH120",
-      "company": "通化东宝",
-      "company_en": "600867.SH",
-      "country": "CN",
-      "product_name": "注射用THDBH120",
-      "code_name": "",
-      "molecule_type": "GLP-1R/GIPR双靶点激动剂（多肽）",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "II期临床",
-      "stage_order": 5,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年1月减重适应症II期临床完成首例受试者给药，2025年2月披露Ib期数据：6周减重9.36%，支持双周给药",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
+      "id": 53,
+      "name_cn": "PB-119",
+      "name_en": "PB-119",
+      "company": "派格生物",
+      "company_en": "PegBio",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病"],
+      "latest_update": "聚乙二醇化修饰，每周一次给药",
+      "commercial_name": "待定",
+      "market_status": "III期进行中"
     },
     {
-      "id": "Roche_CT-996",
-      "company": "罗氏",
-      "company_en": "Roche",
-      "country": "CH",
-      "product_name": "CT-996",
-      "code_name": "",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
+      "id": 54,
+      "name_cn": "PB-718",
+      "name_en": "PB-718",
+      "company": "派格生物",
+      "company_en": "PegBio",
+      "targets": ["GLP-1R", "GCGR"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "I期临床",
-      "stage_order": 4,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2023年12月以31亿美元收购Carmot Therapeutics获得",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["肥胖", "MASH"],
+      "latest_update": "双靶点激动剂",
+      "commercial_name": "待定",
+      "market_status": "早期临床"
     },
     {
-      "id": "Huadong_Medicine_DR10624",
-      "company": "华东医药",
-      "company_en": "Huadong Medicine",
-      "country": "US",
-      "product_name": "DR10624",
-      "code_name": "",
-      "molecule_type": "GLP-1/GCG/FGF21三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "NASH"
-      ],
+      "id": 55,
+      "name_cn": "GX-G6",
+      "name_en": "GX-G6",
+      "company": "乐普医疗",
+      "company_en": "Lepu Medical",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病"],
+      "latest_update": "长效GLP-1受体激动剂",
+      "commercial_name": "待定",
+      "market_status": "III期进行中"
+    },
+    {
+      "id": 56,
+      "name_cn": "LP-002",
+      "name_en": "LP-002",
+      "company": "丽珠集团",
+      "company_en": "Livzon",
+      "targets": ["GLP-1R"],
+      "type": "多肽",
+      "administration": "注射",
       "stage": "I期临床",
-      "stage_order": 4,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "indications": ["2型糖尿病"],
+      "latest_update": "长效GLP-1受体激动剂",
+      "commercial_name": "待定",
+      "market_status": "早期临床"
     },
     {
-      "id": "AstraZeneca_ECC5004",
-      "company": "阿斯利康",
-      "company_en": "AstraZeneca",
-      "country": "GB",
-      "product_name": "ECC5004",
-      "code_name": "AZD5004",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "心血管"
-      ],
-      "stage": "I期临床",
-      "stage_order": 4,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "从诚益生物引进，支付1.85亿美元预付款",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "甘李药业_GZR18片",
-      "company": "甘李药业",
-      "company_en": "603087.SH",
-      "country": "CN",
-      "product_name": "GZR18片",
-      "code_name": "",
-      "molecule_type": "口服GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "2型糖尿病",
-        "肥胖"
-      ],
-      "stage": "I期临床",
-      "stage_order": 4,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "CTR20240663",
-          "phase": "I期临床",
-          "name": "2型糖尿病",
-          "url": "https://clinicaltrials.gov/search?term=None"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "I期临床取得积极结果，支持每日一次口服给药",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": true,
-      "is_china_multi": false
-    },
-    {
-      "id": "Hengrui_Medicine_HRS-4729",
+      "id": 57,
+      "name_cn": "HR17031",
+      "name_en": "HR17031",
       "company": "恒瑞医药",
       "company_en": "Hengrui Medicine",
-      "country": "US",
-      "product_name": "HRS-4729",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP/GCG三靶点激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖",
-        "2型糖尿病",
-        "MASH/NASH"
-      ],
-      "stage": "I期临床",
-      "stage_order": 4,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年12月获批用于超重/肥胖适应症临床，MASH适应症同步获批",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP",
-        "GCG"
-      ],
-      "is_multi_target": true,
-      "target_count": 3,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "United_Laboratories_UBT48128",
-      "company": "联邦制药",
-      "company_en": "United Laboratories",
-      "country": "US",
-      "product_name": "UBT48128",
-      "code_name": "",
-      "molecule_type": "小分子GLP-1受体激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "临床前",
-      "stage_order": 2,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "临床前数据优于礼来Orforglipron",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Roche_Petrelintide",
-      "company": "罗氏",
-      "company_en": "Roche",
-      "country": "CH",
-      "product_name": "Petrelintide",
-      "code_name": "",
-      "molecule_type": "胰淀素(Amylin)受体激动剂",
-      "route": "皮下注射",
-      "indications": [
-        "肥胖"
-      ],
-      "stage": "临床阶段",
-      "stage_order": 1,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [],
-      "approvals": [],
-      "latest_update": "2025年以最高53亿美元与Zealand Pharma达成合作开发",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1"
-      ],
-      "is_multi_target": false,
-      "target_count": 1,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
-    },
-    {
-      "id": "Viking_Therapeutics_VK2735",
-      "company": "Viking制药",
-      "company_en": "Viking Therapeutics",
-      "country": "US",
-      "product_name": "VK2735",
-      "code_name": "",
-      "molecule_type": "GLP-1/GIP双靶点激动剂",
-      "route": "口服",
-      "indications": [
-        "肥胖",
-        "2型糖尿病"
-      ],
-      "stage": "III期临床(注射剂)/II期(口服)",
-      "stage_order": 1,
-      "efficacy_data": {
-        "weight_loss": {}
-      },
-      "safety_data": {},
-      "clinical_trials": [
-        {
-          "nct": "NCT05646721",
-          "phase": "II期",
-          "name": "VENTURE",
-          "url": "https://clinicaltrials.gov/study/NCT05646721"
-        },
-        {
-          "nct": "NCT06042803",
-          "phase": "III期",
-          "name": "VANQUISH",
-          "url": "https://clinicaltrials.gov/study/NCT06042803"
-        }
-      ],
-      "approvals": [],
-      "latest_update": "2025年8月口服剂型II期取得积极结果，III期VANQUISH进行中",
-      "timeline": [],
-      "sources": [],
-      "targets": [
-        "GLP-1",
-        "GIP"
-      ],
-      "is_multi_target": true,
-      "target_count": 2,
-      "is_big_pharma": false,
-      "is_china": false,
-      "is_china_multi": false
+      "targets": ["Insulin", "GLP-1R"],
+      "type": "复方制剂",
+      "administration": "注射",
+      "stage": "III期临床",
+      "indications": ["2型糖尿病"],
+      "latest_update": "长效胰岛素/GLP-1类似物复方制剂，同时开展减重适应症",
+      "commercial_name": "待定",
+      "market_status": "III期进行中"
     }
   ],
-  "last_updated": "2026-03-10",
-  "metadata": {
-    "total_products": 57,
-    "china_products": 25,
-    "global_products": 32,
-    "multi_target_products": 26,
-    "gcg_products": 14
+  "market_summary": {
+    "2025_global_market": "GLP-1类减肥药全球销售额突破500亿美元",
+    "2025_china_market": "中国减肥药物市场规模达73亿元，预计2030年突破千亿",
+    "key_drivers": [
+      "司美格鲁肽中国专利2026年3月到期，仿制药即将上市",
+      "替尔泊肽2025年纳入医保，价格下降推动市场渗透",
+      "玛仕度肽2025年获批，开启国产双靶点时代",
+      "依苏帕格鲁肽纳入医保，亚洲首个自研人源长效GLP-1",
+      "口服小分子GLP-1(Orforglipron, SYH2086)即将上市",
+      "月制剂长效产品(SYH2082, SYH9017)临床推进"
+    ],
+    "competitive_landscape": {
+      "international": "礼来 vs 诺和诺德双寡头竞争",
+      "domestic_innovators": "信达生物(玛仕度肽)、银诺医药(依苏帕格鲁肽)领先",
+      "biosimilars": "石药集团、华东医药、九源基因等首仿竞争"
+    }
   }
 }

@@ -209,26 +209,55 @@ function renderTable() {
     document.getElementById('tableView').classList.remove('hidden');
     document.getElementById('noResults').classList.add('hidden');
     
-    tbody.innerHTML = products.map(product => `
-        <tr class="hover:bg-gray-50 transition">
+    tbody.innerHTML = products.map(product => {
+        // 确定行样式
+        let rowClass = 'hover:bg-gray-50 transition';
+        if (product.is_china_multi) {
+            rowClass = 'china-multi-highlight';
+        } else if (product.is_multi_target) {
+            rowClass = 'multi-target-row hover:bg-yellow-50';
+        } else if (product.company === '礼来') {
+            rowClass = 'big-pharma-lilly hover:bg-blue-50';
+        } else if (product.company === '诺和诺德') {
+            rowClass = 'big-pharma-novo hover:bg-green-50';
+        }
+        
+        // 公司样式
+        let companyClass = 'text-sm text-gray-700';
+        if (product.company === '礼来') companyClass = 'company-lilly';
+        if (product.company === '诺和诺德') companyClass = 'company-novo';
+        
+        return `
+        <tr class="${rowClass}">
             <td class="px-4 py-3">
                 <input type="checkbox" class="product-checkbox rounded border-gray-300 text-primary-600 focus:ring-primary-500" 
                     value="${product.id}" ${state.selectedProducts.has(product.id) ? 'checked' : ''}>
             </td>
             <td class="px-4 py-3">
                 <div class="flex flex-col">
-                    <span class="font-medium text-gray-900">${product.product_name}</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-900">${product.product_name}</span>
+                        ${product.is_multi_target ? '<span class="multi-target-badge">🏆</span>' : ''}
+                    </div>
                     <span class="text-xs text-gray-500">${product.code_name || ''}</span>
                 </div>
             </td>
             <td class="px-4 py-3">
                 <div class="company-flag">
                     <span class="text-lg">${getCountryFlag(product.country)}</span>
-                    <span class="text-sm text-gray-700">${product.company}</span>
+                    <span class="${companyClass}">${product.company}</span>
                 </div>
             </td>
             <td class="px-4 py-3">
                 <span class="stage-badge ${getStageClass(product.stage)}">${product.stage}</span>
+            </td>
+            <td class="px-4 py-3">
+                <div class="target-tags">
+                    ${product.targets.map(t => {
+                        const classes = t === 'GLP-1' ? 'target-tag-glp1' : t === 'GIP' ? 'target-tag-gip' : 'target-tag-gcg';
+                        return `<span class="target-tag ${classes}">${t}</span>`;
+                    }).join('')}
+                </div>
             </td>
             <td class="px-4 py-3">
                 <div class="flex flex-wrap gap-1">
@@ -237,7 +266,7 @@ function renderTable() {
             </td>
             <td class="px-4 py-3 text-sm text-gray-600">${product.molecule_type}</td>
             <td class="px-4 py-3">
-                <span class="font-semibold text-biotech-600">
+                <span class="font-semibold ${product.is_multi_target ? 'text-amber-600' : 'text-biotech-600'}">
                     ${product.efficacy_data?.weight_loss?.week48 || product.efficacy_data?.weight_loss?.week36 || '-'}
                 </span>
             </td>
@@ -250,7 +279,7 @@ function renderTable() {
                 </button>
             </td>
         </tr>
-    `).join('');
+    `}).join('');
     
     // 绑定复选框事件
     tbody.querySelectorAll('.product-checkbox').forEach(cb => {
@@ -268,19 +297,41 @@ function renderCards() {
     const container = document.getElementById('cardView');
     const products = state.filteredProducts;
     
-    container.innerHTML = products.map(product => `
-        <div class="product-card bg-white rounded-xl p-6 ${state.selectedProducts.has(product.id) ? 'selected' : ''}" data-id="${product.id}">
+    container.innerHTML = products.map(product => {
+        // 确定卡片样式
+        let cardClass = 'product-card bg-white rounded-xl p-6';
+        if (state.selectedProducts.has(product.id)) cardClass += ' selected';
+        if (product.is_china_multi) cardClass += ' china-multi-highlight';
+        else if (product.is_multi_target) cardClass += ' multi-target-card';
+        
+        // 公司样式
+        let companyClass = 'text-sm text-gray-500';
+        if (product.company === '礼来') companyClass = 'text-sm company-lilly';
+        if (product.company === '诺和诺德') companyClass = 'text-sm company-novo';
+        
+        return `
+        <div class="${cardClass}" data-id="${product.id}">
             <div class="flex items-start justify-between mb-4">
                 <div class="flex items-center gap-2">
                     <input type="checkbox" class="product-checkbox rounded border-gray-300 text-primary-600" 
                         value="${product.id}" ${state.selectedProducts.has(product.id) ? 'checked' : ''}>
                     <span class="text-lg">${getCountryFlag(product.country)}</span>
                 </div>
-                <span class="stage-badge ${getStageClass(product.stage)}">${product.stage}</span>
+                <div class="flex items-center gap-1">
+                    ${product.is_multi_target ? `<span class="multi-target-badge">🏆 ${product.target_count}靶点</span>` : ''}
+                    ${product.targets.includes('GCG') ? `<span class="gcg-badge">GCG</span>` : ''}
+                </div>
             </div>
             
             <h3 class="text-lg font-bold text-gray-900 mb-1">${product.product_name}</h3>
-            <p class="text-sm text-gray-500 mb-3">${product.code_name || ''} · ${product.company}</p>
+            <p class="${companyClass} mb-3">${product.code_name || ''} · ${product.company}</p>
+            
+            <div class="target-tags mb-3">
+                ${product.targets.map(t => {
+                    const classes = t === 'GLP-1' ? 'target-tag-glp1' : t === 'GIP' ? 'target-tag-gip' : 'target-tag-gcg';
+                    return `<span class="target-tag ${classes}">${t}</span>`;
+                }).join('')}
+            </div>
             
             <div class="flex flex-wrap gap-1 mb-4">
                 ${product.indications.map(ind => `<span class="indication-tag">${ind}</span>`).join('')}
@@ -294,25 +345,28 @@ function renderCards() {
             ${product.efficacy_data?.weight_loss ? `
                 <div class="efficacy-grid mb-4">
                     ${product.efficacy_data.weight_loss.week48 ? `
-                        <div class="efficacy-item">
-                            <div class="value">${product.efficacy_data.weight_loss.week48}</div>
+                        <div class="efficacy-item ${product.is_multi_target ? 'multi-target-efficacy' : ''}">
+                            <div class="value ${product.is_multi_target ? 'text-amber-700' : ''}">${product.efficacy_data.weight_loss.week48}</div>
                             <div class="label">48周减重</div>
                         </div>
                     ` : ''}
                     ${product.efficacy_data.weight_loss.week52 ? `
-                        <div class="efficacy-item">
-                            <div class="value">${product.efficacy_data.weight_loss.week52}</div>
+                        <div class="efficacy-item ${product.is_multi_target ? 'multi-target-efficacy' : ''}">
+                            <div class="value ${product.is_multi_target ? 'text-amber-700' : ''}">${product.efficacy_data.weight_loss.week52}</div>
                             <div class="label">52周减重</div>
                         </div>
                     ` : ''}
                 </div>
             ` : ''}
             
-            <button class="view-detail-btn w-full btn-primary btn-sm" data-id="${product.id}">
-                查看详情
-            </button>
+            <div class="flex items-center justify-between">
+                <span class="stage-badge ${getStageClass(product.stage)}">${product.stage}</span>
+                <button class="view-detail-btn text-primary-600 hover:text-primary-800 text-sm font-medium" data-id="${product.id}">
+                    详情 →
+                </button>
+            </div>
         </div>
-    `).join('');
+    `}).join('');
     
     // 绑定事件
     container.querySelectorAll('.product-checkbox').forEach(cb => {
@@ -381,6 +435,12 @@ function updateCompareButton() {
     }
 }
 
+// 全局筛选状态
+const filterState = {
+    multiTarget: false,
+    gcgTarget: false
+};
+
 // 筛选功能
 function filterProducts() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -408,7 +468,13 @@ function filterProducts() {
         // 中国专区
         const chinaMatch = !chinaOnly || product.country === 'CN';
         
-        return searchMatch && stageMatch && indicationMatch && moleculeMatch && chinaMatch;
+        // 多靶点筛选
+        const multiTargetMatch = !filterState.multiTarget || product.is_multi_target;
+        
+        // GCG靶点筛选
+        const gcgMatch = !filterState.gcgTarget || product.targets.includes('GCG');
+        
+        return searchMatch && stageMatch && indicationMatch && moleculeMatch && chinaMatch && multiTargetMatch && gcgMatch;
     });
     
     // 应用排序
@@ -778,6 +844,22 @@ function clearComparison() {
 
 // 初始化图表
 function initCharts() {
+    // 设置Chart.js深色主题默认值
+    Chart.defaults.color = '#9ca3af';
+    Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+    
+    // 霓虹配色方案
+    const neonColors = [
+        '#00d4ff', // cyan
+        '#8b5cf6', // purple
+        '#f59e0b', // orange
+        '#ec4899', // pink
+        '#10b981', // green
+        '#6366f1', // indigo
+        '#ef4444', // red
+        '#14b8a6'  // teal
+    ];
+    
     // 阶段分布图
     const stageData = {};
     state.products.forEach(p => {
@@ -790,15 +872,24 @@ function initCharts() {
             labels: Object.keys(stageData),
             datasets: [{
                 data: Object.values(stageData),
-                backgroundColor: ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6', '#6b7280']
+                backgroundColor: neonColors,
+                borderWidth: 0
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: 'bottom' }
-            }
+                legend: { 
+                    position: 'bottom',
+                    labels: {
+                        color: '#9ca3af',
+                        padding: 15,
+                        font: { size: 12 }
+                    }
+                }
+            },
+            cutout: '60%'
         }
     });
     
@@ -810,21 +901,43 @@ function initCharts() {
         });
     });
     
-    new Chart(document.getElementById('indicationChart'), {
+    new Chart(document.getElementById('typeChart'), {
         type: 'bar',
         data: {
             labels: Object.keys(indicationData),
             datasets: [{
                 label: '产品数量',
                 data: Object.values(indicationData),
-                backgroundColor: '#3b82f6'
+                backgroundColor: neonColors[0],
+                borderRadius: 6
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+            plugins: { 
+                legend: { display: false }
+            },
+            scales: { 
+                y: { 
+                    beginAtZero: true, 
+                    ticks: { 
+                        stepSize: 1,
+                        color: '#9ca3af'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.05)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#9ca3af'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            }
         }
     });
     
@@ -881,6 +994,32 @@ function initCharts() {
             }
         }
     });
+    
+    // 靶点分布
+    const targetData = { '单靶点(GLP-1)': 0, '双靶点': 0, '三靶点': 0 };
+    state.products.forEach(p => {
+        if (p.target_count === 1) targetData['单靶点(GLP-1)']++;
+        else if (p.target_count === 2) targetData['双靶点']++;
+        else if (p.target_count === 3) targetData['三靶点']++;
+    });
+    
+    new Chart(document.getElementById('targetChart'), {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(targetData),
+            datasets: [{
+                data: Object.values(targetData),
+                backgroundColor: ['#3b82f6', '#f59e0b', '#ec4899']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+    });
 }
 
 // 设置事件监听
@@ -899,6 +1038,20 @@ function setupEventListeners() {
         filterProducts();
     });
     
+    // 多靶点筛选按钮
+    document.getElementById('multiTargetFilter').addEventListener('click', (e) => {
+        filterState.multiTarget = !filterState.multiTarget;
+        e.target.classList.toggle('active', filterState.multiTarget);
+        filterProducts();
+    });
+    
+    // GCG靶点筛选按钮
+    document.getElementById('gcgFilter').addEventListener('click', (e) => {
+        filterState.gcgTarget = !filterState.gcgTarget;
+        e.target.classList.toggle('active', filterState.gcgTarget);
+        filterProducts();
+    });
+    
     // 清除筛选
     document.getElementById('clearFilters').addEventListener('click', () => {
         document.getElementById('searchInput').value = '';
@@ -906,6 +1059,10 @@ function setupEventListeners() {
         document.getElementById('indicationFilter').value = '';
         document.getElementById('moleculeFilter').value = '';
         document.getElementById('chinaFilter').classList.remove('china-active');
+        document.getElementById('multiTargetFilter').classList.remove('active');
+        document.getElementById('gcgFilter').classList.remove('active');
+        filterState.multiTarget = false;
+        filterState.gcgTarget = false;
         filterProducts();
     });
     
