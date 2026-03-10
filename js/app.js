@@ -35,16 +35,17 @@ async function init() {
     try {
         const response = await fetch('data/pipeline.json');
         const data = await response.json();
-        state.products = data.products;
+        state.products = data.products || [];
         state.filteredProducts = [...state.products];
         
         // 更新最后更新时间
-        document.getElementById('lastUpdated').textContent = data.last_updated || '--';
+        const lastUpdatedEl = document.getElementById('lastUpdated');
+        if (lastUpdatedEl) {
+            lastUpdatedEl.textContent = data.last_updated || '--';
+        }
         
         // 初始化所有组件
         updateStats();
-        renderTimeline();
-        renderChinaMultiBreakthrough();
         renderTable();
         renderCards();
         initCharts();
@@ -52,7 +53,10 @@ async function init() {
         
     } catch (error) {
         console.error('Failed to load data:', error);
-        showError('数据加载失败，请刷新页面重试');
+        const tbody = document.getElementById('productTableBody');
+        if (tbody) {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8 text-red-400">数据加载失败，请刷新页面重试</td></tr>';
+        }
     }
 }
 
@@ -69,28 +73,34 @@ function updateStats() {
     
     // III期临床
     const phase3 = products.filter(p => p.stage === 'III期临床').length;
-    animateNumber('phase3Count', phase3);
+    if (document.getElementById('phase3Count')) {
+        animateNumber('phase3Count', phase3);
+    }
     
     // 中国公司
     const china = products.filter(p => p.country === 'CN').length;
     animateNumber('chinaCount', china);
     
     // 多靶点产品
-    const multiTarget = products.filter(p => p.is_multi_target).length;
-    animateNumber('multiTargetCount', multiTarget);
+    const multiTarget = products.filter(p => p.molecule_type?.includes('双靶点') || p.molecule_type?.includes('三靶点')).length;
+    if (document.getElementById('multiTargetCount')) {
+        animateNumber('multiTargetCount', multiTarget);
+    }
     
     // GCG靶点产品
-    const gcgTarget = products.filter(p => p.targets.includes('GCG')).length;
-    animateNumber('gcgCount', gcgTarget);
-    
-    // 国产多靶点
-    const chinaMulti = products.filter(p => p.is_china_multi).length;
-    document.getElementById('chinaMultiCount').textContent = chinaMulti;
+    const gcgTarget = products.filter(p => p.molecule_type?.includes('GCG')).length;
+    if (document.getElementById('gcgCount')) {
+        animateNumber('gcgCount', gcgTarget);
+    }
 }
 
 // 数字动画
 function animateNumber(elementId, targetValue) {
     const element = document.getElementById(elementId);
+    if (!element) {
+        console.warn(`Element ${elementId} not found`);
+        return;
+    }
     const duration = 800;
     const start = 0;
     const startTime = performance.now();
@@ -113,6 +123,7 @@ function animateNumber(elementId, targetValue) {
 // 渲染时间线
 function renderTimeline() {
     const container = document.getElementById('timelineContainer');
+    if (!container) return;
     
     // 收集所有最新动态并按时间排序
     const updates = [];
@@ -137,10 +148,10 @@ function renderTimeline() {
         <div class="timeline-item ${index === 0 ? '' : 'completed'}">
             <div class="flex items-start gap-4">
                 <div class="flex-1">
-                    <p class="text-sm font-medium text-gray-900">${item.product} - ${item.company}</p>
-                    <p class="text-sm text-gray-600 mt-1">${item.update}</p>
+                    <p class="text-sm font-medium text-white">${item.product} - ${item.company}</p>
+                    <p class="text-sm text-gray-400 mt-1">${item.update}</p>
                 </div>
-                <span class="text-xs text-gray-400 whitespace-nowrap">${item.date || '近期'}</span>
+                <span class="text-xs text-gray-500 whitespace-nowrap">${item.date || '近期'}</span>
             </div>
         </div>
     `).join('');
@@ -155,10 +166,14 @@ function extractDate(text) {
 // 渲染国产多靶点突破板块
 function renderChinaMultiBreakthrough() {
     const container = document.getElementById('chinaMultiContainer');
-    const chinaMultiProducts = state.products.filter(p => p.is_china_multi);
+    if (!container) return;
+    
+    const chinaMultiProducts = state.products.filter(p => 
+        p.country === 'CN' && (p.molecule_type?.includes('双靶点') || p.molecule_type?.includes('三靶点'))
+    );
     
     if (chinaMultiProducts.length === 0) {
-        container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无数据</p>';
+        container.innerHTML = '<p class="text-gray-400 text-center py-4">暂无数据</p>';
         return;
     }
     
@@ -169,26 +184,20 @@ function renderChinaMultiBreakthrough() {
     });
     
     container.innerHTML = chinaMultiProducts.map(product => `
-        <div class="china-multi-highlight rounded-lg p-4 hover:shadow-lg transition cursor-pointer" onclick="showProductDetail('${product.id}')">
+        <div class="bg-dark-700 border border-dark-500 rounded-lg p-4 hover:border-neon-orange/50 transition cursor-pointer" onclick="showProductDetail('${product.id}')">
             <div class="flex items-start justify-between mb-2">
                 <div>
-                    <span class="multi-target-badge mb-1">🏆 ${product.target_count}靶点</span>
-                    ${product.targets.includes('GCG') ? '<span class="gcg-badge ml-1">GCG</span>' : ''}
+                    <span class="multi-target-badge">🏆 多靶点</span>
+                    ${product.molecule_type?.includes('GCG') ? '<span class="gcg-badge ml-2">GCG</span>' : ''}
                 </div>
-                <span class="stage-badge ${getStageClass(product.stage)}">${product.stage}</span>
+                <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
             </div>
-            <h3 class="font-bold text-gray-900 mb-1">${product.product_name}</h3>
-            <p class="text-sm text-gray-600 mb-2">${product.company}</p>
-            <div class="target-tags mb-2">
-                ${product.targets.map(t => {
-                    const classes = t === 'GLP-1' ? 'target-tag-glp1' : t === 'GIP' ? 'target-tag-gip' : 'target-tag-gcg';
-                    return `<span class="target-tag ${classes}">${t}</span>`;
-                }).join('')}
-            </div>
+            <h3 class="font-bold text-white mb-1">${product.product_name}</h3>
+            <p class="text-sm text-gray-400 mb-2">${product.company}</p>
             ${product.efficacy_data?.weight_loss?.week48 ? `
-                <div class="efficacy-highlight multi-target-efficacy mt-2">
-                    <span class="text-xs text-gray-600">48周减重</span>
-                    <span class="text-lg font-bold text-amber-700 ml-2">${product.efficacy_data.weight_loss.week48}</span>
+                <div class="mt-2 pt-2 border-t border-dark-500">
+                    <span class="text-xs text-gray-500">48周减重</span>
+                    <span class="text-lg font-bold text-neon-orange ml-2">${product.efficacy_data.weight_loss.week48}</span>
                 </div>
             ` : ''}
         </div>
@@ -198,182 +207,122 @@ function renderChinaMultiBreakthrough() {
 // 渲染表格
 function renderTable() {
     const tbody = document.getElementById('productTableBody');
+    if (!tbody) return;
+    
     const products = state.filteredProducts;
     
     if (products.length === 0) {
-        document.getElementById('tableView').classList.add('hidden');
-        document.getElementById('noResults').classList.remove('hidden');
+        tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8 text-gray-400">暂无匹配数据</td></tr>';
         return;
     }
     
-    document.getElementById('tableView').classList.remove('hidden');
-    document.getElementById('noResults').classList.add('hidden');
-    
     tbody.innerHTML = products.map(product => {
+        const isMultiTarget = product.molecule_type?.includes('双靶点') || product.molecule_type?.includes('三靶点');
+        const hasGCG = product.molecule_type?.includes('GCG');
+        const isChina = product.country === 'CN';
+        
         // 确定行样式
-        let rowClass = 'hover:bg-gray-50 transition';
-        if (product.is_china_multi) {
+        let rowClass = '';
+        if (isChina && isMultiTarget) {
             rowClass = 'china-multi-highlight';
-        } else if (product.is_multi_target) {
-            rowClass = 'multi-target-row hover:bg-yellow-50';
-        } else if (product.company === '礼来') {
-            rowClass = 'big-pharma-lilly hover:bg-blue-50';
-        } else if (product.company === '诺和诺德') {
-            rowClass = 'big-pharma-novo hover:bg-green-50';
+        } else if (isMultiTarget) {
+            rowClass = 'multi-target-row';
         }
         
-        // 公司样式
-        let companyClass = 'text-sm text-gray-700';
-        if (product.company === '礼来') companyClass = 'company-lilly';
-        if (product.company === '诺和诺德') companyClass = 'company-novo';
+        // 获取最佳减重数据
+        const wl = product.efficacy_data?.weight_loss;
+        const bestWL = wl?.week68 || wl?.week52 || wl?.week48 || wl?.week36 || wl?.week24 || '-';
         
         return `
         <tr class="${rowClass}">
             <td class="px-4 py-3">
-                <input type="checkbox" class="product-checkbox rounded border-gray-300 text-primary-600 focus:ring-primary-500" 
-                    value="${product.id}" ${state.selectedProducts.has(product.id) ? 'checked' : ''}>
-            </td>
-            <td class="px-4 py-3">
                 <div class="flex flex-col">
                     <div class="flex items-center gap-2">
-                        <span class="font-medium text-gray-900">${product.product_name}</span>
-                        ${product.is_multi_target ? '<span class="multi-target-badge">🏆</span>' : ''}
+                        <span class="font-medium text-white">${product.product_name}</span>
+                        ${isMultiTarget ? '<span class="multi-target-badge">🏆</span>' : ''}
+                        ${hasGCG ? '<span class="gcg-badge">GCG</span>' : ''}
                     </div>
                     <span class="text-xs text-gray-500">${product.code_name || ''}</span>
                 </div>
             </td>
             <td class="px-4 py-3">
-                <div class="company-flag">
-                    <span class="text-lg">${getCountryFlag(product.country)}</span>
-                    <span class="${companyClass}">${product.company}</span>
-                </div>
+                <span class="text-gray-300">${product.company}</span>
             </td>
             <td class="px-4 py-3">
-                <span class="stage-badge ${getStageClass(product.stage)}">${product.stage}</span>
+                <span class="target-badge ${isMultiTarget ? 'target-dual' : 'target-single'}">${product.molecule_type}</span>
             </td>
             <td class="px-4 py-3">
-                <div class="target-tags">
-                    ${product.targets.map(t => {
-                        const classes = t === 'GLP-1' ? 'target-tag-glp1' : t === 'GIP' ? 'target-tag-gip' : 'target-tag-gcg';
-                        return `<span class="target-tag ${classes}">${t}</span>`;
-                    }).join('')}
-                </div>
+                <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
+            </td>
+            <td class="px-4 py-3">
+                <span class="font-bold ${isMultiTarget ? 'text-neon-orange' : 'text-neon-green'}">${bestWL}</span>
             </td>
             <td class="px-4 py-3">
                 <div class="flex flex-wrap gap-1">
-                    ${product.indications.map(ind => `<span class="indication-tag">${ind}</span>`).join('')}
+                    ${(product.indications || []).slice(0, 2).map(ind => `<span class="text-xs bg-dark-600 text-gray-300 px-2 py-0.5 rounded">${ind}</span>`).join('')}
                 </div>
             </td>
-            <td class="px-4 py-3 text-sm text-gray-600">${product.molecule_type}</td>
-            <td class="px-4 py-3">
-                <span class="font-semibold ${product.is_multi_target ? 'text-amber-600' : 'text-biotech-600'}">
-                    ${product.efficacy_data?.weight_loss?.week48 || product.efficacy_data?.weight_loss?.week36 || '-'}
-                </span>
-            </td>
-            <td class="px-4 py-3 text-sm text-gray-600 max-w-xs truncate" title="${product.latest_update || ''}">
+            <td class="px-4 py-3 text-sm text-gray-400 max-w-xs truncate" title="${product.latest_update || ''}">
                 ${product.latest_update || '-'}
-            </td>
-            <td class="px-4 py-3">
-                <button class="view-detail-btn text-primary-600 hover:text-primary-800 text-sm font-medium" data-id="${product.id}">
-                    详情
-                </button>
             </td>
         </tr>
     `}).join('');
-    
-    // 绑定复选框事件
-    tbody.querySelectorAll('.product-checkbox').forEach(cb => {
-        cb.addEventListener('change', (e) => toggleProductSelection(e.target.value, e.target.checked));
-    });
-    
-    // 绑定详情按钮事件
-    tbody.querySelectorAll('.view-detail-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => showProductDetail(e.target.dataset.id));
-    });
 }
 
 // 渲染卡片视图
 function renderCards() {
     const container = document.getElementById('cardView');
+    if (!container) return;
+    
     const products = state.filteredProducts;
     
     container.innerHTML = products.map(product => {
-        // 确定卡片样式
-        let cardClass = 'product-card bg-white rounded-xl p-6';
-        if (state.selectedProducts.has(product.id)) cardClass += ' selected';
-        if (product.is_china_multi) cardClass += ' china-multi-highlight';
-        else if (product.is_multi_target) cardClass += ' multi-target-card';
+        const isMultiTarget = product.molecule_type?.includes('双靶点') || product.molecule_type?.includes('三靶点');
+        const hasGCG = product.molecule_type?.includes('GCG');
+        const isChina = product.country === 'CN';
         
-        // 公司样式
-        let companyClass = 'text-sm text-gray-500';
-        if (product.company === '礼来') companyClass = 'text-sm company-lilly';
-        if (product.company === '诺和诺德') companyClass = 'text-sm company-novo';
+        // 确定卡片样式
+        let cardClass = 'bg-dark-700 border border-dark-500 rounded-xl p-5 hover:border-neon-blue/30 transition';
+        if (isChina && isMultiTarget) cardClass += ' china-multi-highlight';
+        else if (isMultiTarget) cardClass += ' multi-target-card';
+        
+        // 获取最佳减重数据
+        const wl = product.efficacy_data?.weight_loss;
+        const bestWL = wl?.week68 || wl?.week52 || wl?.week48 || wl?.week36 || wl?.week24 || '-';
         
         return `
-        <div class="${cardClass}" data-id="${product.id}">
-            <div class="flex items-start justify-between mb-4">
-                <div class="flex items-center gap-2">
-                    <input type="checkbox" class="product-checkbox rounded border-gray-300 text-primary-600" 
-                        value="${product.id}" ${state.selectedProducts.has(product.id) ? 'checked' : ''}>
-                    <span class="text-lg">${getCountryFlag(product.country)}</span>
+        <div class="${cardClass}">
+            <div class="flex items-start justify-between mb-3">
+                <div>
+                    ${isMultiTarget ? `<span class="multi-target-badge mb-2 inline-block">🏆 多靶点</span>` : ''}
+                    ${hasGCG ? `<span class="gcg-badge ml-2">GCG</span>` : ''}
                 </div>
-                <div class="flex items-center gap-1">
-                    ${product.is_multi_target ? `<span class="multi-target-badge">🏆 ${product.target_count}靶点</span>` : ''}
-                    ${product.targets.includes('GCG') ? `<span class="gcg-badge">GCG</span>` : ''}
-                </div>
+                <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
             </div>
             
-            <h3 class="text-lg font-bold text-gray-900 mb-1">${product.product_name}</h3>
-            <p class="${companyClass} mb-3">${product.code_name || ''} · ${product.company}</p>
+            <h3 class="text-lg font-bold text-white mb-1">${product.product_name}</h3>
+            <p class="text-sm text-gray-400 mb-3">${product.code_name || ''} · ${product.company}</p>
             
-            <div class="target-tags mb-3">
-                ${product.targets.map(t => {
-                    const classes = t === 'GLP-1' ? 'target-tag-glp1' : t === 'GIP' ? 'target-tag-gip' : 'target-tag-gcg';
-                    return `<span class="target-tag ${classes}">${t}</span>`;
-                }).join('')}
+            <div class="mb-3">
+                <span class="text-xs text-gray-500">分子类型</span>
+                <p class="text-sm text-gray-300">${product.molecule_type}</p>
             </div>
             
-            <div class="flex flex-wrap gap-1 mb-4">
-                ${product.indications.map(ind => `<span class="indication-tag">${ind}</span>`).join('')}
-            </div>
-            
-            <div class="bg-gray-50 rounded-lg p-3 mb-4">
-                <p class="text-xs text-gray-500 mb-1">分子类型</p>
-                <p class="text-sm font-medium text-gray-700">${product.molecule_type}</p>
-            </div>
-            
-            ${product.efficacy_data?.weight_loss ? `
-                <div class="efficacy-grid mb-4">
-                    ${product.efficacy_data.weight_loss.week48 ? `
-                        <div class="efficacy-item ${product.is_multi_target ? 'multi-target-efficacy' : ''}">
-                            <div class="value ${product.is_multi_target ? 'text-amber-700' : ''}">${product.efficacy_data.weight_loss.week48}</div>
-                            <div class="label">48周减重</div>
-                        </div>
-                    ` : ''}
-                    ${product.efficacy_data.weight_loss.week52 ? `
-                        <div class="efficacy-item ${product.is_multi_target ? 'multi-target-efficacy' : ''}">
-                            <div class="value ${product.is_multi_target ? 'text-amber-700' : ''}">${product.efficacy_data.weight_loss.week52}</div>
-                            <div class="label">52周减重</div>
-                        </div>
-                    ` : ''}
+            ${bestWL !== '-' ? `
+                <div class="bg-dark-600 rounded-lg p-3 mb-3">
+                    <span class="text-xs text-gray-500">最佳减重效果</span>
+                    <div class="text-2xl font-bold ${isMultiTarget ? 'text-neon-orange' : 'text-neon-green'}">${bestWL}</div>
                 </div>
             ` : ''}
             
-            <div class="flex items-center justify-between">
-                <span class="stage-badge ${getStageClass(product.stage)}">${product.stage}</span>
-                <button class="view-detail-btn text-primary-600 hover:text-primary-800 text-sm font-medium" data-id="${product.id}">
-                    详情 →
-                </button>
+            <div class="flex flex-wrap gap-1 mb-3">
+                ${(product.indications || []).slice(0, 3).map(ind => `<span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">${ind}</span>`).join('')}
             </div>
+            
+            <p class="text-xs text-gray-500 truncate" title="${product.latest_update || ''}">${product.latest_update || '暂无最新进展'}</p>
         </div>
     `}).join('');
-    
-    // 绑定事件
-    container.querySelectorAll('.product-checkbox').forEach(cb => {
-        cb.addEventListener('change', (e) => toggleProductSelection(e.target.value, e.target.checked));
-    });
-    
-    container.querySelectorAll('.view-detail-btn').forEach(btn => {
+}
         btn.addEventListener('click', (e) => showProductDetail(e.target.dataset.id));
     });
 }
@@ -842,23 +791,35 @@ function clearComparison() {
     document.getElementById('compareModal').classList.add('hidden');
 }
 
+// 霓虹色系配色方案
+const neonColorScheme = {
+    cyan: '#00f5ff',
+    purple: '#bf00ff',
+    orange: '#ff9500',
+    pink: '#ff00aa',
+    green: '#00ff88',
+    yellow: '#ffea00',
+    red: '#ff3366',
+    blue: '#0099ff'
+};
+
+const neonPalette = [
+    neonColorScheme.cyan,
+    neonColorScheme.purple,
+    neonColorScheme.orange,
+    neonColorScheme.pink,
+    neonColorScheme.green,
+    neonColorScheme.yellow,
+    neonColorScheme.red,
+    neonColorScheme.blue
+];
+
 // 初始化图表
 function initCharts() {
     // 设置Chart.js深色主题默认值
     Chart.defaults.color = '#9ca3af';
     Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
-    
-    // 霓虹配色方案
-    const neonColors = [
-        '#00d4ff', // cyan
-        '#8b5cf6', // purple
-        '#f59e0b', // orange
-        '#ec4899', // pink
-        '#10b981', // green
-        '#6366f1', // indigo
-        '#ef4444', // red
-        '#14b8a6'  // teal
-    ];
+    Chart.defaults.backgroundColor = 'transparent';
     
     // 阶段分布图
     const stageData = {};
@@ -872,7 +833,7 @@ function initCharts() {
             labels: Object.keys(stageData),
             datasets: [{
                 data: Object.values(stageData),
-                backgroundColor: neonColors,
+                backgroundColor: neonPalette,
                 borderWidth: 0
             }]
         },
@@ -908,7 +869,7 @@ function initCharts() {
             datasets: [{
                 label: '产品数量',
                 data: Object.values(indicationData),
-                backgroundColor: neonColors[0],
+                backgroundColor: neonColorScheme.cyan,
                 borderRadius: 6
             }]
         },
@@ -958,7 +919,7 @@ function initCharts() {
             datasets: [{
                 label: '管线数量',
                 data: sortedCompanies.map(c => c[1]),
-                backgroundColor: '#22c55e'
+                backgroundColor: neonColorScheme.purple
             }]
         },
         options: {
