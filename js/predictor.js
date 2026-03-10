@@ -21,6 +21,10 @@ const products = [
             week48: 20.2,
             week52: 22.5
         },
+        week12_data: {
+            percent: 8.3,
+            note: "12周减重约8.3%，效果初显"
+        },
         indications: ['obesity', 'diabetes', 'nash', 'osa'],
         bmi_range: [27, 50],
         age_range: [18, 75],
@@ -58,6 +62,10 @@ const products = [
             week48: 15.8,
             week68: 17.4
         },
+        week12_data: {
+            percent: 7.2,
+            note: "12周减重约7.2%，稳定起效"
+        },
         indications: ['obesity', 'diabetes', 'cvd'],
         bmi_range: [27, 50],
         age_range: [18, 75],
@@ -93,6 +101,10 @@ const products = [
             week24: 13.2,
             week36: 15.8,
             week48: 18.6
+        },
+        week12_data: {
+            percent: 7.5,
+            note: "12周减重约7.5%，GCG靶点早期优势"
         },
         indications: ['obesity', 'diabetes', 'nash'],
         bmi_range: [24, 45],
@@ -130,6 +142,10 @@ const products = [
             week36: 14.5,
             week48: 14.7
         },
+        week12_data: {
+            percent: 7.0,
+            note: "12周减重约7.0%，口服起效稳健"
+        },
         indications: ['obesity', 'diabetes'],
         bmi_range: [27, 50],
         age_range: [18, 75],
@@ -165,6 +181,10 @@ const products = [
             week24: 9.0,
             week36: 10.0,
             week48: 10.5
+        },
+        week12_data: {
+            percent: 5.2,
+            note: "12周减重约5.2%，起效相对温和"
         },
         indications: ['obesity', 'diabetes'],
         bmi_range: [27, 50],
@@ -336,12 +356,12 @@ function generateCurveData(matches, userProfile) {
         
         const data = [
             0, // 起始
-            curve.week4 || curve.week4 * 0.8,
-            curve.week8 || curve.week8 * 0.9,
+            curve.week4,
+            curve.week8,
             curve.week12,
             curve.week24,
-            curve.week36 || curve.week24 + 2,
-            curve.week48 || curve.week48,
+            curve.week36 || (curve.week24 + (curve.week48 - curve.week24) * 0.5),
+            curve.week48,
             curve.week52 || curve.week48
         ];
         
@@ -464,14 +484,19 @@ function renderRecommendations(matches, userProfile) {
                     ${match.reasons.slice(0, 2).map(r => `<span class="inline-block bg-dark-700 text-gray-300 text-xs px-2 py-1 rounded ml-2">${r}</span>`).join('')}
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="grid grid-cols-3 gap-3 mb-4">
                     <div class="bg-dark-700/50 rounded-lg p-3 text-center">
-                        <div class="text-2xl font-bold text-neon-green">${loss.percent}%</div>
+                        <div class="text-xl font-bold text-neon-blue">${product.week12_data.percent}%</div>
+                        <div class="text-xs text-gray-400">12周减重</div>
+                        <div class="text-xs text-neon-blue mt-1">3个月</div>
+                    </div>
+                    <div class="bg-dark-700/50 rounded-lg p-3 text-center">
+                        <div class="text-xl font-bold text-neon-green">${loss.percent}%</div>
                         <div class="text-xs text-gray-400">${loss.week}周减重</div>
                     </div>
                     <div class="bg-dark-700/50 rounded-lg p-3 text-center">
-                        <div class="text-2xl font-bold text-neon-orange">${loss.kg}kg</div>
-                        <div class="text-xs text-gray-400">体重下降</div>
+                        <div class="text-xl font-bold text-neon-orange">${loss.kg}kg</div>
+                        <div class="text-xs text-gray-400">总体重下降</div>
                     </div>
                 </div>
                 
