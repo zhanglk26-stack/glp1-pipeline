@@ -1,0 +1,531 @@
+/* GLP-1 Pipeline Tracker - Styles */
+
+/* Base styles */
+* { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-alt {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Card shadows */
+.card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effects */
+.hover-lift {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Target badges */
+.target-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.target-gcg {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    border: 1px solid #fbbf24;
+}
+
+.target-dual {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1e40af;
+    border: 1px solid #60a5fa;
+}
+
+.target-triple {
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+    color: #be185d;
+    border: 1px solid #f472b6;
+}
+
+.target-single {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+}
+
+/* Stage pills */
+.stage-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.stage-approved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.stage-nda {
+    background: #ddd6fe;
+    color: #5b21b6;
+}
+
+.stage-phase3 {
+    background: #bfdbfe;
+    color: #1e40af;
+}
+
+.stage-phase2 {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.stage-phase1 {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.stage-preclinical {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+/* China highlight */
+.china-highlight {
+    border-left: 4px solid #ef4444;
+    background: linear-gradient(to right, #fef2f2, transparent);
+}
+
+/* Data table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* Sort icons */
+.sort-icon {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    margin-left: 0.5rem;
+}
+
+.sort-icon:hover {
+    opacity: 1;
+}
+
+.sort-icon.active {
+    opacity: 1;
+    color: #4f46e5;
+}
+
+/* Filter buttons */
+.filter-btn {
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: #4f46e5;
+    color: white;
+    border-color: #4f46e5;
+}
+
+/* Comparison bars */
+.comparison-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.comparison-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.comparison-fill-excellent { background: linear-gradient(90deg, #10b981, #34d399); }
+.comparison-fill-good { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.comparison-fill-average { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.comparison-fill-poor { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #4f46e5;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #4f46e5;
+}
+
+.timeline-item.completed::before {
+    background: #10b981;
+    box-shadow: 0 0 0 2px #10b981;
+}
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 1rem;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading states */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .data-table {
+        font-size: 0.875rem;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .target-badge,
+    .stage-pill {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.5rem;
+    }
+}
+
+/* Multi-target product highlight */
+.multi-target-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    color: #78350f;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid #f59e0b;
+    box-shadow: 0 1px 2px rgba(245, 158, 11, 0.3);
+}
+
+.multi-target-row {
+    background: linear-gradient(to right, #fffbeb, #ffffff 10%) !important;
+    border-left: 3px solid #f59e0b;
+}
+
+.multi-target-card {
+    border: 2px solid #fbbf24 !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15) !important;
+    position: relative;
+}
+
+.multi-target-card::before {
+    content: '🏆 多靶点';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: #78350f;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 0 8px 0 8px;
+}
+
+/* GCG target special highlight */
+.gcg-badge {
+    background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Big Pharma brand colors */
+.big-pharma-lilly {
+    background: linear-gradient(to right, rgba(232, 245, 253, 0.5), transparent);
+    border-left: 3px solid #1e88e5;
+}
+
+.big-pharma-lilly .company-name::before {
+    content: '💊 ';
+}
+
+.big-pharma-novo {
+    background: linear-gradient(to right, rgba(232, 245, 233, 0.5), transparent);
+    border-left: 3px solid #43a047;
+}
+
+.big-pharma-novo .company-name::before {
+    content: '🔬 ';
+}
+
+.company-lilly {
+    color: #1565c0;
+    font-weight: 600;
+}
+
+.company-novo {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* China + Multi-target special */
+.china-multi-highlight {
+    background: linear-gradient(135deg, #fef3c7 0%, #fee2e2 100%) !important;
+    border: 2px solid #f59e0b;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+.china-multi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+}
+
+/* Target filter buttons */
+.target-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.target-filter-btn:hover {
+    transform: translateY(-1px);
+}
+
+.target-filter-btn.active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.target-filter-multi {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    border-color: #fbbf24;
+}
+
+.target-filter-multi.active {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+}
+
+.target-filter-gcg {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    border-color: #ef4444;
+}
+
+.target-filter-gcg.active {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: white;
+}
+
+/* Big pharma timeline */
+.big-pharma-timeline {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.big-pharma-timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.2s;
+}
+
+.big-pharma-timeline-item:hover {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.big-pharma-lilly-item {
+    border-left: 4px solid #1e88e5;
+}
+
+.big-pharma-novo-item {
+    border-left: 4px solid #43a047;
+}
+
+/* Target tags display */
+.target-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.target-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.target-tag-glp1 {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.target-tag-gip {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.target-tag-gcg {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    border: 1px solid #fbbf24;
+}
+
+/* Efficacy data special highlight for multi-target */
+.efficacy-highlight {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #10b981;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.efficacy-highlight.multi-target-efficacy {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-color: #f59e0b;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .card-shadow {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+}
