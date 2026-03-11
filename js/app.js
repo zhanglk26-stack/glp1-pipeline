@@ -985,7 +985,7 @@ function initCharts() {
 // 设置事件监听
 function setupEventListeners() {
     // 搜索
-    document(document.getElementById('searchInput') || {}).addEventListener('input', debounce(filterProducts, 300));
+    (document.getElementById('searchInput') || {}).addEventListener('input', debounce(filterProducts, 300));
     
     // 筛选器
     ['stageFilter', 'indicationFilter', 'moleculeFilter'].forEach(id => {
@@ -993,27 +993,27 @@ function setupEventListeners() {
     });
     
     // 中国专区按钮
-    document(document.getElementById('chinaFilter') || {}).addEventListener('click', (e) => {
+    (document.getElementById('chinaFilter') || {}).addEventListener('click', (e) => {
         e.target.classList.toggle('china-active');
         filterProducts();
     });
     
     // 多靶点筛选按钮
-    document(document.getElementById('multiTargetFilter') || {}).addEventListener('click', (e) => {
+    (document.getElementById('multiTargetFilter') || {}).addEventListener('click', (e) => {
         filterState.multiTarget = !filterState.multiTarget;
         e.target.classList.toggle('active', filterState.multiTarget);
         filterProducts();
     });
     
     // GCG靶点筛选按钮
-    document(document.getElementById('gcgFilter') || {}).addEventListener('click', (e) => {
+    (document.getElementById('gcgFilter') || {}).addEventListener('click', (e) => {
         filterState.gcgTarget = !filterState.gcgTarget;
         e.target.classList.toggle('active', filterState.gcgTarget);
         filterProducts();
     });
     
     // 清除筛选
-    document(document.getElementById('clearFilters') || {}).addEventListener('click', () => {
+    (document.getElementById('clearFilters') || {}).addEventListener('click', () => {
         document.getElementById('searchInput').value = '';
         document.getElementById('stageFilter').value = '';
         document.getElementById('indicationFilter').value = '';
@@ -1027,7 +1027,7 @@ function setupEventListeners() {
     });
     
     // 视图切换
-    document(document.getElementById('viewToggle') || {}).addEventListener('click', () => {
+    (document.getElementById('viewToggle') || {}).addEventListener('click', () => {
         state.viewMode = state.viewMode === 'table' ? 'card' : 'table';
         document.getElementById('tableView').classList.toggle('hidden', state.viewMode === 'card');
         document.getElementById('cardView').classList.toggle('hidden', state.viewMode === 'table');
@@ -1042,7 +1042,7 @@ function setupEventListeners() {
     });
     
     // 全选
-    document(document.getElementById('selectAll') || {}).addEventListener('change', (e) => {
+    (document.getElementById('selectAll') || {}).addEventListener('change', (e) => {
         const checkboxes = document.querySelectorAll('.product-checkbox');
         checkboxes.forEach(cb => {
             cb.checked = e.target.checked;
@@ -1051,14 +1051,14 @@ function setupEventListeners() {
     });
     
     // 对比按钮
-    document(document.getElementById('compareBtn') || {}).addEventListener('click', showCompareModal);
+    (document.getElementById('compareBtn') || {}).addEventListener('click', showCompareModal);
     
     // 关闭弹窗
-    document(document.getElementById('closeModal') || {}).addEventListener('click', () => {
+    (document.getElementById('closeModal') || {}).addEventListener('click', () => {
         document.getElementById('productModal').classList.add('hidden');
     });
     
-    document(document.getElementById('closeCompareModal') || {}).addEventListener('click', () => {
+    (document.getElementById('closeCompareModal') || {}).addEventListener('click', () => {
         document.getElementById('compareModal').classList.add('hidden');
     });
     
