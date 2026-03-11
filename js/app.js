@@ -1076,9 +1076,10 @@ function setupEventListeners() {
     
     // 点击弹窗外部关闭
     ['productModal', 'compareModal'].forEach(id => {
-        document.getElementById(id).addEventListener('click', (e) => {
-            if (e.target === document.getElementById(id)) {
-                document.getElementById(id).classList.add('hidden');
+        const el = document.getElementById(id);
+        el && el.addEventListener('click', (e) => {
+            if (e.target === el) {
+                el.classList.add('hidden');
             }
         });
     });
