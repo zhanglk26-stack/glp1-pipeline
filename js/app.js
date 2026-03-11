@@ -390,9 +390,9 @@ const filterState = {
 // 筛选功能
 function filterProducts() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const stageFilter = document.getElementById('stageFilter').value;
-    const indicationFilter = document.getElementById('indicationFilter').value;
-    const moleculeFilter = document.getElementById('moleculeFilter').value;
+    const stageFilter = (document.getElementById('stageFilter') || {}).value;
+    const indicationFilter = (document.getElementById('indicationFilter') || {}).value;
+    const moleculeFilter = (document.getElementById('moleculeFilter') || {}).value;
     const chinaOnly = document.getElementById('chinaFilter').classList.contains('china-active');
     
     state.filteredProducts = state.products.filter(product => {
@@ -1014,10 +1014,10 @@ function setupEventListeners() {
     
     // 清除筛选
     (document.getElementById('clearFilters') || {}).addEventListener('click', () => {
-        document.getElementById('searchInput').value = '';
-        document.getElementById('stageFilter').value = '';
-        document.getElementById('indicationFilter').value = '';
-        document.getElementById('moleculeFilter').value = '';
+        (document.getElementById('searchInput') || {}).value = '';
+        (document.getElementById('stageFilter') || {}).value = '';
+        (document.getElementById('indicationFilter') || {}).value = '';
+        (document.getElementById('moleculeFilter') || {}).value = '';
         document.getElementById('chinaFilter').classList.remove('china-active');
         document.getElementById('multiTargetFilter').classList.remove('active');
         document.getElementById('gcgFilter').classList.remove('active');
