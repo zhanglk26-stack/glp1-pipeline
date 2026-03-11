@@ -323,9 +323,6 @@ function renderCards() {
         </div>
     `}).join('');
 }
-        btn.addEventListener('click', (e) => showProductDetail(e.target.dataset.id));
-    });
-}
 
 // 获取国家国旗emoji
 function getCountryFlag(country) {
