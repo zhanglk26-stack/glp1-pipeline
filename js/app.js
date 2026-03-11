@@ -989,7 +989,8 @@ function setupEventListeners() {
     
     // 筛选器
     ['stageFilter', 'indicationFilter', 'moleculeFilter'].forEach(id => {
-        document.getElementById(id).addEventListener('change', filterProducts);
+        const el = document.getElementById(id);
+        el && el.addEventListener('change', filterProducts);
     });
     
     // 中国专区按钮
