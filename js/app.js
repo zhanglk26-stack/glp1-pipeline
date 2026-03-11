@@ -369,7 +369,7 @@ function toggleProductSelection(productId, selected) {
 // 更新对比按钮
 function updateCompareButton() {
     const count = state.selectedProducts.size;
-    document.getElementById('compareCount').textContent = count;
+    (document.getElementById('compareCount') || {}).textContent = count;
     
     const btn = document.getElementById('compareBtn');
     if (count >= 2) {
@@ -389,11 +389,12 @@ const filterState = {
 
 // 筛选功能
 function filterProducts() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const searchTerm = ((document.getElementById('searchInput') || {}).value || '').toLowerCase();
     const stageFilter = (document.getElementById('stageFilter') || {}).value;
     const indicationFilter = (document.getElementById('indicationFilter') || {}).value;
     const moleculeFilter = (document.getElementById('moleculeFilter') || {}).value;
-    const chinaOnly = document.getElementById('chinaFilter').classList.contains('china-active');
+    const chinaFilterEl = document.getElementById('chinaFilter');
+    const chinaOnly = chinaFilterEl && chinaFilterEl.classList.contains('china-active');
     
     state.filteredProducts = state.products.filter(product => {
         // 搜索匹配
@@ -491,7 +492,7 @@ function showProductDetail(productId) {
     const modal = document.getElementById('productModal');
     const content = document.getElementById('modalContent');
     
-    document.getElementById('modalTitle').textContent = `${product.name_cn} - 产品详情`;
+    (document.getElementById('modalTitle') || {}).textContent = `${product.name_cn} - 产品详情`;
     
     content.innerHTML = `
         <div class="space-y-6">
@@ -768,7 +769,7 @@ function showCompareModal() {
         
         <div class="mt-6 flex justify-end gap-3">
             <button onclick="clearComparison()" class="btn-secondary">清除选择</button>
-            <button onclick="document.getElementById('compareModal').classList.add('hidden')" class="btn-primary">关闭</button>
+            <button onclick="(document.getElementById('compareModal') || {}).classList && (document.getElementById('compareModal') || {}).classList.add('hidden')" class="btn-primary">关闭</button>
         </div>
     `;
     
@@ -785,7 +786,7 @@ function clearComparison() {
         card.classList.remove('selected');
     });
     updateCompareButton();
-    document.getElementById('compareModal').classList.add('hidden');
+    (document.getElementById('compareModal') || {}).classList && (document.getElementById('compareModal') || {}).classList.add('hidden');
 }
 
 // 霓虹色系配色方案
@@ -1019,9 +1020,9 @@ function setupEventListeners() {
         (document.getElementById('stageFilter') || {}).value = '';
         (document.getElementById('indicationFilter') || {}).value = '';
         (document.getElementById('moleculeFilter') || {}).value = '';
-        document.getElementById('chinaFilter').classList.remove('china-active');
-        document.getElementById('multiTargetFilter').classList.remove('active');
-        document.getElementById('gcgFilter').classList.remove('active');
+        (document.getElementById('chinaFilter') || {}).classList && (document.getElementById('chinaFilter') || {}).classList.remove('china-active');
+        (document.getElementById('multiTargetFilter') || {}).classList && (document.getElementById('multiTargetFilter') || {}).classList.remove('active');
+        (document.getElementById('gcgFilter') || {}).classList && (document.getElementById('gcgFilter') || {}).classList.remove('active');
         filterState.multiTarget = false;
         filterState.gcgTarget = false;
         filterProducts();
@@ -1030,9 +1031,9 @@ function setupEventListeners() {
     // 视图切换
     (document.getElementById('viewToggle') || {}).addEventListener('click', () => {
         state.viewMode = state.viewMode === 'table' ? 'card' : 'table';
-        document.getElementById('tableView').classList.toggle('hidden', state.viewMode === 'card');
-        document.getElementById('cardView').classList.toggle('hidden', state.viewMode === 'table');
-        document.getElementById('viewToggle').innerHTML = state.viewMode === 'table' 
+        (document.getElementById('tableView') || {}).classList && (document.getElementById('tableView') || {}).classList.toggle('hidden', state.viewMode === 'card');
+        (document.getElementById('cardView') || {}).classList && (document.getElementById('cardView') || {}).classList.toggle('hidden', state.viewMode === 'table');
+        (document.getElementById('viewToggle') || {}).innerHTML = state.viewMode === 'table' 
             ? `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg> 卡片视图`
             : `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg> 表格视图`;
     });
@@ -1056,11 +1057,11 @@ function setupEventListeners() {
     
     // 关闭弹窗
     (document.getElementById('closeModal') || {}).addEventListener('click', () => {
-        document.getElementById('productModal').classList.add('hidden');
+        (document.getElementById('productModal') || {}).classList && (document.getElementById('productModal') || {}).classList.add('hidden');
     });
     
     (document.getElementById('closeCompareModal') || {}).addEventListener('click', () => {
-        document.getElementById('compareModal').classList.add('hidden');
+        (document.getElementById('compareModal') || {}).classList && (document.getElementById('compareModal') || {}).classList.add('hidden');
     });
     
     // 点击弹窗外部关闭
@@ -1075,8 +1076,8 @@ function setupEventListeners() {
     // ESC键关闭弹窗
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            document.getElementById('productModal').classList.add('hidden');
-            document.getElementById('compareModal').classList.add('hidden');
+            (document.getElementById('productModal') || {}).classList && (document.getElementById('productModal') || {}).classList.add('hidden');
+            (document.getElementById('compareModal') || {}).classList && (document.getElementById('compareModal') || {}).classList.add('hidden');
         }
     });
 }
