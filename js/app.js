@@ -986,7 +986,8 @@ function initCharts() {
 // 设置事件监听
 function setupEventListeners() {
     // 搜索
-    (document.getElementById('searchInput') || {}).addEventListener('input', debounce(filterProducts, 300));
+    const el_searchInput = document.getElementById('searchInput');
+    el_searchInput && el_searchInput.addEventListener('input', debounce(filterProducts, 300));
     
     // 筛选器
     ['stageFilter', 'indicationFilter', 'moleculeFilter'].forEach(id => {
@@ -995,27 +996,31 @@ function setupEventListeners() {
     });
     
     // 中国专区按钮
-    (document.getElementById('chinaFilter') || {}).addEventListener('click', (e) => {
+    const el_chinaFilter = document.getElementById('chinaFilter');
+    el_chinaFilter && el_chinaFilter.addEventListener('click', (e) => {
         e.target.classList.toggle('china-active');
         filterProducts();
     });
     
     // 多靶点筛选按钮
-    (document.getElementById('multiTargetFilter') || {}).addEventListener('click', (e) => {
+    const el_multiTargetFilter = document.getElementById('multiTargetFilter');
+    el_multiTargetFilter && el_multiTargetFilter.addEventListener('click', (e) => {
         filterState.multiTarget = !filterState.multiTarget;
         e.target.classList.toggle('active', filterState.multiTarget);
         filterProducts();
     });
     
     // GCG靶点筛选按钮
-    (document.getElementById('gcgFilter') || {}).addEventListener('click', (e) => {
+    const el_gcgFilter = document.getElementById('gcgFilter');
+    el_gcgFilter && el_gcgFilter.addEventListener('click', (e) => {
         filterState.gcgTarget = !filterState.gcgTarget;
         e.target.classList.toggle('active', filterState.gcgTarget);
         filterProducts();
     });
     
     // 清除筛选
-    (document.getElementById('clearFilters') || {}).addEventListener('click', () => {
+    const el_clearFilters = document.getElementById('clearFilters');
+    el_clearFilters && el_clearFilters.addEventListener('click', () => {
         (document.getElementById('searchInput') || {}).value = '';
         (document.getElementById('stageFilter') || {}).value = '';
         (document.getElementById('indicationFilter') || {}).value = '';
@@ -1029,7 +1034,8 @@ function setupEventListeners() {
     });
     
     // 视图切换
-    (document.getElementById('viewToggle') || {}).addEventListener('click', () => {
+    const el_viewToggle = document.getElementById('viewToggle');
+    el_viewToggle && el_viewToggle.addEventListener('click', () => {
         state.viewMode = state.viewMode === 'table' ? 'card' : 'table';
         (document.getElementById('tableView') || {}).classList && (document.getElementById('tableView') || {}).classList.toggle('hidden', state.viewMode === 'card');
         (document.getElementById('cardView') || {}).classList && (document.getElementById('cardView') || {}).classList.toggle('hidden', state.viewMode === 'table');
@@ -1044,7 +1050,8 @@ function setupEventListeners() {
     });
     
     // 全选
-    (document.getElementById('selectAll') || {}).addEventListener('change', (e) => {
+    const el_selectAll = document.getElementById('selectAll');
+    el_selectAll && el_selectAll.addEventListener('change', (e) => {
         const checkboxes = document.querySelectorAll('.product-checkbox');
         checkboxes.forEach(cb => {
             cb.checked = e.target.checked;
@@ -1053,14 +1060,17 @@ function setupEventListeners() {
     });
     
     // 对比按钮
-    (document.getElementById('compareBtn') || {}).addEventListener('click', showCompareModal);
+    const el_compareBtn = document.getElementById('compareBtn');
+    el_compareBtn && el_compareBtn.addEventListener('click', showCompareModal);
     
     // 关闭弹窗
-    (document.getElementById('closeModal') || {}).addEventListener('click', () => {
+    const el_closeModal = document.getElementById('closeModal');
+    el_closeModal && el_closeModal.addEventListener('click', () => {
         (document.getElementById('productModal') || {}).classList && (document.getElementById('productModal') || {}).classList.add('hidden');
     });
     
-    (document.getElementById('closeCompareModal') || {}).addEventListener('click', () => {
+    const el_closeCompareModal = document.getElementById('closeCompareModal');
+    el_closeCompareModal && el_closeCompareModal.addEventListener('click', () => {
         (document.getElementById('compareModal') || {}).classList && (document.getElementById('compareModal') || {}).classList.add('hidden');
     });
     
