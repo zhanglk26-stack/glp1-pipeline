@@ -82,13 +82,13 @@ function updateStats() {
     animateNumber('chinaCount', china);
     
     // 多靶点产品
-    const multiTarget = products.filter(p => p.molecule_type?.includes('双靶点') || p.molecule_type?.includes('三靶点')).length;
+    const multiTarget = products.filter(p => (p.targets && p.targets.length >= 2)).length;
     if (document.getElementById('multiTargetCount')) {
         animateNumber('multiTargetCount', multiTarget);
     }
     
     // GCG靶点产品
-    const gcgTarget = products.filter(p => p.molecule_type?.includes('GCG')).length;
+    const gcgTarget = products.filter(p => (p.targets && p.targets.includes('GCGR'))).length;
     if (document.getElementById('gcgCount')) {
         animateNumber('gcgCount', gcgTarget);
     }
@@ -130,7 +130,7 @@ function renderTimeline() {
     state.products.forEach(product => {
         if (product.latest_update) {
             updates.push({
-                product: product.product_name,
+                product: product.name_cn,
                 company: product.company,
                 update: product.latest_update,
                 date: extractDate(product.latest_update)
@@ -169,7 +169,7 @@ function renderChinaMultiBreakthrough() {
     if (!container) return;
     
     const chinaMultiProducts = state.products.filter(p => 
-        p.country === 'CN' && (p.molecule_type?.includes('双靶点') || p.molecule_type?.includes('三靶点'))
+        p.country === 'CN' && ((p.targets && p.targets.length >= 2))
     );
     
     if (chinaMultiProducts.length === 0) {
@@ -188,11 +188,11 @@ function renderChinaMultiBreakthrough() {
             <div class="flex items-start justify-between mb-2">
                 <div>
                     <span class="multi-target-badge">🏆 多靶点</span>
-                    ${product.molecule_type?.includes('GCG') ? '<span class="gcg-badge ml-2">GCG</span>' : ''}
+                    ${(product.targets && product.targets.includes('GCGR')) ? '<span class="gcg-badge ml-2">GCG</span>' : ''}
                 </div>
                 <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
             </div>
-            <h3 class="font-bold text-white mb-1">${product.product_name}</h3>
+            <h3 class="font-bold text-white mb-1">${product.name_cn}</h3>
             <p class="text-sm text-gray-400 mb-2">${product.company}</p>
             ${product.efficacy_data?.weight_loss?.week48 ? `
                 <div class="mt-2 pt-2 border-t border-dark-500">
@@ -217,8 +217,8 @@ function renderTable() {
     }
     
     tbody.innerHTML = products.map(product => {
-        const isMultiTarget = product.molecule_type?.includes('双靶点') || product.molecule_type?.includes('三靶点');
-        const hasGCG = product.molecule_type?.includes('GCG');
+        const isMultiTarget = (product.targets && product.targets.length >= 2);
+        const hasGCG = (product.targets && product.targets.includes('GCGR'));
         const isChina = product.country === 'CN';
         
         // 确定行样式
@@ -238,7 +238,7 @@ function renderTable() {
             <td class="px-4 py-3">
                 <div class="flex flex-col">
                     <div class="flex items-center gap-2">
-                        <span class="font-medium text-white">${product.product_name}</span>
+                        <span class="font-medium text-white">${product.name_cn}</span>
                         ${isMultiTarget ? '<span class="multi-target-badge">🏆</span>' : ''}
                         ${hasGCG ? '<span class="gcg-badge">GCG</span>' : ''}
                     </div>
@@ -249,7 +249,7 @@ function renderTable() {
                 <span class="text-gray-300">${product.company}</span>
             </td>
             <td class="px-4 py-3">
-                <span class="target-badge ${isMultiTarget ? 'target-dual' : 'target-single'}">${product.molecule_type}</span>
+                <span class="target-badge ${isMultiTarget ? 'target-dual' : 'target-single'}">${product.type}</span>
             </td>
             <td class="px-4 py-3">
                 <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
@@ -277,8 +277,8 @@ function renderCards() {
     const products = state.filteredProducts;
     
     container.innerHTML = products.map(product => {
-        const isMultiTarget = product.molecule_type?.includes('双靶点') || product.molecule_type?.includes('三靶点');
-        const hasGCG = product.molecule_type?.includes('GCG');
+        const isMultiTarget = (product.targets && product.targets.length >= 2);
+        const hasGCG = (product.targets && product.targets.includes('GCGR'));
         const isChina = product.country === 'CN';
         
         // 确定卡片样式
@@ -300,12 +300,12 @@ function renderCards() {
                 <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
             </div>
             
-            <h3 class="text-lg font-bold text-white mb-1">${product.product_name}</h3>
+            <h3 class="text-lg font-bold text-white mb-1">${product.name_cn}</h3>
             <p class="text-sm text-gray-400 mb-3">${product.code_name || ''} · ${product.company}</p>
             
             <div class="mb-3">
                 <span class="text-xs text-gray-500">分子类型</span>
-                <p class="text-sm text-gray-300">${product.molecule_type}</p>
+                <p class="text-sm text-gray-300">${product.type}</p>
             </div>
             
             ${bestWL !== '-' ? `
@@ -398,7 +398,7 @@ function filterProducts() {
     state.filteredProducts = state.products.filter(product => {
         // 搜索匹配
         const searchMatch = !searchTerm || 
-            product.product_name.toLowerCase().includes(searchTerm) ||
+            product.name_cn.toLowerCase().includes(searchTerm) ||
             product.company.toLowerCase().includes(searchTerm) ||
             (product.code_name && product.code_name.toLowerCase().includes(searchTerm));
         
@@ -409,7 +409,7 @@ function filterProducts() {
         const indicationMatch = !indicationFilter || product.indications.includes(indicationFilter);
         
         // 分子类型匹配
-        const moleculeMatch = !moleculeFilter || product.molecule_type === moleculeFilter;
+        const moleculeMatch = !moleculeFilter || product.type === moleculeFilter;
         
         // 中国专区
         const chinaMatch = !chinaOnly || product.country === 'CN';
@@ -491,7 +491,7 @@ function showProductDetail(productId) {
     const modal = document.getElementById('productModal');
     const content = document.getElementById('modalContent');
     
-    document.getElementById('modalTitle').textContent = `${product.product_name} - 产品详情`;
+    document.getElementById('modalTitle').textContent = `${product.name_cn} - 产品详情`;
     
     content.innerHTML = `
         <div class="space-y-6">
@@ -690,7 +690,7 @@ function showCompareModal() {
                         ${selectedProducts.map(p => `
                             <th class="product-header">
                                 <div class="text-center">
-                                    <p class="font-bold">${p.product_name}</p>
+                                    <p class="font-bold">${p.name_cn}</p>
                                     <p class="text-xs font-normal text-gray-500">${p.company}</p>
                                 </div>
                             </th>
@@ -706,7 +706,7 @@ function showCompareModal() {
                     </tr>
                     <tr>
                         <td class="font-medium">分子类型</td>
-                        ${selectedProducts.map(p => `<td>${p.molecule_type}</td>`).join('')}
+                        ${selectedProducts.map(p => `<td>${p.type}</td>`).join('')}
                     </tr>
                     <tr>
                         <td class="font-medium">给药途径</td>
@@ -931,7 +931,7 @@ function initCharts() {
     // 分子类型分布
     const moleculeData = {};
     state.products.forEach(p => {
-        const simplified = p.molecule_type.replace(/受体激动剂|激动剂/g, '');
+        const simplified = p.type.replace(/受体激动剂|激动剂/g, '');
         moleculeData[simplified] = (moleculeData[simplified] || 0) + 1;
     });
     
@@ -956,9 +956,9 @@ function initCharts() {
     // 靶点分布
     const targetData = { '单靶点(GLP-1)': 0, '双靶点': 0, '三靶点': 0 };
     state.products.forEach(p => {
-        if (p.target_count === 1) targetData['单靶点(GLP-1)']++;
-        else if (p.target_count === 2) targetData['双靶点']++;
-        else if (p.target_count === 3) targetData['三靶点']++;
+        if ((p.target_count || (p.targets ? p.targets.length : 0)) === 1) targetData['单靶点(GLP-1)']++;
+        else if ((p.target_count || (p.targets ? p.targets.length : 0)) === 2) targetData['双靶点']++;
+        else if ((p.target_count || (p.targets ? p.targets.length : 0)) === 3) targetData['三靶点']++;
     });
     
     new Chart(document.getElementById('targetChart'), {
