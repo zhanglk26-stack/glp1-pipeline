@@ -824,7 +824,7 @@ function initCharts() {
         stageData[p.stage] = (stageData[p.stage] || 0) + 1;
     });
     
-    new Chart(document.getElementById('stageChart'), {
+    document.getElementById('stageChart') && new Chart(document.getElementById('stageChart'), {
         type: 'doughnut',
         data: {
             labels: Object.keys(stageData),
@@ -859,7 +859,7 @@ function initCharts() {
         });
     });
     
-    new Chart(document.getElementById('typeChart'), {
+    document.getElementById('typeChart') && new Chart(document.getElementById('typeChart'), {
         type: 'bar',
         data: {
             labels: Object.keys(indicationData),
@@ -909,7 +909,7 @@ function initCharts() {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 8);
     
-    new Chart(document.getElementById('companyChart'), {
+    document.getElementById('companyChart') && new Chart(document.getElementById('companyChart'), {
         type: 'bar',
         data: {
             labels: sortedCompanies.map(c => c[0]),
@@ -935,7 +935,7 @@ function initCharts() {
         moleculeData[simplified] = (moleculeData[simplified] || 0) + 1;
     });
     
-    new Chart(document.getElementById('moleculeChart'), {
+    document.getElementById('moleculeChart') && new Chart(document.getElementById('moleculeChart'), {
         type: 'pie',
         data: {
             labels: Object.keys(moleculeData),
@@ -961,7 +961,7 @@ function initCharts() {
         else if ((p.target_count || (p.targets ? p.targets.length : 0)) === 3) targetData['三靶点']++;
     });
     
-    new Chart(document.getElementById('targetChart'), {
+    document.getElementById('targetChart') && new Chart(document.getElementById('targetChart'), {
         type: 'doughnut',
         data: {
             labels: Object.keys(targetData),
