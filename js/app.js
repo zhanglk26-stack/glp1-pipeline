@@ -7,7 +7,7 @@ const state = {
     products: [],
     filteredProducts: [],
     sortField: 'approval_date',
-    sortDirection: 'desc'
+    sortDirection: 'asc'
 };
 
 
@@ -147,7 +147,7 @@ function renderTable() {
         // 动态生成真实的靶点标签
         let targetTagsHtml = '';
         if (product.targets && product.targets.length > 0) {
-            targetTagsHtml = product.targets.map(t => `<span class="border border-gray-900 text-gray-900 bg-white px-1 text-[10px] font-bold uppercase tracking-wider">${t.replace('R', '')}</span>`).join('<span class="w-[2px]"></span>');
+            targetTagsHtml = product.targets.map(t => `<span class="border border-gray-200 text-gray-600 bg-gray-50 px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wider">${t.replace('R', '')}</span>`).join('<span class="w-[2px]"></span>');
         }
         
         return `
@@ -167,18 +167,18 @@ function renderTable() {
             <td class="px-4 py-3 whitespace-nowrap">
                 <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
             </td>
-            <td class="px-4 py-3 whitespace-nowrap">
-                <span class="text-sm text-gray-900 border border-gray-900 px-1 rounded bg-gray-50">${product.administration || '-'}</span>
+            <td class="px-4 py-3 whitespace-nowrap text-sm">
+                <span class="text-gray-600 border border-gray-200 px-1.5 py-0.5 rounded bg-gray-50/50">${product.administration || '-'}</span>
             </td>
-            <td class="px-4 py-3 whitespace-nowrap">
-                <span class="text-sm text-gray-900 border border-gray-900 px-1 rounded bg-gray-50">${product.frequency}</span>
+            <td class="px-4 py-3 whitespace-nowrap text-sm">
+                <span class="text-gray-600 border border-gray-200 px-1.5 py-0.5 rounded bg-gray-50/50">${product.frequency}</span>
             </td>
             <td class="px-4 py-3 text-sm text-gray-900">
                 ${product.approval_date || '-'}
             </td>
             <td class="px-4 py-3">
                 <div class="flex flex-wrap gap-1">
-                    ${(product.indications || []).slice(0, 2).map(ind => `<span class="text-xs bg-white border border-gray-900 text-gray-900 px-2 py-0.5 rounded">${ind}</span>`).join('')}
+                    ${(product.indications || []).slice(0, 2).map(ind => `<span class="text-[10px] bg-gray-50 border border-gray-100 text-gray-600 px-2 py-0.5 rounded-full">${ind}</span>`).join('')}
                 </div>
             </td>
             <td class="px-4 py-3 text-sm text-gray-900">
