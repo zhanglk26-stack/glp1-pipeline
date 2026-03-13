@@ -20,18 +20,12 @@ function isChineseCompany(company) {
 
 // 阶段排序权重
 const stageWeights = {
-    '已上市': 8,
-    'NDA审评中': 7,
-    'NDA申报中': 7,
-    'NDA申请中': 7,
-    'III期临床': 6,
-    'III期完成': 6,
-    'III期临床(注射剂)/II期(口服)': 6,
-    'II期临床': 5,
-    'I期临床': 4,
-    '临床前': 3,
-    '临床阶段': 3,
-    '发现阶段': 2,
+    '已上市': 6,
+    'NDA': 5,
+    'III期': 4,
+    'II期': 3,
+    'I期': 2,
+    '临床前': 1,
     '终止开发': 1
 };
 
@@ -47,7 +41,6 @@ async function init() {
         updateStats();
         sortProducts('approval_date', false);
         renderTable();
-        initCharts();
 
         // 绑定事件
         setupEventListeners();
@@ -147,7 +140,7 @@ function renderTable() {
         // 动态生成真实的靶点标签
         let targetTagsHtml = '';
         if (product.targets && product.targets.length > 0) {
-            targetTagsHtml = product.targets.map(t => `<span class="border border-gray-200 text-gray-600 bg-gray-50 px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wider">${t.replace('R', '')}</span>`).join('<span class="w-[2px]"></span>');
+            targetTagsHtml = product.targets.map(t => `<span class="border border-gray-200 text-gray-600 bg-gray-50 px-1.5 py-0.5 rounded text-xs font-normal uppercase tracking-wider">${t.replace('R', '')}</span>`).join('<span class="w-[2px]"></span>');
         }
         
         return `
@@ -178,7 +171,7 @@ function renderTable() {
             </td>
             <td class="px-4 py-3">
                 <div class="flex flex-wrap gap-1">
-                    ${(product.indications || []).slice(0, 2).map(ind => `<span class="text-[10px] bg-gray-50 border border-gray-100 text-gray-600 px-2 py-0.5 rounded-full">${ind}</span>`).join('')}
+                    ${(product.indications || []).slice(0, 2).map(ind => `<span class="text-xs bg-gray-50 border border-gray-100 text-gray-600 px-2 py-0.5 rounded-full">${ind}</span>`).join('')}
                 </div>
             </td>
             <td class="px-4 py-3 text-sm text-gray-900">
@@ -194,9 +187,9 @@ function renderTable() {
 function getStageClass(stage) {
     if (stage === '已上市') return 'stage-approved';
     if (stage.includes('NDA')) return 'stage-nda';
-    if (stage.includes('III期') || stage.includes('3期')) return 'stage-phase3';
-    if (stage.includes('II期')) return 'stage-phase2';
-    if (stage.includes('I期')) return 'stage-phase1';
+    if (stage.includes('III') || stage.includes('3')) return 'stage-phase3';
+    if (stage.includes('II') || stage.includes('2')) return 'stage-phase2';
+    if (stage.includes('I') || stage.includes('1')) return 'stage-phase1';
     return 'stage-preclinical';
 }
 
@@ -334,66 +327,6 @@ function sortProducts(field, toggleDirection = true) {
     renderTable();
 }
 
-// 霓虹色系配色方案
-const neonColorScheme = {
-    cyan: '#00f5ff',
-    purple: '#bf00ff',
-    orange: '#ff9500',
-    pink: '#ff00aa',
-    green: '#00ff88',
-    yellow: '#ffea00',
-    red: '#ff3366',
-    blue: '#0099ff'
-};
-
-const neonPalette = [
-    neonColorScheme.cyan,
-    neonColorScheme.purple,
-    neonColorScheme.orange,
-    neonColorScheme.pink,
-    neonColorScheme.green,
-    neonColorScheme.yellow,
-    neonColorScheme.red,
-    neonColorScheme.blue
-];
-
-// 初始化图表
-function initCharts() {
-    try {
-        // 设置Chart.js默认值
-        Chart.defaults.color = '#9ca3af';
-        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
-        
-        // 阶段分布图
-        const stageData = {};
-        state.products.forEach(p => {
-            stageData[p.stage] = (stageData[p.stage] || 0) + 1;
-        });
-        
-        const stageChartEl = document.getElementById('stageChart');
-        if (stageChartEl) {
-            new Chart(stageChartEl, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(stageData),
-                    datasets: [{
-                        data: Object.values(stageData),
-                        backgroundColor: neonPalette,
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom' }
-                    }
-                }
-            });
-        }
-        
-    } catch(e) { console.warn('Charts init skipped:', e.message); }
-}
 
 // 设置事件监听
 function setupEventListeners() {
