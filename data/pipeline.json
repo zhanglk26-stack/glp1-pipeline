@@ -2,106 +2,262 @@
   "metadata": {
     "version": "2.1",
     "last_updated": "2025-03-10",
-    "total_products": 57,
+    "total_products": 52,
     "search_period": "2025年最新"
   },
   "products": [
     {
       "id": 1,
-      "name_cn": "司美格鲁肽",
+      "name_cn": "司美格鲁肽（诺和泰）",
       "name_en": "Semaglutide",
       "company": "诺和诺德",
       "company_en": "Novo Nordisk",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射/口服",
       "stage": "已上市",
-      "indications": ["2型糖尿病", "肥胖"],
-      "approval_date": "2021年4月(糖尿病), 2024年6月(减重)",
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
+      "approval_date": "2021年04月(糖尿病), 2024年06月(减重)",
       "patent_expiry_cn": "2026-03-20",
       "latest_update": "中国减重适应症专利2026年3月20日到期，仿制药竞争即将开启",
       "commercial_name": "诺和泰/Ozempic(降糖), 诺和盈/Wegovy(减重)",
-      "market_status": "全球GLP-1市场领导者，2024年全球销售额超250亿美元"
+      "market_status": "全球GLP-1市场领导者，2024年全球销售额超250亿美元",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "口服版司美格鲁肽大降价，诺和诺德\"死磕\"礼来",
+          "url": "https://news.qq.com/rain/a/20260226A070ZW00",
+          "date": "2026-02-26",
+          "source": "腾讯网"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        },
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 2,
-      "name_cn": "替尔泊肽",
+      "name_cn": "替尔泊肽（穆峰达）",
       "name_en": "Tirzepatide",
       "company": "礼来",
       "company_en": "Eli Lilly",
-      "targets": ["GLP-1R", "GIPR"],
+      "targets": [
+        "GLP-1R",
+        "GIPR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病", "肥胖"],
-      "approval_date": "2024年5月(糖尿病), 2024年7月(减重), 2025年1月正式上市",
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
+      "approval_date": "2024年05月(糖尿病), 2024年07月(减重)",
       "latest_update": "2025年纳入国家医保目录，月治疗费用从2800元降至560元",
       "commercial_name": "穆峰达/Mounjaro(降糖), Zepbound(减重)",
-      "market_status": "2025年预售首日销量破10万支"
+      "market_status": "2025年预售首日销量破10万支",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "礼来30亿美元押注口服GLP-1本土化，剑指百亿减重市场",
+          "url": "https://news.qq.com/rain/a/20260311A07UIJ00",
+          "date": "2026-03-11",
+          "source": "腾讯网"
+        },
+        {
+          "title": "价格还要降!礼来豪赌30亿，要把\"口服版\"GLP-1产能全放在中国",
+          "url": "https://finance.sina.com.cn/roll/2026-03-12/doc-inhqtcun4832028.shtml",
+          "date": "2026-03-12",
+          "source": "新浪财经"
+        },
+        {
+          "title": "与替尔泊肽同选一家CDMO（非药明），参与群雄逐鹿!",
+          "url": "https://news.qq.com/rain/a/20260310A027LA00",
+          "date": "2026-03-10",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 3,
-      "name_cn": "玛仕度肽",
+      "name_cn": "玛仕度肽（信尔美）",
       "name_en": "Mazdutide",
       "company": "信达生物/礼来",
       "company_en": "Innovent/Eli Lilly",
-      "targets": ["GLP-1R", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病", "肥胖"],
-      "approval_date": "2025年6月27日(肥胖), 2025年9月19日(糖尿病)",
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
+      "approval_date": "2025年06月(肥胖), 2025年09月(糖尿病)",
       "latest_update": "首款国产双靶点GLP-1创新药，68周平均减重18%，医保谈判推进中",
       "commercial_name": "信尔美",
-      "market_status": "国产双靶点减肥药标杆"
+      "market_status": "国产双靶点减肥药标杆",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "信达生物百亿元营收难掩增速烦恼，GLP-1刚上市或遇价格战",
+          "url": "https://news.qq.com/rain/a/20260306A06T1S00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "礼来30亿美元押注口服GLP-1本土化，剑指百亿减重市场",
+          "url": "https://news.qq.com/rain/a/20260311A07UIJ00",
+          "date": "2026-03-11",
+          "source": "腾讯网"
+        },
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 4,
-      "name_cn": "度拉糖肽",
+      "name_cn": "度拉糖肽（度易达）",
       "name_en": "Dulaglutide",
       "company": "礼来",
       "company_en": "Eli Lilly",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
-      "approval_date": "已上市多年",
+      "indications": [
+        "2型糖尿病"
+      ],
+      "approval_date": "2019年02月(糖尿病)",
       "latest_update": "全球销售额已见顶，面临专利到期压力",
       "commercial_name": "度易达/Trulicity",
-      "market_status": "全球销售额下滑趋势"
+      "market_status": "全球销售额下滑趋势",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "礼来多受体激动剂(GLP-1/GIP双靶点)tirzepatide展现多种代谢疾病治疗潜力!",
+          "url": "https://news.bioon.com/tags/GLP-1+Six+In+One/12.html",
+          "date": "2019-06-11",
+          "source": "生物谷"
+        },
+        {
+          "title": "减肥针相关的罕见但严重急性胰腺炎监管警示进一步加强，涉及司 ...",
+          "url": "https://news.qq.com/rain/a/20260202A05FAC00",
+          "date": "2026-02-02",
+          "source": "腾讯网"
+        },
+        {
+          "title": "礼来GIP/glp-1受体双重激动剂III期临床获积极结果",
+          "url": "https://news.bioon.com/tags/glp+1+and+high+potassium/12.html",
+          "date": "2020-12-12",
+          "source": "生物谷"
+        }
+      ]
     },
     {
       "id": 5,
-      "name_cn": "利拉鲁肽",
+      "name_cn": "利拉鲁肽（诺和力）",
       "name_en": "Liraglutide",
       "company": "诺和诺德/华东医药",
       "company_en": "Novo Nordisk/Huadong Medicine",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病", "肥胖"],
-      "approval_date": "原研已上市多年；华东医药2023年3月(糖尿病), 2023年7月(减重)",
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
+      "approval_date": "2011年03月(糖尿病), 2023年03月(糖尿病-华东), 2023年07月(减重-华东)",
       "latest_update": "华东医药利拉鲁肽为国内首款获批的GLP-1类减肥药，已在全国数百家医院销售",
       "commercial_name": "诺和力/Victoza(降糖), Saxenda(减重); 华东医药:利鲁平",
-      "market_status": "国产替代加速"
+      "market_status": "国产替代加速",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "中国创新药企近5亿美元BD后，全球首个偏向型GLP-1减肥药国内获批",
+          "url": "https://news.qq.com/rain/a/20260306A080GA00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "GLP-1降糖减重药再添新成员!科学用药需临床医生全程指导",
+          "url": "https://news.qq.com/rain/a/20260310A02IJ500",
+          "date": "2026-03-10",
+          "source": "腾讯网"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        }
+      ]
     },
     {
       "id": 6,
-      "name_cn": "依苏帕格鲁肽",
+      "name_cn": "依苏帕格鲁肽（怡诺轻）",
       "name_en": "Efpeglenatide α",
       "company": "银诺医药",
       "company_en": "Innogen Pharma",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
-      "approval_date": "2025年1月26日",
+      "indications": [
+        "2型糖尿病"
+      ],
+      "approval_date": "2025年01月(糖尿病)",
       "latest_update": "2025年12月纳入国家医保目录(2026年1月1日生效)，亚洲首个自研人源超长效GLP-1RA，半衰期204小时全球最长，有望实现每两周一次给药",
       "commercial_name": "怡诺轻",
-      "market_status": "国产首个原研人源长效GLP-1，减重IIa期临床积极"
+      "market_status": "国产首个原研人源长效GLP-1，减重IIa期临床积极",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        },
+        {
+          "title": "GLP-1药物的下一站：从人用到兽用？",
+          "url": "https://news.qq.com/rain/a/20260214A02MO300",
+          "date": "2026-02-14",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 7,
@@ -109,14 +265,42 @@
       "name_en": "CagriSema",
       "company": "诺和诺德",
       "company_en": "Novo Nordisk",
-      "targets": ["GLP-1R", "Amylin"],
+      "targets": [
+        "GLP-1R",
+        "Amylin"
+      ],
       "type": "复方制剂",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "III期数据显示减重23%，肌肉流失少，预计2026年获批上市；SELECT研究证实心血管获益",
       "commercial_name": "待定",
-      "market_status": "诺和诺德下一代重磅产品"
+      "market_status": "诺和诺德下一代重磅产品",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "GLP—1 下半场生变：辉瑞抢跑，诺和诺德与药王渐行渐远？",
+          "url": "https://news.qq.com/rain/a/20260226A0433T00",
+          "date": "2026-02-26",
+          "source": "腾讯网"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        },
+        {
+          "title": "诺和诺德 GLP-1 联合制剂国内获批上市",
+          "url": "https://finance.sina.com.cn/roll/2026-03-09/doc-inhqkhiq9954117.shtml",
+          "date": "2026-03-09",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 8,
@@ -124,14 +308,43 @@
       "name_en": "Retatrutide",
       "company": "礼来",
       "company_en": "Eli Lilly",
-      "targets": ["GLP-1R", "GIPR", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GIPR",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "II期临床减重幅度达24.2%，肌肉流失比例仅2.9%，III期研究2025年底揭盲，预计2027年获批",
       "commercial_name": "待定",
-      "market_status": "三靶点疗效天花板，下一代重磅产品"
+      "market_status": "三靶点疗效天花板，下一代重磅产品",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "礼来30亿美元押注口服GLP-1本土化，剑指百亿减重市场",
+          "url": "https://news.qq.com/rain/a/20260311A07UIJ00",
+          "date": "2026-03-11",
+          "source": "腾讯网"
+        },
+        {
+          "title": "价格还要降!礼来豪赌30亿，要把\"口服版\"GLP-1产能全放在中国",
+          "url": "https://finance.sina.com.cn/roll/2026-03-12/doc-inhqtcun4832028.shtml",
+          "date": "2026-03-12",
+          "source": "新浪财经"
+        },
+        {
+          "title": "又一跨国药企官宣扩大在华投资 礼来口服GLP-1生产落子康龙化成",
+          "url": "https://finance.sina.com.cn/jjxw/2026-03-11/doc-inhqrvza5343872.shtml",
+          "date": "2026-03-11",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 9,
@@ -139,14 +352,41 @@
       "name_en": "Orforglipron",
       "company": "礼来",
       "company_en": "Eli Lilly",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "小分子",
       "administration": "口服",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "III期已完成，2026年提交上市申请，小分子结构使生产成本降低30%-50%，月费预计低于1500元",
       "commercial_name": "待定",
-      "market_status": "首个非肽类口服小分子GLP-1，将发起价格战"
+      "market_status": "首个非肽类口服小分子GLP-1，将发起价格战",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "价格还要降!礼来豪赌30亿，要把\"口服版\"GLP-1产能全放在中国",
+          "url": "https://finance.sina.com.cn/roll/2026-03-12/doc-inhqtcun4832028.shtml",
+          "date": "2026-03-12",
+          "source": "新浪财经"
+        },
+        {
+          "title": "礼来30亿美元押注口服GLP-1本土化，剑指百亿减重市场",
+          "url": "https://news.qq.com/rain/a/20260311A07UIJ00",
+          "date": "2026-03-11",
+          "source": "腾讯网"
+        },
+        {
+          "title": "未来十年拟投资30亿美元!礼来在华加码布局口服减肥药产能",
+          "url": "https://news.qq.com/rain/a/20260311A069QW00",
+          "date": "2026-03-11",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 10,
@@ -154,14 +394,42 @@
       "name_en": "HRS9531",
       "company": "恒瑞医药",
       "company_en": "Hengrui Medicine",
-      "targets": ["GLP-1R", "GIPR"],
+      "targets": [
+        "GLP-1R",
+        "GIPR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "2025年5月将HRS-7535、HRS9531、HRS-4729三款GLP-1类创新药授权给美国Hercules公司，潜在授权总金额高达60亿美元",
       "commercial_name": "待定",
-      "market_status": "国产双靶点领先"
+      "market_status": "国产双靶点领先",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "V观财报｜恒瑞医药：子公司HRS9531注射液获临床试验批准",
+          "url": "https://news.qq.com/rain/a/20260309A07IHA00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "恒瑞医药：子公司收到HRS9531注射液药物临床试验批准通知书",
+          "url": "https://news.qq.com/rain/a/20260309A06VHR00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "恒瑞医药子公司HRS9531注射液获准开展慢性肾脏病临床试验",
+          "url": "https://finance.sina.com.cn/roll/2026-03-10/doc-inhqneyz6450683.shtml",
+          "date": "2026-03-10",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 11,
@@ -169,14 +437,41 @@
       "name_en": "HRS-7535",
       "company": "恒瑞医药",
       "company_en": "Hengrui Medicine",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "小分子",
       "administration": "口服",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "2025年5月授权美国Hercules公司，首付款及里程碑款总额超10亿美元",
       "commercial_name": "待定",
-      "market_status": "国产口服小分子GLP-1"
+      "market_status": "国产口服小分子GLP-1",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "恒瑞医药新型口服小分子GLP-1受体激动剂HRS-7535用于高血压合并超重或 ...",
+          "url": "https://view.inews.qq.com/a/20260128A04D0W00",
+          "date": "2026-01-28",
+          "source": "腾讯网"
+        },
+        {
+          "title": "恒瑞医药口服小分子GLP-1R激动剂用于高血压合并超重或肥胖获批Ⅲ期 ...",
+          "url": "https://news.qq.com/rain/a/20260128A04D9R00",
+          "date": "2026-01-28",
+          "source": "腾讯网"
+        },
+        {
+          "title": "恒瑞医药：子公司收到HRS-7535片药物临床试验批准通知书",
+          "url": "https://finance.ifeng.com/c/8qJP83csPeS",
+          "date": "2026-01-29",
+          "source": "凤凰网"
+        }
+      ]
     },
     {
       "id": 12,
@@ -184,14 +479,42 @@
       "name_en": "BGM0504",
       "company": "博瑞医药",
       "company_en": "BrightGene",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R",
+        "GIPR"
+      ],
       "type": "多肽",
       "administration": "注射/口服",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "III期临床已完成入组，减重效果与司美格鲁肽相当，预计2026年Q3获批",
       "commercial_name": "待定",
-      "market_status": "注射+口服双剂型布局"
+      "market_status": "注射+口服双剂型布局",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "国产减重药崛起\"下半场\"博瑞医药多维管线构筑全场景护城河",
+          "url": "https://finance.ifeng.com/c/8rFQr5y6cfi",
+          "date": "2026-03-05",
+          "source": "凤凰网财经"
+        },
+        {
+          "title": "博瑞医药跌0.30%，成交额1.93亿元，后市是否有机会？",
+          "url": "https://finance.sina.com.cn/stock/aiassist/ggsp/2026-02-12/doc-inhmpyyi3896012.shtml",
+          "date": "2026-02-12",
+          "source": "新浪网"
+        },
+        {
+          "title": "博瑞医药获机构调研，创新药管线进展受关注",
+          "url": "https://view.inews.qq.com/a/20260211A05OML00",
+          "date": "2026-02-11",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 13,
@@ -199,14 +522,41 @@
       "name_en": "TG103",
       "company": "石药集团/天境生物",
       "company_en": "CSPC/TJ Bio",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "Fc融合蛋白",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["肥胖", "2型糖尿病"],
+      "indications": [
+        "肥胖",
+        "2型糖尿病"
+      ],
       "latest_update": "2025年3月减重III期完成数据库锁库，预计2025年递交上市申请，2026年获批上市；半衰期168小时，每周一次给药",
       "commercial_name": "待定",
-      "market_status": "石药GLP-1核心产品"
+      "market_status": "石药GLP-1核心产品",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "石药集团：GLP -1/GIP受体双偏向性激动多肽长效注射液在美国获临床 ...",
+          "url": "https://news.qq.com/rain/a/20260216A03UIH00",
+          "date": "2026-02-16",
+          "source": "腾讯网"
+        },
+        {
+          "title": "石药集团(01093)：GLP -1/GIP受体双偏向性激动多肽长效注射液在美国获 ...",
+          "url": "https://finance.sina.com.cn/stock/t/2026-02-16/doc-inhmyvap7275011.shtml",
+          "date": "2026-02-16",
+          "source": "新浪网"
+        },
+        {
+          "title": "石药集团GLP-1注射剂获FDA批准在美开展临床试验",
+          "url": "https://news.qq.com/rain/a/20260216A05APN00",
+          "date": "2026-02-16",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 14,
@@ -214,15 +564,40 @@
       "name_en": "Semaglutide(CSPC)",
       "company": "石药集团",
       "company_en": "CSPC",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "approval_date": "2025年8月5日上市申请获受理",
       "latest_update": "III期临床疗效与诺和诺德司美格鲁肽高度一致，胃肠道反应发生率略低；减重适应症III期进行中",
       "commercial_name": "待定",
-      "market_status": "首仿竞争激烈"
+      "market_status": "首仿竞争激烈",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        },
+        {
+          "title": "替尔泊肽VS司美格鲁肽，谁是\"减重之王\"？最新头对头研究来了!",
+          "url": "https://news.qq.com/rain/a/20260306A06NDQ00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "口服GLP-1大爆",
+          "url": "https://news.pedaily.cn/202601/560133.shtml",
+          "date": "2026-01-20",
+          "source": "投资界"
+        }
+      ]
     },
     {
       "id": 15,
@@ -230,14 +605,44 @@
       "name_en": "RAY1225",
       "company": "众生药业",
       "company_en": "Zhongsheng Pharma",
-      "targets": ["GLP-1R", "GIPR"],
+      "targets": [
+        "GLP-1R",
+        "GIPR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["肥胖", "2型糖尿病", "MASH", "OSA"],
+      "indications": [
+        "肥胖",
+        "2型糖尿病",
+        "MASH",
+        "OSA"
+      ],
       "latest_update": "2026年1月与齐鲁制药达成10亿元级战略合作；肥胖/糖尿病/MASH三大适应症III期均完成入组；每两周给药一次差异化优势",
       "commercial_name": "待定",
-      "market_status": "两周给药差异化设计"
+      "market_status": "两周给药差异化设计",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "众生药业：一类创新药RAY1225新增适应症III期临床获批",
+          "url": "https://news.qq.com/rain/a/20260123A06NNM00",
+          "date": "2026-01-23",
+          "source": "腾讯网"
+        },
+        {
+          "title": "众生药业子公司一类创新药RAY1225注射液新增适应症临床试验获批准",
+          "url": "https://finance.sina.com.cn/jjxw/2026-01-23/doc-inhiiipq1826677.shtml",
+          "date": "2026-01-23",
+          "source": "新浪网"
+        },
+        {
+          "title": "众生药业(002317.SZ)：控股子公司收到一类创新药RAY1225注射液新增适应 ...",
+          "url": "https://ishare.ifeng.com/c/s/8q9T9FgB9h8",
+          "date": "2026-01-23",
+          "source": "凤凰热榜"
+        }
+      ]
     },
     {
       "id": 16,
@@ -245,14 +650,23 @@
       "name_en": "Noliglutide",
       "company": "恒瑞医药",
       "company_en": "Hengrui Medicine",
-      "targets": ["GLP-1R", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "自主研发双靶点激动剂，减重+降糖双适应症同步推进",
       "commercial_name": "待定",
-      "market_status": "III期进行中"
+      "market_status": "III期进行中",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": []
     },
     {
       "id": 17,
@@ -260,14 +674,42 @@
       "name_en": "HDM1005",
       "company": "华东医药",
       "company_en": "Huadong Medicine",
-      "targets": ["GLP-1R", "GIPR"],
+      "targets": [
+        "GLP-1R",
+        "GIPR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "I期临床",
-      "indications": ["肥胖", "2型糖尿病"],
+      "indications": [
+        "肥胖",
+        "2型糖尿病"
+      ],
       "latest_update": "中美双报，美国IND已于2024年4月获批，计划2025年初启动II期",
       "commercial_name": "待定",
-      "market_status": "早期临床"
+      "market_status": "早期临床",
+      "approval_date": "预计2029年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "华东医药公布创新GLP-1/GIP双靶点长效激动剂HDM1005注射液2型糖尿病 ...",
+          "url": "https://finance.sina.com.cn/jjxw/2026-03-10/doc-inhqpaer6253719.shtml",
+          "date": "2026-03-10",
+          "source": "新浪财经"
+        },
+        {
+          "title": "降 HbA1c 超 2.5%且多重获益!华东医药国产降糖新药HDM1005降糖2期数据 ...",
+          "url": "https://biz.ifeng.com/c/8rNxjnOHWMn",
+          "date": "2026-03-10",
+          "source": "凤凰网"
+        },
+        {
+          "title": "华东医药HDM1005降糖适应症Ⅱ期临床告捷",
+          "url": "https://www.msn.cn/zh-cn/news/other/华东医药hdm1005降糖适应症-期临床告捷/ar-AA1XUtqi",
+          "date": "2026-03-10",
+          "source": "证券日报网"
+        }
+      ]
     },
     {
       "id": 18,
@@ -275,14 +717,41 @@
       "name_en": "HDM1002",
       "company": "华东医药",
       "company_en": "Huadong Medicine",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "小分子",
       "administration": "口服",
       "stage": "II期临床",
-      "indications": ["肥胖", "2型糖尿病"],
+      "indications": [
+        "肥胖",
+        "2型糖尿病"
+      ],
       "latest_update": "首个中美双报的国产口服小分子GLP-1，中国和美国IND均已获批",
       "commercial_name": "待定",
-      "market_status": "口服小分子差异化"
+      "market_status": "口服小分子差异化",
+      "approval_date": "预计2028年以后",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "华东医药公布创新GLP-1/GIP双靶点长效激动剂HDM1005注射液2型糖尿病 ...",
+          "url": "https://news.qq.com/rain/a/20260310A06TA400",
+          "date": "2026-03-10",
+          "source": "腾讯网"
+        },
+        {
+          "title": "降 HbA1c 超 2.5%且多重获益!华东医药国产降糖新药HDM1005降糖2期数据 ...",
+          "url": "https://biz.ifeng.com/c/8rNxjnOHWMn",
+          "date": "2026-03-10",
+          "source": "凤凰网"
+        },
+        {
+          "title": "华东医药注射用HDM2024获美国FDA临床试验批准",
+          "url": "https://news.qq.com/rain/a/20260312A0300S00",
+          "date": "2026-03-12",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 19,
@@ -290,91 +759,237 @@
       "name_en": "DR10624",
       "company": "华东医药/道尔生物",
       "company_en": "Huadong Medicine/Doer Bio",
-      "targets": ["FGF21R", "GCGR", "GLP-1R"],
+      "targets": [
+        "FGF21R",
+        "GCGR",
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "II期临床",
-      "indications": ["重度高甘油三酯血症", "肥胖"],
+      "indications": [
+        "重度高甘油三酯血症",
+        "肥胖"
+      ],
       "latest_update": "全球首创三靶点激动剂，中国II期启动，新西兰Ib/IIa期进行中",
       "commercial_name": "待定",
-      "market_status": "三靶点全球首创"
+      "market_status": "三靶点全球首创",
+      "approval_date": "预计2028年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "华东医药：控股子公司DR10624注射液获得美国FDA新药临床试验批准通知",
+          "url": "https://news.qq.com/rain/a/20260114A05IER00",
+          "date": "2026-01-14",
+          "source": "腾讯网"
+        },
+        {
+          "title": "华东医药子公司注射用HDM2024美国临床试验获批，进一步提升公司在 ...",
+          "url": "https://finance.sina.com.cn/roll/2026-03-11/doc-inhqrrte5431372.shtml",
+          "date": "2026-03-11",
+          "source": "新浪网"
+        },
+        {
+          "title": "纳入突破性治疗品种 华东医药创新药研发取得新进展",
+          "url": "https://view.inews.qq.com/a/20260111A05OWI00",
+          "date": "2026-01-11",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 20,
-      "name_cn": "聚乙二醇洛塞那肽",
+      "name_cn": "聚乙二醇洛塞那肽（孚来美）",
       "name_en": "PEG-Loxenatide",
       "company": "翰森制药",
       "company_en": "Hansoh Pharma",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
-      "approval_date": "2019年5月",
+      "indications": [
+        "2型糖尿病"
+      ],
+      "approval_date": "2019年05月(糖尿病)",
       "latest_update": "国产首个长效GLP-1受体激动剂，2024年上半年销售额约2.5亿元",
       "commercial_name": "孚来美",
-      "market_status": "国产长效GLP-1先行者"
+      "market_status": "国产长效GLP-1先行者",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "中国创新药，轮到翰森制药亮剑了",
+          "url": "https://www.sohu.com/a/993954026_121123832",
+          "date": "2026-03-08",
+          "source": "搜狐"
+        },
+        {
+          "title": "翰森制药携GLP-1/GIP双受体激动剂重磅亮相JPM大会",
+          "url": "https://ishare.ifeng.com/c/s/8q9LqyEJALv",
+          "date": "2026-03-10",
+          "source": "凤凰热榜"
+        },
+        {
+          "title": "华森制药：公司PEG相关产品主要是聚乙二醇4000散和聚乙二醇复方电解 ...",
+          "url": "https://www.nbd.com.cn/articles/2026-01-06/4208710.html",
+          "date": "2026-01-06",
+          "source": "每经网"
+        }
+      ]
     },
     {
       "id": 21,
-      "name_cn": "贝那鲁肽",
+      "name_cn": "贝那鲁肽（谊生泰）",
       "name_en": "Benaglutide",
       "company": "仁会生物",
       "company_en": "Renben Bio",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病", "肥胖"],
-      "approval_date": "已上市",
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
+      "approval_date": "2016年12月(糖尿病), 2023年07月(减重)",
       "latest_update": "短效制剂，2024年上半年同比增长约228%",
       "commercial_name": "谊生泰",
-      "market_status": "国产短效GLP-1"
+      "market_status": "国产短效GLP-1",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "GLP-1降糖减重药再添新成员!科学用药需临床医生全程指导",
+          "url": "https://news.qq.com/rain/a/20260310A02IJ500",
+          "date": "2026-03-10",
+          "source": "腾讯网"
+        },
+        {
+          "title": "中国创新药企近5亿美元BD后，全球首个偏向型GLP-1减肥药国内获批",
+          "url": "https://news.qq.com/rain/a/20260306A080GA00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "A股财报里的\"肥胖生意经\" GLP-1搅动医药市场 概念股命途分野",
+          "url": "https://www.iimedia.cn/c400/100256.html",
+          "date": "2024-05-09",
+          "source": "艾媒网"
+        }
+      ]
     },
     {
       "id": 22,
-      "name_cn": "艾塞那肽",
+      "name_cn": "艾塞那肽（百泌达）",
       "name_en": "Exenatide",
       "company": "阿斯利康/百特",
       "company_en": "AstraZeneca/Baxter",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "全球首个GLP-1受体激动剂，市场份额被后续产品挤压",
       "commercial_name": "百泌达/Byetta",
-      "market_status": "早期GLP-1产品"
+      "market_status": "早期GLP-1产品",
+      "approval_date": "2009年08月(糖尿病)",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "在常规临床实践中使用GLP-1受体激动剂（RA）导致视力威胁性糖尿病 ...",
+          "url": "https://www.ebiotrade.com/newsf/2025-8/20250807002817892.htm",
+          "date": "2025-08-07",
+          "source": "生物通"
+        },
+        {
+          "title": "综述：GLP-1受体激动剂递送系统在肥胖和糖尿病中的研究进展",
+          "url": "https://www.ebiotrade.com/newsf/2026-2/20260206085335045.htm",
+          "date": "2026-02-06",
+          "source": "生物通"
+        },
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 23,
-      "name_cn": "艾塞那肽微球",
+      "name_cn": "艾塞那肽微球（百达扬）",
       "name_en": "Exenatide ER",
       "company": "阿斯利康",
       "company_en": "AstraZeneca",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "每周一次给药，市场份额下滑",
       "commercial_name": "百达扬/Bydureon",
-      "market_status": "周制剂先驱"
+      "market_status": "周制剂先驱",
+      "approval_date": "2018年01月(糖尿病)",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "综述：GLP-1受体激动剂递送系统在肥胖和糖尿病中的研究进展",
+          "url": "https://www.ebiotrade.com/newsf/2026-2/20260206085335045.htm",
+          "date": "2026-02-06",
+          "source": "生物通"
+        }
+      ]
     },
     {
       "id": 24,
-      "name_cn": "利司那肽",
+      "name_cn": "利司那肽（利时敏）",
       "name_en": "Lixisenatide",
       "company": "赛诺菲",
       "company_en": "Sanofi",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "日制剂，市场表现一般",
       "commercial_name": "利时敏/Lyxumia",
-      "market_status": "市场份额较小"
+      "market_status": "市场份额较小",
+      "approval_date": "2017年12月(糖尿病)",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "GLP-1降糖减重药再添新成员!科学用药需临床医生全程指导",
+          "url": "https://news.qq.com/rain/a/20260310A02IJ500",
+          "date": "2026-03-10",
+          "source": "腾讯网"
+        },
+        {
+          "title": "研究调查：减肥药司美格鲁肽（Wegovy），引发\"眼中风\"（缺血性视 ...",
+          "url": "https://news.qq.com/rain/a/20260311A03SSW00",
+          "date": "2026-03-11",
+          "source": "腾讯网"
+        },
+        {
+          "title": "在常规临床实践中使用GLP-1受体激动剂（RA）导致视力威胁性糖尿病 ...",
+          "url": "https://www.ebiotrade.com/newsf/2025-8/20250807002817892.htm",
+          "date": "2025-08-07",
+          "source": "生物通"
+        }
+      ]
     },
     {
       "id": 25,
@@ -382,14 +997,41 @@
       "name_en": "Semaglutide Oral",
       "company": "诺和诺德",
       "company_en": "Novo Nordisk",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "口服",
       "stage": "中国申报中",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "2026年1月美国获批，中国申报中；68周平均减重13.6%-16.6%",
       "commercial_name": "Rybelsus",
-      "market_status": "首款口服肽类减肥药"
+      "market_status": "首款口服肽类减肥药",
+      "frequency": "天",
+      "approval_date": "预计2025年-2026年",
+      "news": [
+        {
+          "title": "口服版司美格鲁肽大降价，诺和诺德\"死磕\"礼来",
+          "url": "https://news.qq.com/rain/a/20260226A070ZW00",
+          "date": "2026-02-26",
+          "source": "腾讯网"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        },
+        {
+          "title": "诺和诺德下调司美格鲁肽在美标价，降幅最高达50%",
+          "url": "https://news.qq.com/rain/a/20260227A04GDF00",
+          "date": "2026-02-27",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 26,
@@ -397,14 +1039,40 @@
       "name_en": "Semaglutide Nasal",
       "company": "世领制药/诺和诺德",
       "company_en": "Shiling Pharma/Novo Nordisk",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
-      "administration": "鼻喷",
+      "administration": "注射",
       "stage": "I期临床",
-      "indications": ["肥胖"],
+      "indications": [
+        "肥胖"
+      ],
       "latest_update": "全球首款GLP-1经黏膜递送制剂，2026年1月获中美临床批件，生物利用度达37.1%-52.1%",
       "commercial_name": "待定",
-      "market_status": "非注射非口服创新剂型"
+      "market_status": "非注射非口服创新剂型",
+      "approval_date": "预计2029年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "原创 司美格鲁肽专利仅剩20天!诺和诺德遭礼来、国产仿制药围剿 ...",
+          "url": "https://www.sohu.com/a/990981644_121035734",
+          "date": "2026-02-28",
+          "source": "搜狐"
+        },
+        {
+          "title": "群狼环伺，司美格鲁肽的最后20天",
+          "url": "https://www.sohu.com/a/990670476_121123832",
+          "date": "2026-02-27",
+          "source": "搜狐"
+        },
+        {
+          "title": "药物受理最新动态：上海世领制药有限公司司美格鲁肽鼻喷雾剂补充 ...",
+          "url": "https://finance.sina.com.cn/stock/aigc/xysl/2026-01-30/doc-inhiztit3752715.shtml",
+          "date": "2026-01-30",
+          "source": "新浪网"
+        }
+      ]
     },
     {
       "id": 27,
@@ -412,14 +1080,39 @@
       "name_en": "TTP273",
       "company": "华东医药/vTv",
       "company_en": "Huadong Medicine/vTv",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "小分子",
       "administration": "口服",
       "stage": "II期完成",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "全球创新口服小分子，2021年已授权韩国，总金额最高3900万美元",
       "commercial_name": "待定",
-      "market_status": "口服小分子布局"
+      "market_status": "口服小分子布局",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "华东医药公布创新GLP-1/GIP双靶点长效激动剂HDM1005注射液2型糖尿病 ...",
+          "url": "https://news.qq.com/rain/a/20260310A06TA400",
+          "date": "2026-03-10",
+          "source": "腾讯网"
+        },
+        {
+          "title": "华东医药：公司密切关注GLP-1超长效制剂等领域前沿进展 目前该方向 ...",
+          "url": "https://finance.ifeng.com/c/8qb9ls4kjvk",
+          "date": "2026-02-09",
+          "source": "凤凰网"
+        }
+      ]
     },
     {
       "id": 28,
@@ -427,14 +1120,41 @@
       "name_en": "SYH2082",
       "company": "石药集团",
       "company_en": "CSPC",
-      "targets": ["GLP-1R", "GIPR"],
+      "targets": [
+        "GLP-1R",
+        "GIPR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "I期临床",
-      "indications": ["肥胖"],
+      "indications": [
+        "肥胖"
+      ],
       "latest_update": "2026年1月与阿斯利康达成185亿美元合作，每月给药一次，即将进入I期临床",
       "commercial_name": "待定",
-      "market_status": "月制剂重磅产品"
+      "market_status": "月制剂重磅产品",
+      "approval_date": "预计2029年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "石药集团：GLP -1/GIP受体双偏向性激动多肽长效注射液在美国获临床 ...",
+          "url": "https://news.qq.com/rain/a/20260216A03UIH00",
+          "date": "2026-02-16",
+          "source": "腾讯网"
+        },
+        {
+          "title": "石药集团(01093.HK)：GLP-1/GIP受体双偏向性激动多肽长效注射液(SYH2082 ...",
+          "url": "https://finance.sina.com.cn/stock/bxjj/2026-02-16/doc-inhmzfsi7092967.shtml",
+          "date": "2026-02-16",
+          "source": "新浪网"
+        },
+        {
+          "title": "石药集团创纪录BD反致股价\"跳水\"，185亿美元天价交易为何吓坏市场？",
+          "url": "https://finance.sina.com.cn/roll/2026-01-31/doc-inhkexuc5947754.shtml",
+          "date": "2026-01-31",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 29,
@@ -442,14 +1162,40 @@
       "name_en": "SYH9017",
       "company": "石药集团",
       "company_en": "CSPC",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "I期临床",
-      "indications": ["肥胖"],
+      "indications": [
+        "肥胖"
+      ],
       "latest_update": "国内首款获批临床试验的每月给药一次司美格鲁肽制剂",
       "commercial_name": "待定",
-      "market_status": "月制剂司美格鲁肽"
+      "market_status": "月制剂司美格鲁肽",
+      "approval_date": "预计2029年以后",
+      "frequency": "月",
+      "news": [
+        {
+          "title": "石药集团：GLP -1/GIP受体双偏向性激动多肽长效注射液在美国获临床 ...",
+          "url": "https://news.qq.com/rain/a/20260216A03UIH00",
+          "date": "2026-02-16",
+          "source": "腾讯网"
+        },
+        {
+          "title": "石药集团GLP-1注射剂获FDA批准在美开展临床试验",
+          "url": "https://finance.ifeng.com/c/8qnK2gkzsjA",
+          "date": "2026-02-16",
+          "source": "凤凰网财经"
+        },
+        {
+          "title": "石药集团创纪录BD反致股价\"跳水\"，185亿美元天价交易为何吓坏市场？",
+          "url": "https://news.qq.com/rain/a/20260131A05ABN00",
+          "date": "2026-01-31",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 30,
@@ -457,14 +1203,41 @@
       "name_en": "SYH2086",
       "company": "石药集团",
       "company_en": "CSPC",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "小分子",
       "administration": "口服",
       "stage": "临床前",
-      "indications": ["肥胖", "MASH"],
+      "indications": [
+        "肥胖",
+        "MASH"
+      ],
       "latest_update": "2025年7月与Madrigal达成20.75亿美元授权，拟与MASH药物Rezdiffra联合开发",
       "commercial_name": "待定",
-      "market_status": "口服小分子出海"
+      "market_status": "口服小分子出海",
+      "approval_date": "预计2030年以后",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "石药集团：GLP -1/GIP受体双偏向性激动多肽长效注射液在美国获临床 ...",
+          "url": "https://news.qq.com/rain/a/20260216A03UIH00",
+          "date": "2026-02-16",
+          "source": "腾讯网"
+        },
+        {
+          "title": "石药集团GLP-1注射剂获FDA批准在美开展临床试验",
+          "url": "https://finance.ifeng.com/c/8qnK2gkzsjA",
+          "date": "2026-02-16",
+          "source": "凤凰网财经"
+        },
+        {
+          "title": "石药集团(01093.HK)：自愿公告 - GLP-1/GIP受体双偏向性激动多肽长效注射 ...",
+          "url": "https://stock.stockstar.com/AN2026021600001381.shtml",
+          "date": "2026-02-16",
+          "source": "证券之星"
+        }
+      ]
     },
     {
       "id": 31,
@@ -472,15 +1245,40 @@
       "name_en": "Semaglutide(Jiuyuan)",
       "company": "九源基因",
       "company_en": "Jiuyuan Gene",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "approval_date": "2024年4月上市申请获受理",
       "latest_update": "国内首个提交司美格鲁肽仿制药上市申请的企业",
       "commercial_name": "待定",
-      "market_status": "首仿竞争"
+      "market_status": "首仿竞争",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "司美格鲁肽核心专利国内只剩2周!国产仿制药加速入场，或惠及数亿 ...",
+          "url": "https://news.qq.com/rain/a/20260305A04REU00",
+          "date": "2026-03-05",
+          "source": "腾讯网"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        },
+        {
+          "title": "原创 司美格鲁肽专利仅剩20天!诺和诺德遭礼来、国产仿制药围剿 ...",
+          "url": "https://www.sohu.com/a/990981644_121035734",
+          "date": "2026-02-28",
+          "source": "搜狐"
+        }
+      ]
     },
     {
       "id": 32,
@@ -488,15 +1286,40 @@
       "name_en": "Semaglutide(Livzon)",
       "company": "丽珠集团",
       "company_en": "Livzon",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "approval_date": "2024年6月上市申请获受理",
       "latest_update": "司美格鲁肽仿制药竞争者",
       "commercial_name": "待定",
-      "market_status": "首仿竞争"
+      "market_status": "首仿竞争",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        },
+        {
+          "title": "GLP—1 下半场生变：辉瑞抢跑，诺和诺德与药王渐行渐远？",
+          "url": "https://news.qq.com/rain/a/20260226A0433T00",
+          "date": "2026-02-26",
+          "source": "腾讯网"
+        },
+        {
+          "title": "司美格鲁肽核心专利国内只剩2周!国产仿制药加速入场，或惠及数亿 ...",
+          "url": "https://news.qq.com/rain/a/20260305A04REU00",
+          "date": "2026-03-05",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 33,
@@ -504,14 +1327,41 @@
       "name_en": "Semaglutide(Huadong)",
       "company": "华东医药",
       "company_en": "Huadong Medicine",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病", "肥胖"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖"
+      ],
       "latest_update": "糖尿病适应症III期完成等效性结果达主要终点；减重适应症III期进行中",
       "commercial_name": "待定",
-      "market_status": "III期完成"
+      "market_status": "III期完成",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        },
+        {
+          "title": "口服版司美格鲁肽大降价，诺和诺德\"死磕\"礼来",
+          "url": "https://news.qq.com/rain/a/20260226A070ZW00",
+          "date": "2026-02-26",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 34,
@@ -519,14 +1369,40 @@
       "name_en": "Semaglutide(CTTQ)",
       "company": "正大天晴",
       "company_en": "CTTQ",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "2024年上市申请获受理",
       "commercial_name": "待定",
-      "market_status": "首仿竞争"
+      "market_status": "首仿竞争",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "原创 司美格鲁肽专利仅剩20天!诺和诺德遭礼来、国产仿制药围剿 ...",
+          "url": "https://www.sohu.com/a/990981644_121035734",
+          "date": "2026-02-28",
+          "source": "搜狐"
+        },
+        {
+          "title": "中国首批司美格鲁肽仿制药已在路上，减重药将步入\"白菜价\"时代",
+          "url": "https://news.qq.com/rain/a/20260227A04DFN00",
+          "date": "2026-02-27",
+          "source": "腾讯网"
+        },
+        {
+          "title": "好消息!中国本土药企司美格鲁肽仿制药即将上市，减重药价格有望 ...",
+          "url": "https://www.sohu.com/a/990609278_121912641",
+          "date": "2026-02-27",
+          "source": "搜狐"
+        }
+      ]
     },
     {
       "id": 35,
@@ -534,14 +1410,40 @@
       "name_en": "Semaglutide(United)",
       "company": "联邦制药",
       "company_en": "United Laboratories",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "III期临床完成，上市申请获受理",
       "commercial_name": "待定",
-      "market_status": "首仿竞争"
+      "market_status": "首仿竞争",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        },
+        {
+          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
+          "url": "https://www.sohu.com/a/994507958_121303447",
+          "date": "2026-03-10",
+          "source": "搜狐"
+        },
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 36,
@@ -549,30 +1451,40 @@
       "name_en": "Semaglutide(Tonghua)",
       "company": "通化东宝",
       "company_en": "Tonghua Dongbao",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "III期临床进行中",
       "commercial_name": "待定",
-      "market_status": "III期进行中"
-    },
-    {
-      "id": 37,
-      "name_cn": "度拉糖肽(信达生物)",
-      "name_en": "Dulaglutide(Innovent)",
-      "company": "信达生物",
-      "company_en": "Innovent",
-      "targets": ["GLP-1R"],
-      "type": "多肽",
-      "administration": "注射",
-      "stage": "已上市",
-      "indications": ["2型糖尿病"],
-      "approval_date": "2024年获批",
-      "latest_update": "国内首仿度拉糖肽获批上市",
-      "commercial_name": "待定",
-      "market_status": "首仿获批"
+      "market_status": "III期进行中",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "口服GLP-1大爆，国产卖水人赢麻了",
+          "url": "https://finance.sina.com.cn/roll/2026-01-19/doc-inhhwicm7696684.shtml",
+          "date": "2026-01-19",
+          "source": "新浪网"
+        },
+        {
+          "title": "口服GLP-1大爆",
+          "url": "https://news.pedaily.cn/202601/560133.shtml",
+          "date": "2026-01-20",
+          "source": "投资界"
+        },
+        {
+          "title": "司美格鲁肽：获EMA推荐治疗MASH",
+          "url": "https://news.qq.com/rain/a/20260201A01RH400",
+          "date": "2026-02-01",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 38,
@@ -580,14 +1492,28 @@
       "name_en": "Dulaglutide(Qilu)",
       "company": "齐鲁制药",
       "company_en": "Qilu Pharma",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "上市审评中",
       "commercial_name": "待定",
-      "market_status": "NDA审评"
+      "market_status": "NDA审评",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "减肥针相关的罕见但严重急性胰腺炎监管警示进一步加强，涉及司 ...",
+          "url": "https://news.qq.com/rain/a/20260202A05FAC00",
+          "date": "2026-02-02",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 39,
@@ -595,14 +1521,28 @@
       "name_en": "Dulaglutide(United)",
       "company": "联邦制药",
       "company_en": "United Laboratories",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "上市审评中",
       "commercial_name": "待定",
-      "market_status": "NDA审评"
+      "market_status": "NDA审评",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "减肥针相关的罕见但严重急性胰腺炎监管警示进一步加强，涉及司 ...",
+          "url": "https://news.qq.com/rain/a/20260202A05FAC00",
+          "date": "2026-02-02",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 40,
@@ -610,15 +1550,40 @@
       "name_en": "Liraglutide(Tonghua)",
       "company": "通化东宝",
       "company_en": "Tonghua Dongbao",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
-      "approval_date": "2023年",
+      "indications": [
+        "2型糖尿病"
+      ],
+      "approval_date": "2023年12月(糖尿病)",
       "latest_update": "利拉鲁肽生物类似药获批",
       "commercial_name": "待定",
-      "market_status": "已上市"
+      "market_status": "已上市",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "通化东宝：2025年预计实现归母净利润约12.42亿元 同比扭亏为盈",
+          "url": "https://finance.sina.com.cn/roll/2026-01-26/doc-inhiryst8864542.shtml",
+          "date": "2026-01-26",
+          "source": "新浪网"
+        },
+        {
+          "title": "胰岛素产品快速放量， 通化东宝预计2025年净利润超12亿元",
+          "url": "https://finance.sina.com.cn/roll/2026-01-27/doc-inhitntv7588663.shtml",
+          "date": "2026-01-27",
+          "source": "新浪网"
+        },
+        {
+          "title": "通化东宝预计2025年净利润约12.42亿元，国内销售收入较上年同期大幅 ...",
+          "url": "https://news.qq.com/rain/a/20260126A0696300",
+          "date": "2026-01-26",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 41,
@@ -626,60 +1591,40 @@
       "name_en": "Liraglutide(CTTQ)",
       "company": "正大天晴",
       "company_en": "CTTQ",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
-      "approval_date": "2024年",
+      "indications": [
+        "2型糖尿病"
+      ],
+      "approval_date": "2024年08月(糖尿病)",
       "latest_update": "利拉鲁肽生物类似药获批",
       "commercial_name": "待定",
-      "market_status": "已上市"
-    },
-    {
-      "id": 42,
-      "name_cn": "Vupanorsen",
-      "name_en": "Vupanorsen",
-      "company": "诺和诺德",
-      "company_en": "Novo Nordisk",
-      "targets": ["ANGPTL3"],
-      "type": "siRNA",
-      "administration": "注射",
-      "stage": "III期临床",
-      "indications": ["高甘油三酯血症"],
-      "latest_update": "心血管风险降低研究进行中",
-      "commercial_name": "待定",
-      "market_status": "siRNA药物"
-    },
-    {
-      "id": 43,
-      "name_cn": "Revusiran",
-      "name_en": "Revusiran",
-      "company": "Alnylam",
-      "company_en": "Alnylam",
-      "targets": ["TTR"],
-      "type": "siRNA",
-      "administration": "注射",
-      "stage": "III期临床",
-      "indications": ["ATTR心肌病"],
-      "latest_update": "ATTR淀粉样变性治疗",
-      "commercial_name": "待定",
-      "market_status": "siRNA在研"
-    },
-    {
-      "id": 44,
-      "name_cn": "Pelacarsen",
-      "name_en": "Pelacarsen",
-      "company": "诺华/Ionis",
-      "company_en": "Novartis/Ionis",
-      "targets": ["Lp(a)"],
-      "type": "ASO",
-      "administration": "注射",
-      "stage": "III期临床",
-      "indications": ["心血管疾病"],
-      "latest_update": "降低脂蛋白(a)研究",
-      "commercial_name": "待定",
-      "market_status": "心血管siRNA"
+      "market_status": "已上市",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "减肥针相关的罕见但严重急性胰腺炎监管警示进一步加强，涉及司 ...",
+          "url": "https://news.qq.com/rain/a/20260202A05FAC00",
+          "date": "2026-02-02",
+          "source": "腾讯网"
+        },
+        {
+          "title": "利拉鲁肽通过调控肠道菌群改善糖尿病小鼠内皮依赖性舒张功能的 ...",
+          "url": "https://www.ebiotrade.com/newsf/2026-2/20260204084950734.htm",
+          "date": "2026-02-04",
+          "source": "生物通"
+        },
+        {
+          "title": "科兴制药与通化东宝合作的利拉鲁肽生物类似药获巴西GMP证书",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpeffz0389806.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 45,
@@ -687,14 +1632,43 @@
       "name_en": "Survodutide",
       "company": "勃林格殷格翰",
       "company_en": "Boehringer Ingelheim",
-      "targets": ["GLP-1R", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病", "肥胖", "MASH"],
+      "indications": [
+        "2型糖尿病",
+        "肥胖",
+        "MASH"
+      ],
       "latest_update": "双靶点激动剂，MASH适应症II期积极",
       "commercial_name": "待定",
-      "market_status": "III期进行中"
+      "market_status": "III期进行中",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "中国创新药企近5亿美元BD后，全球首个偏向型GLP-1减肥药国内获批",
+          "url": "https://news.qq.com/rain/a/20260306A080GA00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "辉瑞4.95亿美元押中，全球首个偏向型GLP-1减重药物获批上市",
+          "url": "https://finance.sina.com.cn/roll/2026-03-06/doc-inhqanki2356521.shtml",
+          "date": "2026-03-06",
+          "source": "新浪财经"
+        }
+      ]
     },
     {
       "id": 46,
@@ -702,14 +1676,30 @@
       "name_en": "Efinopegdutide",
       "company": "强生/默沙东",
       "company_en": "J&J/Merck",
-      "targets": ["GLP-1R", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "II期临床",
-      "indications": ["肥胖", "MASH"],
+      "indications": [
+        "肥胖",
+        "MASH"
+      ],
       "latest_update": "每周一次给药，MASH适应症开发中",
       "commercial_name": "待定",
-      "market_status": "II期进行中"
+      "market_status": "II期进行中",
+      "approval_date": "预计2028年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 47,
@@ -717,14 +1707,42 @@
       "name_en": "Pemvidutide",
       "company": "Altimmune",
       "company_en": "Altimmune",
-      "targets": ["GLP-1R", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "II期临床",
-      "indications": ["肥胖", "MASH"],
+      "indications": [
+        "肥胖",
+        "MASH"
+      ],
       "latest_update": "双靶点激动剂，每周一次给药",
       "commercial_name": "待定",
-      "market_status": "II期进行中"
+      "market_status": "II期进行中",
+      "approval_date": "预计2028年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "Altimmune在The Citizens生命科学大会上的战略洞察:聚焦Pemvidutide",
+          "url": "https://cn.investing.com/news/transcripts/article-93CH-3254210",
+          "date": "2026-03-10",
+          "source": "英为财情Investing.com"
+        },
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "中国创新药企近5亿美元BD后，全球首个偏向型GLP-1减肥药国内获批",
+          "url": "https://news.qq.com/rain/a/20260306A080GA00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 48,
@@ -732,14 +1750,35 @@
       "name_en": "AMG133",
       "company": "安进",
       "company_en": "Amgen",
-      "targets": ["GIPR", "GLP-1R"],
+      "targets": [
+        "GIPR",
+        "GLP-1R"
+      ],
       "type": "抗体多肽偶联物",
       "administration": "注射",
       "stage": "I期临床",
-      "indications": ["肥胖"],
+      "indications": [
+        "肥胖"
+      ],
       "latest_update": "每月一次给药潜力，抗体技术平台",
       "commercial_name": "待定",
-      "market_status": "早期临床"
+      "market_status": "早期临床",
+      "approval_date": "预计2029年以后",
+      "frequency": "月",
+      "news": [
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://finance.sina.com.cn/roll/2026-03-09/doc-inhqknrn9873396.shtml",
+          "date": "2026-03-09",
+          "source": "新浪财经"
+        },
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 49,
@@ -747,14 +1786,39 @@
       "name_en": "Albiglutide",
       "company": "葛兰素史克",
       "company_en": "GSK",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已退市",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "因商业失败已停产",
       "commercial_name": "Eperzan/Tanzeum",
-      "market_status": "已退市"
+      "market_status": "已退市",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "司美格鲁肽：降糖药到减肥明星，再到阿尔茨海默病？",
+          "url": "https://news.qq.com/rain/a/20260118A02GA700",
+          "date": "2026-01-18",
+          "source": "腾讯网"
+        },
+        {
+          "title": "GLP-1之后，胰淀素成为减肥药研发新热点",
+          "url": "https://finance.sina.com.cn/wm/2026-03-12/doc-inhqsxnq4922610.shtml",
+          "date": "2026-03-12",
+          "source": "新浪网"
+        },
+        {
+          "title": "降糖减肥\"神药\"GLP-1潜力大 药企蜂拥而至抢占先机",
+          "url": "https://tech.sina.com.cn/roll/2023-02-14/doc-imyfqtuk9266742.shtml",
+          "date": "2023-02-14",
+          "source": "新浪网"
+        }
+      ]
     },
     {
       "id": 50,
@@ -762,14 +1826,40 @@
       "name_en": "rE4",
       "company": "仁会生物",
       "company_en": "Renben Bio",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "国产短效GLP-1",
       "commercial_name": "谊生泰",
-      "market_status": "已上市"
+      "market_status": "已上市",
+      "approval_date": "2016年12月(糖尿病)",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "【每日一药】玛仕度肽注射液",
+          "url": "https://news.qq.com/rain/a/20251111A06QOC00",
+          "date": "2025-11-11",
+          "source": "腾讯网"
+        },
+        {
+          "title": "GLP-1之后，胰淀素成为减肥药研发新热点",
+          "url": "https://news.qq.com/rain/a/20260312A021V900",
+          "date": "2026-03-12",
+          "source": "腾讯网"
+        },
+        {
+          "title": "CDE发布《重组胰高血糖素样肽-1受体激动剂药学研究与评价技术指导 ...",
+          "url": "https://finance.sina.com.cn/jjxw/2025-09-12/doc-infqshpk5599071.shtml",
+          "date": "2025-09-12",
+          "source": "新浪网"
+        }
+      ]
     },
     {
       "id": 51,
@@ -777,29 +1867,81 @@
       "name_en": "Liraglutide(United)",
       "company": "联邦制药",
       "company_en": "United Laboratories",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "NDA审评中",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "预计2025年获批",
       "commercial_name": "待定",
-      "market_status": "NDA审评"
+      "market_status": "NDA审评",
+      "approval_date": "预计2025年-2026年",
+      "frequency": "天",
+      "news": [
+        {
+          "title": "辉瑞4.95亿美元押中，全球首个偏向型GLP-1减重药物获批上市",
+          "url": "https://finance.sina.com.cn/roll/2026-03-06/doc-inhqanki2356521.shtml",
+          "date": "2026-03-06",
+          "source": "新浪财经"
+        },
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://finance.sina.com.cn/roll/2026-03-09/doc-inhqknrn9873396.shtml",
+          "date": "2026-03-09",
+          "source": "新浪财经"
+        },
+        {
+          "title": "减肥针相关的罕见但严重急性胰腺炎监管警示进一步加强，涉及司 ...",
+          "url": "https://news.qq.com/rain/a/20260202A05FAC00",
+          "date": "2026-02-02",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 52,
-      "name_cn": "苏帕格鲁肽",
+      "name_cn": "苏帕格鲁肽（怡诺轻）",
       "name_en": "Supaglutide",
       "company": "银诺医药",
       "company_en": "Innogen Pharma",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "已上市(依苏帕格鲁肽)",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "已更名为依苏帕格鲁肽α上市",
       "commercial_name": "怡诺轻",
-      "market_status": "已上市"
+      "market_status": "已上市",
+      "frequency": "周",
+      "approval_date": "2025年01月(糖尿病)",
+      "news": [
+        {
+          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
+          "url": "https://news.qq.com/rain/a/20260309A0520N00",
+          "date": "2026-03-09",
+          "source": "腾讯网"
+        },
+        {
+          "title": "两天两笔重磅交易：GLP-1战场风云突变，巨头加速\"买买买\"",
+          "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpcusk4350072.shtml",
+          "date": "2026-02-26",
+          "source": "新浪财经"
+        },
+        {
+          "title": "GLP-1药物的下一站：从人用到兽用？",
+          "url": "https://news.qq.com/rain/a/20260214A02MO300",
+          "date": "2026-02-14",
+          "source": "腾讯网"
+        }
+      ]
     },
     {
       "id": 53,
@@ -807,14 +1949,40 @@
       "name_en": "PB-119",
       "company": "派格生物",
       "company_en": "PegBio",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "聚乙二醇化修饰，每周一次给药",
       "commercial_name": "待定",
-      "market_status": "III期进行中"
+      "market_status": "III期进行中",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "Metsera百亿并购之后：派格生物的估值天花板在哪里？",
+          "url": "https://news.qq.com/rain/a/20260312A04O2U00",
+          "date": "2026-03-12",
+          "source": "腾讯网"
+        },
+        {
+          "title": "入围港股通+CR059超长效突破!港股GLP-1龙头派格生物打开\"月级给药 ...",
+          "url": "https://news.qq.com/rain/a/20260306A07ZBQ00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "派格生物医药-B(02565.HK)：新一代GLP-1(CR059)首次人体试验取得一个月 ...",
+          "url": "https://www.msn.cn/zh-cn/科学/生物学/派格生物医药-b-02565-hk-新一代glp-1-cr059-首次人体试验取得一个月临床观察结果/ar-AA1XEkXd",
+          "date": "2026-03-06",
+          "source": "格隆汇"
+        }
+      ]
     },
     {
       "id": 54,
@@ -822,14 +1990,42 @@
       "name_en": "PB-718",
       "company": "派格生物",
       "company_en": "PegBio",
-      "targets": ["GLP-1R", "GCGR"],
+      "targets": [
+        "GLP-1R",
+        "GCGR"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "I期临床",
-      "indications": ["肥胖", "MASH"],
+      "indications": [
+        "肥胖",
+        "MASH"
+      ],
       "latest_update": "双靶点激动剂",
       "commercial_name": "待定",
-      "market_status": "早期临床"
+      "market_status": "早期临床",
+      "approval_date": "预计2029年以后",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "Metsera百亿并购之后：派格生物的估值天花板在哪里？",
+          "url": "https://news.qq.com/rain/a/20260312A04O2U00",
+          "date": "2026-03-12",
+          "source": "腾讯网"
+        },
+        {
+          "title": "入围港股通+CR059超长效突破!港股GLP-1龙头派格生物打开\"月级给药 ...",
+          "url": "https://news.qq.com/rain/a/20260306A07ZBQ00",
+          "date": "2026-03-06",
+          "source": "腾讯网"
+        },
+        {
+          "title": "派格生物医药-B(02565.HK)：新一代GLP-1(CR059)首次人体试验取得一个月 ...",
+          "url": "https://www.msn.cn/zh-cn/科学/生物学/派格生物医药-b-02565-hk-新一代glp-1-cr059-首次人体试验取得一个月临床观察结果/ar-AA1XEkXd",
+          "date": "2026-03-06",
+          "source": "格隆汇"
+        }
+      ]
     },
     {
       "id": 55,
@@ -837,29 +2033,40 @@
       "name_en": "GX-G6",
       "company": "乐普医疗",
       "company_en": "Lepu Medical",
-      "targets": ["GLP-1R"],
+      "targets": [
+        "GLP-1R"
+      ],
       "type": "多肽",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "长效GLP-1受体激动剂",
       "commercial_name": "待定",
-      "market_status": "III期进行中"
-    },
-    {
-      "id": 56,
-      "name_cn": "LP-002",
-      "name_en": "LP-002",
-      "company": "丽珠集团",
-      "company_en": "Livzon",
-      "targets": ["GLP-1R"],
-      "type": "多肽",
-      "administration": "注射",
-      "stage": "I期临床",
-      "indications": ["2型糖尿病"],
-      "latest_update": "长效GLP-1受体激动剂",
-      "commercial_name": "待定",
-      "market_status": "早期临床"
+      "market_status": "III期进行中",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "乐普医疗：2025年净利同比预增224%-386%",
+          "url": "https://finance.sina.com.cn/roll/2026-01-28/doc-inhiwahw4933638.shtml",
+          "date": "2026-01-28",
+          "source": "新浪网"
+        },
+        {
+          "title": "乐普医疗(300003)龙虎榜数据(01-05)",
+          "url": "https://fund.eastmoney.com/a/202601053608818136.html",
+          "date": "2026-01-05",
+          "source": "东方财富网"
+        },
+        {
+          "title": "乐普医疗(300003.SZ)发预增，预计2025年度净利润8亿元至12亿元，同比 ...",
+          "url": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-01-28/doc-inhiwahy3936359.shtml",
+          "date": "2026-01-28",
+          "source": "新浪网"
+        }
+      ]
     },
     {
       "id": 57,
@@ -867,14 +2074,41 @@
       "name_en": "HR17031",
       "company": "恒瑞医药",
       "company_en": "Hengrui Medicine",
-      "targets": ["Insulin", "GLP-1R"],
+      "targets": [
+        "Insulin",
+        "GLP-1R"
+      ],
       "type": "复方制剂",
       "administration": "注射",
       "stage": "III期临床",
-      "indications": ["2型糖尿病"],
+      "indications": [
+        "2型糖尿病"
+      ],
       "latest_update": "长效胰岛素/GLP-1类似物复方制剂，同时开展减重适应症",
       "commercial_name": "待定",
-      "market_status": "III期进行中"
+      "market_status": "III期进行中",
+      "approval_date": "预计2026年-2027年",
+      "frequency": "周",
+      "news": [
+        {
+          "title": "恒瑞医药新型口服小分子GLP-1受体激动剂HRS-7535用于高血压合并超重或 ...",
+          "url": "https://view.inews.qq.com/a/20260128A04D0W00",
+          "date": "2026-01-28",
+          "source": "腾讯网"
+        },
+        {
+          "title": "恒瑞医药创新药出海规模达568亿美元 股价近期上涨5.40%",
+          "url": "https://www.eeo.com.cn/2026/0311/808976.shtml",
+          "date": "2026-03-11",
+          "source": "经济观察网"
+        },
+        {
+          "title": "恒瑞医药口服小分子GLP-1R激动剂用于高血压合并超重或肥胖获批Ⅲ期 ...",
+          "url": "https://finance.sina.com.cn/jjxw/2026-01-28/doc-inhivvyy4965528.shtml",
+          "date": "2026-01-28",
+          "source": "新浪网"
+        }
+      ]
     }
   ],
   "market_summary": {

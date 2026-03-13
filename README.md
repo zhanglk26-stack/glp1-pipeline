@@ -89,15 +89,18 @@
 ```
 glp1-pipeline/
 ├── index.html          # 主页面
+├── predictor.html      # 智能匹配页面
+├── about.html          # 关于页面
+├── favicon.ico         # 网站图标
 ├── css/
 │   └── style.css       # 样式文件
 ├── js/
-│   └── app.js          # 交互逻辑
+│   ├── app.js          # 主页面交互逻辑
+│   ├── predictor.js    # 智能匹配逻辑
+│   └── lib/            # 本地依赖库
 ├── data/
 │   ├── pipeline.json   # 主数据文件
-│   ├── china_companies.json    # 中国详细数据
-│   ├── global_companies.json   # 全球详细数据
-│   └── report_summary.md       # 数据摘要
+│   └── supplement_report.md # 补充报告数据
 └── README.md
 ```
 
