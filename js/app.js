@@ -214,6 +214,48 @@ function getStageClass(stage) {
     return 'stage-preclinical';
 }
 
+// 匹配搜索词
+function matchesSearch(product, searchTerm) {
+    if (!searchTerm) return true;
+    return (
+        product.name_cn.toLowerCase().includes(searchTerm) ||
+        product.company.toLowerCase().includes(searchTerm) ||
+        (product.code_name && product.code_name.toLowerCase().includes(searchTerm))
+    );
+}
+
+// 匹配研发阶段
+function matchesStage(product, stageFilter) {
+    if (stageFilter.length === 0) return true;
+    return stageFilter.some(stage => product.stage.includes(stage));
+}
+
+// 匹配适应症
+function matchesIndication(product, indicationFilter) {
+    if (indicationFilter.length === 0) return true;
+    return indicationFilter.some(ind => product.indications && product.indications.includes(ind));
+}
+
+// 匹配给药途径
+function matchesRoute(product, routeFilter) {
+    if (routeFilter.length === 0) return true;
+
+    const admin = product.administration || '注射';
+    if (admin.includes('口服') && routeFilter.includes('口服')) return true;
+    if (admin.includes('注射') && routeFilter.includes('注射')) return true;
+    if (admin.includes('鼻喷') && routeFilter.includes('其他')) return true;
+
+    return false;
+}
+
+// 匹配靶点
+function matchesTarget(product, selectedTargets) {
+    if (selectedTargets.length === 0) return true;
+    return selectedTargets.every(t => {
+        return product.targets && product.targets.some(pt => pt.toUpperCase().includes(t));
+    });
+}
+
 // 筛选功能
 function filterProducts() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -223,29 +265,11 @@ function filterProducts() {
     const routeFilter = Array.from(document.querySelectorAll('.route-cb:checked')).map(cb => cb.value);
     
     state.filteredProducts = state.products.filter(product => {
-        const searchMatch = !searchTerm || 
-            product.name_cn.toLowerCase().includes(searchTerm) ||
-            product.company.toLowerCase().includes(searchTerm) ||
-            (product.code_name && product.code_name.toLowerCase().includes(searchTerm));
-        
-        const stageMatch = stageFilter.length === 0 || stageFilter.some(stage => product.stage.includes(stage));
-        const indicationMatch = indicationFilter.length === 0 || indicationFilter.some(ind => product.indications && product.indications.includes(ind));
-        
-        let routeMatch = false;
-        if (routeFilter.length === 0) {
-            routeMatch = true;
-        } else {
-            const admin = product.administration || '注射';
-            if (admin.includes('口服') && routeFilter.includes('口服')) routeMatch = true;
-            else if (admin.includes('注射') && routeFilter.includes('注射')) routeMatch = true;
-            else if (admin.includes('鼻喷') && routeFilter.includes('其他')) routeMatch = true;
-        }
-        
-        const targetMatch = selectedTargets.length === 0 || selectedTargets.every(t => {
-            return product.targets && product.targets.some(pt => pt.toUpperCase().includes(t));
-        });
-        
-        return searchMatch && stageMatch && indicationMatch && targetMatch && routeMatch;
+        return matchesSearch(product, searchTerm) &&
+               matchesStage(product, stageFilter) &&
+               matchesIndication(product, indicationFilter) &&
+               matchesRoute(product, routeFilter) &&
+               matchesTarget(product, selectedTargets);
     });
     
     if (state.sortField) {
