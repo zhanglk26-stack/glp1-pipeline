@@ -97,20 +97,22 @@ body {
 .table-container {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+    table-layout: fixed;
 }
 
 .data-table thead th {
     position: sticky;
-    top: 64px; /* Default for desktop with fixed nav */
-    background: #f8fafc;
-    z-index: 20;
-    padding: 1rem;
+    top: 64px;
+    background: white;
+    z-index: 30;
+    padding: 0.75rem 1rem;
     font-size: 11px;
     font-weight: 700;
     color: var(--text-secondary);
@@ -118,6 +120,7 @@ body {
     letter-spacing: 0.05em;
     border-bottom: 2px solid var(--border-color);
     text-align: left;
+    box-shadow: 0 1px 0 var(--border-color);
 }
 
 .data-table td {
@@ -125,6 +128,7 @@ body {
     border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
     background: white;
+    word-break: break-word;
 }
 
 .data-table tr:last-child td {
@@ -132,7 +136,23 @@ body {
 }
 
 .data-table tbody tr:hover td {
-    background-color: #f1f5f9;
+    background-color: #f8fafc;
+}
+
+/* Sort Icon */
+.sort-icon {
+    display: inline-block;
+    margin-left: 4px;
+    color: #cbd5e1;
+    transition: color 0.2s;
+}
+
+th:hover .sort-icon {
+    color: var(--accent-blue);
+}
+
+th.text-blue-600 .sort-icon {
+    color: var(--accent-blue);
 }
 
 /* Filter Chips (Checkbox as chips) */
@@ -140,31 +160,26 @@ body {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    padding: 6px 16px;
+    padding: 6px 14px;
     border-radius: 9999px;
     font-size: 13px;
-    font-weight: 600;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
+    font-weight: 500;
+    background: #f1f5f9;
+    border: 1px solid transparent;
     color: #475569;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .filter-chip:hover {
-    border-color: var(--accent-blue);
-    background: #f8fafc;
-    color: var(--accent-blue);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: #e2e8f0;
+    color: var(--text-primary);
 }
 
 input[type="checkbox"]:checked + .filter-chip {
     background: var(--accent-blue);
     color: white;
-    border-color: var(--accent-blue);
-    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
 }
 
 /* Mobile Product Card */
@@ -175,11 +190,6 @@ input[type="checkbox"]:checked + .filter-chip {
     padding: 16px;
     margin-bottom: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.product-card:active {
-    background: #f8fafc;
-    transform: scale(0.98);
 }
 
 /* Predictor Tool Custom Styles */
@@ -215,4 +225,14 @@ input[type="checkbox"]:checked + .filter-chip {
 
 @media (min-width: 1025px) {
     .mobile-only { display: none !important; }
+}
+
+/* Remove any weird markers above the table */
+.table-container::before {
+    display: none !important;
+}
+
+/* Ensure th text is aligned correctly and doesn't wrap weirdly */
+.data-table thead th {
+    white-space: nowrap;
 }
