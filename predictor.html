@@ -1,25 +1,167 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>GLP-1 减肥方案智能匹配器</title> <script src="js/lib/tailwindcss.js"></script> <script src="js/lib/chart.js"></script> <link rel="stylesheet" href="css/style.css"> <style> .gradient-text { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } .input-glow:focus { outline: none; border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); } .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); } .recommendation-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; } .best-match { background: #fffbeb; border: 1px solid #f59e0b; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1); } </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能匹配器 | GLP-1 Pipeline Tracker</title>
+    <script src="js/lib/tailwindcss.js"></script>
+    <script src="js/lib/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-white text-gray-900 font-sans min-h-screen"> <!-- Header --> 
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen">
+    <!-- Header -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-3">
-                    <span class="font-bold text-xl text-gray-900">GLP-1 <span class="text-blue-600">Pipeline</span></span>
+                    <span class="font-bold text-xl text-slate-900">GLP-1 <span class="text-blue-600">Pipeline</span></span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-900 hover:text-blue-600 font-bold transition-colors">概览与数据库</a>
-                    <a href="predictor.html" class="text-gray-900 hover:text-blue-600 font-bold transition-colors">智能匹配</a>
-                    <a href="about.html" class="text-gray-900 hover:text-blue-600 font-bold transition-colors">关于</a>
+                    <a href="index.html" class="text-slate-600 hover:text-blue-600 font-semibold transition-colors">概览与数据库</a>
+                    <a href="predictor.html" class="text-slate-900 hover:text-blue-600 font-semibold transition-colors">智能匹配</a>
+                    <a href="about.html" class="text-slate-600 hover:text-blue-600 font-semibold transition-colors">关于</a>
                 </div>
-                
-                <div class="w-24"></div> <!-- Placeholder for alignment -->
-        
             </div>
         </div>
     </nav>
-     <main class="max-w-6xl mx-auto px-4 py-8"> <!-- 免责声明 --> <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8"> <p class="text-amber-800 text-sm text-center">  免责声明：本工具基于公开临床试验数据，仅供参考，不构成医疗建议。用药前请咨询专业医生。 </p> </div> <!-- 用户输入区 --> <section class="bg-white border border-gray-200 rounded-2xl p-6 mb-8 shadow-sm"> <h2 class="text-lg font-bold mb-6 flex items-center gap-2"> <span class="text-blue-600"></span> 您的基本信息 </h2> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"> <div> <label class="block text-sm text-gray-600 mb-2">当前体重 (kg)</label> <input type="number" id="weight" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition" placeholder="例如: 100"> </div> <div> <label class="block text-sm text-gray-600 mb-2">身高 (cm)</label> <input type="number" id="height" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition" placeholder="例如: 170"> </div> <div> <label class="block text-sm text-gray-600 mb-2">年龄</label> <input type="number" id="age" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition" placeholder="例如: 35"> </div> <div> <label class="block text-sm text-gray-600 mb-2">性别</label> <select id="gender" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition"> <option value="">请选择</option> <option value="male">男</option> <option value="female">女</option> </select> </div> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"> <div> <label class="block text-sm text-gray-600 mb-2">腰围 (cm)</label> <input type="number" id="waist" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition" placeholder="例如: 95"> <p class="text-xs text-gray-500 mt-1">中心性肥胖：男≥90cm，女≥85cm</p> </div> <div> <label class="block text-sm text-gray-600 mb-2">预算范围（月）</label> <select id="budget" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition"> <option value="">不限</option> <option value="500">500元以下</option> <option value="1000">500-1000元</option> <option value="2000">1000-2000元</option> <option value="unlimited">2000元以上</option> </select> </div> <div> <label class="block text-sm text-gray-600 mb-2">期望疗程</label> <select id="duration" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 input-glow transition"> <option value="12">3个月（12周）</option> <option value="24">6个月（24周）</option> <option value="48" selected>12个月（48周）</option> <option value="52">1年（52周）</option> </select> </div> </div> <div class="mb-6"> <label class="block text-sm text-gray-600 mb-3">健康状况（多选）</label> <div class="flex flex-wrap gap-3"> <label class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg cursor-pointer hover:bg-white transition border border-gray-100"> <input type="checkbox" name="condition" value="diabetes" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="text-sm">2型糖尿病</span> </label> <label class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg cursor-pointer hover:bg-white transition border border-gray-100"> <input type="checkbox" name="condition" value="nash" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="text-sm">脂肪肝/NASH</span> </label> <label class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg cursor-pointer hover:bg-white transition border border-gray-100"> <input type="checkbox" name="condition" value="hypertension" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="text-sm">高血压</span> </label> <label class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg cursor-pointer hover:bg-white transition border border-gray-100"> <input type="checkbox" name="condition" value="dyslipidemia" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="text-sm">血脂异常</span> </label> <label class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg cursor-pointer hover:bg-white transition border border-gray-100"> <input type="checkbox" name="condition" value="osa" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="text-sm">睡眠呼吸暂停</span> </label> <label class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg cursor-pointer hover:bg-white transition border border-gray-100"> <input type="checkbox" name="condition" value="cvd" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="text-sm">心血管疾病</span> </label> </div> </div> <button onclick="calculateMatch()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition transform hover:scale-[1.01] shadow-md"> 开始匹配最佳方案 </button> </section> <!-- 结果显示区（默认隐藏） --> <div id="results" class="hidden"> <!-- BMI 分析 --> <section class="bg-white border border-gray-200 rounded-2xl p-6 mb-8 shadow-sm"> <h2 class="text-lg font-bold mb-4">您的身体指标分析</h2> <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> <div class="text-center"> <div class="text-4xl font-bold text-blue-600 mb-2" id="bmiValue">--</div> <div class="text-sm text-gray-600">BMI指数</div> <div class="mt-2 px-3 py-1 rounded-full text-sm font-medium inline-block" id="bmiCategory"> -- </div> </div> <div class="text-center"> <div class="text-4xl font-bold text-gray-900 mb-2" id="targetWeight">--</div> <div class="text-sm text-gray-600">建议目标体重</div> <div class="text-xs text-gray-500 mt-1">减重10-15%</div> </div> <div class="text-center"> <div class="text-4xl font-bold text-orange-500 mb-2" id="waistStatus">--</div> <div class="text-sm text-gray-600">腰围状态</div> <div class="text-xs text-gray-500 mt-1">中心性肥胖风险评估</div> </div> </div> </section> <!-- 推荐方案对比 --> <section class="mb-8"> <h2 class="text-2xl font-bold mb-6 flex items-center gap-2"> <span class="text-orange-500"></span> 为您推荐的方案 </h2> <div id="recommendations" class="grid grid-cols-1 lg:grid-cols-3 gap-6"> <!-- 动态生成 --> </div> </section> <!-- 减肥曲线对比 --> <section class="bg-white border border-gray-200 rounded-2xl p-6 mb-8 shadow-sm"> <h2 class="text-lg font-bold mb-4">预期减肥曲线对比</h2> <div class="h-80"> <canvas id="weightLossChart"></canvas> </div> </section> <!-- 费用对比 --> <section class="bg-white border border-gray-200 rounded-2xl p-6 mb-8 shadow-sm"> <h2 class="text-lg font-bold mb-4">治疗费用预估</h2> <div class="overflow-x-auto"> <table class="w-full"> <thead> <tr class="border-b border-gray-100"> <th class="text-left py-3 px-4 text-gray-600 font-medium text-sm">方案</th> <th class="text-center py-3 px-4 text-gray-600 font-medium text-sm">月费用</th> <th class="text-center py-3 px-4 text-gray-600 font-medium text-sm">总费用</th> <th class="text-center py-3 px-4 text-gray-600 font-medium text-sm">医保后</th> <th class="text-center py-3 px-4 text-gray-600 font-medium text-sm">等待仿制药</th> </tr> </thead> <tbody id="costTable"> <!-- 动态生成 --> </tbody> </table> </div> <p class="text-xs text-gray-500 mt-4"> * 费用估算基于当前市场价格，实际价格以医院和药店为准。司美格鲁肽仿制药预计2026年Q4上市，价格可能降至原研的30-50%。 </p> </section> </div> </main> <script src="js/predictor.js"></script>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Banner -->
+        <div class="bg-blue-600 rounded-3xl p-8 md:p-12 mb-8 text-white relative overflow-hidden shadow-lg">
+            <div class="relative z-10 max-w-2xl">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">GLP-1 减肥方案智能匹配</h1>
+                <p class="text-blue-100 text-lg mb-6">基于全球最新临床试验终点数据，为您提供个性化的减重药物方案分析。</p>
+                <div class="inline-flex items-center gap-2 bg-blue-500/30 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                    本工具仅供参考，不作为医疗诊断及用药建议
+                </div>
+            </div>
+            <!-- Decorative circle -->
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left: User Input Form -->
+            <div class="lg:col-span-1">
+                <section class="card p-6 sticky top-24">
+                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2 text-slate-900">
+                        <div class="w-1 h-5 bg-blue-600 rounded-full"></div>
+                        基本信息
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">当前体重 (kg)</label>
+                            <input type="number" id="weight" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="例如: 100">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">身高 (cm)</label>
+                            <input type="number" id="height" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="例如: 175">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">年龄</label>
+                                <input type="number" id="age" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">性别</label>
+                                <select id="gender" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none transition">
+                                    <option value="male">男</option>
+                                    <option value="female">女</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">预期疗程</label>
+                            <select id="duration" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none transition">
+                                <option value="12">12周 (3个月)</option>
+                                <option value="24">24周 (6个月)</option>
+                                <option value="48" selected>48周 (12个月)</option>
+                                <option value="52">52周 (1年)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">健康状况 (多选)</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="diabetes" class="hidden"><span class="filter-chip">2型糖尿病</span></label>
+                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="nash" class="hidden"><span class="filter-chip">脂肪肝/MASH</span></label>
+                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="cvd" class="hidden"><span class="filter-chip">心血管疾病</span></label>
+                            </div>
+                        </div>
+                        <button onclick="calculateMatch()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-4">
+                            开始智能匹配
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right: Results -->
+            <div id="results" class="lg:col-span-2 hidden space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <!-- Indicators -->
+                <section class="card p-6">
+                    <h2 class="text-lg font-bold mb-6 text-slate-900">身体指标分析</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center p-4 bg-slate-50 rounded-2xl">
+                            <div class="text-4xl font-bold text-blue-600 mb-1" id="bmiValue">--</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase">BMI 指数</div>
+                            <div id="bmiCategory" class="mt-2"></div>
+                        </div>
+                        <div class="text-center p-4 bg-slate-50 rounded-2xl">
+                            <div class="text-4xl font-bold text-slate-900 mb-1" id="targetWeight">--</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase">建议减重目标</div>
+                            <div class="text-[10px] text-slate-400 mt-2 font-medium">临床建议减重 10-15%</div>
+                        </div>
+                        <div class="text-center p-4 bg-slate-50 rounded-2xl">
+                            <div class="text-4xl font-bold text-slate-900 mb-1" id="waistStatus">--</div>
+                            <div class="text-xs font-bold text-slate-400 uppercase">代谢风险评估</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendations -->
+                <div>
+                    <h2 class="text-xl font-bold mb-6 text-slate-900 flex items-center gap-2">
+                        <div class="w-1.5 h-6 bg-blue-600 rounded-full"></div>
+                        推荐治疗方案
+                    </h2>
+                    <div id="recommendations" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Dynamic -->
+                    </div>
+                </div>
+
+                <!-- Weight Loss Curve -->
+                <section class="card p-6">
+                    <h2 class="text-lg font-bold mb-6 text-slate-900">预期减重轨迹 (48周)</h2>
+                    <div class="h-80">
+                        <canvas id="weightLossChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Cost Table -->
+                <section class="card overflow-hidden">
+                    <div class="p-6 border-b border-slate-100">
+                        <h2 class="text-lg font-bold text-slate-900">费用预估与可及性分析</h2>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>方案</th>
+                                    <th>月费用</th>
+                                    <th>总费用</th>
+                                    <th>医保参考</th>
+                                    <th>仿制药预期</th>
+                                </tr>
+                            </thead>
+                            <tbody id="costTable" class="text-sm">
+                                <!-- Dynamic -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/predictor.js"></script>
 </body>
 </html>
