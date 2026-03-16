@@ -195,13 +195,16 @@ function renderCards() {
     `).join('');
 }
 
+
+
 function updateFilterCount() {
-    const el = document.getElementById('filterCount');
+    const el = document.getElementById("filterCount");
     if (!el) return;
-    el.textContent = `正在显示 ${state.filteredProducts.length} / ${state.products.length} 款产品`;
+    const current = (state.filteredProducts || []).length;
+    const total = (state.products || []).length;
+    el.textContent = `正在显示 ${current} / ${total} 款产品`;
 }
 
-// 获取阶段样式类
 function getStageClass(stage) {
     if (stage === '已上市') return 'stage-approved';
     if (stage.includes('NDA')) return 'stage-nda';
