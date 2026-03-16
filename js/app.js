@@ -369,4 +369,10 @@ function debounce(func, wait) {
     };
 }
 
-document.addEventListener('DOMContentLoaded', init);
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', init);
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { isChineseCompany };
+}
