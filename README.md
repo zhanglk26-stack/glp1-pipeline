@@ -100,7 +100,6 @@ glp1-pipeline/
 │   └── lib/            # 本地依赖库
 ├── data/
 │   ├── pipeline.json   # 主数据文件
-│   └── supplement_report.md # 补充报告数据
 └── README.md
 ```
 
