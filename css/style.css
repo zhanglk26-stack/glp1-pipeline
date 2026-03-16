@@ -1,12 +1,16 @@
-/* GLP-1 Pipeline Tracker - Ultra Minimalist Style */
+/* GLP-1 Pipeline Tracker - Modern Medical UI */
 
 :root {
-    --bg-primary: #f8fafc; /* slate-50 - softer gray background */
+    --bg-primary: #f8fafc;
     --bg-card: #ffffff;
-    --text-primary: #1f2937; /* gray-800 - softer than 900 */
-    --text-secondary: #4b5563; /* gray-600 */
-    --accent-blue: #3b82f6; /* blue-500 - more vibrant modern blue */
-    --border-color: #e2e8f0; /* gray-200 - thin subtle border */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #2563eb;
+    --border-color: #e2e8f0;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
 }
 
 * { 
@@ -16,17 +20,18 @@
 }
 
 body {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background: var(--bg-primary);
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar - Minimalist */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -34,245 +39,168 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: #cbd5e1;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af; /* gray-400 */
+    background: #94a3b8;
 }
 
-/* Base structural styles without any fancy effects */
+/* Card Styles */
 .card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .card:hover {
-    border-color: var(--accent-blue);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-color: var(--accent-blue);
 }
 
-/* Target badges - High contrast */
+/* Badge Styles */
 .target-badge {
     display: inline-flex;
     align-items: center;
     padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
     font-weight: 700;
-    white-space: nowrap;
     text-transform: uppercase;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
+    background: #eff6ff;
+    color: var(--accent-blue);
+    border: 1px solid #dbeafe;
 }
 
-/* Stage pills - High contrast, simple */
 .stage-pill {
     display: inline-flex;
     align-items: center;
-    padding: 4px 12px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 9999px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     white-space: nowrap;
-    transition: all 0.2s;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
 }
 
-.stage-pill.active {
-    background: var(--text-primary);
-    color: var(--bg-primary);
-    border-color: var(--text-primary);
-}
+.stage-approved { background-color: #f0fdf4; color: #166534; border: 1px solid #dcfce7; }
+.stage-nda { background-color: #eff6ff; color: #1e40af; border: 1px solid #dbeafe; }
+.stage-phase3 { background-color: #fffbeb; color: #92400e; border: 1px solid #fef3c7; }
+.stage-phase2 { background-color: #fafafa; color: #525252; border: 1px solid #e5e5e5; }
+.stage-phase1 { background-color: #fafafa; color: #737373; border: 1px solid #e5e5e5; }
+.stage-preclinical { background-color: #f5f5f5; color: #a3a3a3; border: 1px solid #e5e5e5; }
 
-.stage-approved { border-color: var(--text-primary); }
-.stage-nda { border-color: var(--text-primary); }
-.stage-phase3 { border-color: var(--text-primary); }
-.stage-phase2 { border-color: var(--border-color); }
-.stage-phase1 { border-color: var(--border-color); }
-.stage-preclinical { border-color: var(--border-color); }
-
-/* Data table - Clean grid */
+/* Table Styles */
 .table-container {
     width: 100%;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
     width: 100%;
-    min-width: 1000px; /* Ensure columns have enough breathing room */
-    border-collapse: collapse;
-    background: var(--bg-primary);
-}
-
-.data-table {
-    min-width: 1000px; /* 确保在小屏上触发页面级横向滚动而非容器级，以保持 sticky 生效 */
-}
-
-.data-table thead {
-    position: sticky;
-    top: 64px;
-    z-index: 20;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 .data-table th {
-    background: #f8fafc; /* 使用柔和背景 */
-    padding: 0.75rem 1rem;
-    font-size: 12px;
+    background: #f8fafc;
+    padding: 1rem;
+    font-size: 11px;
     font-weight: 700;
-    color: #64748b;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-bottom: 1px solid var(--border-color);
-    white-space: nowrap;
     text-align: left;
 }
 
 .data-table td {
-    padding: 16px;
-    text-align: left;
+    padding: 1rem;
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-primary);
-    font-weight: 400;
+    vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
 }
 
 .data-table tbody tr:hover {
-    background: #f9fafb; /* gray-50 for subtle interaction */
+    background-color: #f1f5f9;
 }
 
-/* Sort icons */
-.sort-icon {
+/* Filter Chips (Checkbox as chips) */
+.filter-chip {
     cursor: pointer;
-    color: var(--border-color);
-    margin-left: 0.5rem;
-}
-
-.sort-icon:hover, .sort-icon.active {
-    color: var(--text-primary);
-}
-
-/* Filter components */
-.filter-btn {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 6px 16px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.filter-btn:hover {
-    border-color: var(--text-primary);
-}
-
-.filter-btn.active {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
-    color: var(--bg-primary);
-}
-
-button.stage-pill {
-    cursor: pointer;
-}
-
-/* Forms */
-.search-input, input[type="number"] {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 4px; /* minimal curve */
-    padding: 10px 16px;
-    color: var(--text-primary);
-    font-size: 0.875rem;
-    font-weight: 500;
-    width: 100%;
-}
-
-select {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 6px 12px;
-    color: var(--text-primary);
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.search-input:focus, select:focus, input[type="number"]:focus {
-    outline: none;
-    border-color: var(--accent-blue);
-}
-/* CSS for view toggles is removed since feature was deleted */
-/* Modal - Harsh lines instead of soft blurs */
-.modal-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(17, 24, 39, 0.8); /* Dark overlay */
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.modal-content {
-    background: var(--bg-primary);
-    border: 2px solid var(--text-primary);
-    max-width: 800px;
- /* 响应式样式 */
-@media (max-width: 640px) {
-    .container { padding: 0 1rem; }
-    .card { padding: 1rem; }
-}
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-/* Product highlight */
-.multi-target-badge, .gcg-badge {
     display: inline-flex;
-    padding: 2px 6px;
-    font-size: 11px;
-    font-weight: 800;
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
-    background: var(--bg-primary);
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    background: white;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+    user-select: none;
 }
 
-/* General overrides to ensure no weak colors */
-.text-gray-500, .text-gray-400, .text-gray-600 {
-    color: var(--text-primary) !important;
+.filter-chip:hover {
+    border-color: var(--accent-blue);
+    background: #eff6ff;
 }
 
-a {
-    color: var(--accent-blue);
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+input[type="checkbox"]:checked + .filter-chip {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
 }
 
-/* Fix product link specific styling if needed */
-.text-primary-600, .text-blue-600 {
-    color: var(--accent-blue) !important;
+/* Mobile Product Card */
+.product-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
 }
 
-.bg-primary-50 {
-    background: var(--bg-primary) !important;
+.product-card:active {
+    background: #f8fafc;
 }
 
-/* Checkbox emphasis */
-input[type="checkbox"] {
-    accent-color: var(--text-primary);
-    width: 16px;
-    height: 16px;
+/* Predictor Tool Custom Styles */
+.recommendation-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.best-match {
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Utility */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .desktop-only { display: none !important; }
+}
+
+@media (min-width: 1025px) {
+    .mobile-only { display: none !important; }
 }
