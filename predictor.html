@@ -82,9 +82,9 @@
                         <div>
                             <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">健康状况 (多选)</label>
                             <div class="flex flex-wrap gap-2">
-                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="diabetes" class="hidden"><span class="filter-chip">2型糖尿病</span></label>
-                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="nash" class="hidden"><span class="filter-chip">脂肪肝/MASH</span></label>
-                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="cvd" class="hidden"><span class="filter-chip">心血管疾病</span></label>
+                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="diabetes" class="peer hidden"><span class="inline-flex items-center px-[14px] py-[6px] rounded-full text-[13px] font-medium bg-slate-100 text-slate-600 border border-transparent cursor-pointer hover:bg-slate-200 transition-all duration-200 select-none peer-checked:bg-blue-600 peer-checked:text-white peer-checked:shadow-[0_4px_6px_-1px_rgba(59,130,246,0.3)]">2型糖尿病</span></label>
+                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="nash" class="peer hidden"><span class="inline-flex items-center px-[14px] py-[6px] rounded-full text-[13px] font-medium bg-slate-100 text-slate-600 border border-transparent cursor-pointer hover:bg-slate-200 transition-all duration-200 select-none peer-checked:bg-blue-600 peer-checked:text-white peer-checked:shadow-[0_4px_6px_-1px_rgba(59,130,246,0.3)]">脂肪肝/MASH</span></label>
+                                <label class="cursor-pointer"><input type="checkbox" name="condition" value="cvd" class="peer hidden"><span class="inline-flex items-center px-[14px] py-[6px] rounded-full text-[13px] font-medium bg-slate-100 text-slate-600 border border-transparent cursor-pointer hover:bg-slate-200 transition-all duration-200 select-none peer-checked:bg-blue-600 peer-checked:text-white peer-checked:shadow-[0_4px_6px_-1px_rgba(59,130,246,0.3)]">心血管疾病</span></label>
                             </div>
                         </div>
                         <button onclick="calculateMatch()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-500/20 active:scale-[0.98] mt-4">
@@ -142,14 +142,14 @@
                         <h2 class="text-lg font-bold text-slate-900">费用预估与可及性分析</h2>
                     </div>
                     <div class="table-container">
-                        <table class="data-table">
-                            <thead>
+                        <table class="w-full border-separate border-spacing-0 table-fixed text-left">
+                            <thead class="sticky top-0 bg-white z-30 shadow-[0_1px_0_rgba(0,0,0,0.05)]">
                                 <tr>
-                                    <th>方案</th>
-                                    <th>月费用</th>
-                                    <th>总费用</th>
-                                    <th>医保参考</th>
-                                    <th>仿制药预期</th>
+                                    <th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">方案</th>
+                                    <th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">月费用</th>
+                                    <th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">总费用</th>
+                                    <th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">医保参考</th>
+                                    <th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">仿制药预期</th>
                                 </tr>
                             </thead>
                             <tbody id="costTable" class="text-sm">

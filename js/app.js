@@ -115,8 +115,8 @@ function renderTable() {
         ).join('');
         
         return `
-        <tr>
-            <td class="px-4 py-4">
+        <tr class="hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
+            <td class="px-4 py-4 text-sm">
                 <div class="flex flex-col">
                     <div class="flex items-center flex-wrap gap-1 mb-1">
                         <span class="font-bold text-blue-600 hover:text-blue-700 cursor-pointer transition-colors" onclick="showNewsModal(${product.id})">${product.name_cn}</span>
@@ -297,9 +297,11 @@ function sortProducts(field, toggleDirection = true) {
     document.querySelectorAll('th[data-sort]').forEach(th => {
         if (th.dataset.sort === field) {
             th.querySelector('.sort-icon').textContent = state.sortDirection === 'asc' ? '↑' : '↓';
+            th.querySelector('.sort-icon').classList.replace('text-slate-300', 'text-blue-600');
             th.classList.add('text-blue-600');
         } else {
             th.querySelector('.sort-icon').textContent = '↕';
+            th.querySelector('.sort-icon').classList.replace('text-blue-600', 'text-slate-300');
             th.classList.remove('text-blue-600');
         }
     });
