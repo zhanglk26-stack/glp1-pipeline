@@ -163,7 +163,7 @@
 
                     <div class="flex items-center justify-between pt-4 border-t border-slate-100">
                         <div id="filterCount" class="text-xs text-slate-500 font-medium italic">
-                            正在显示全部数据...
+                            正在加载数据...
                         </div>
                         <button id="clearFilters" class="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-1">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
@@ -175,19 +175,19 @@
         </section>
 
         <!-- 表格区 (Desktop) -->
-        <section class="bg-white rounded-2xl border border-slate-200 shadow-sm hidden lg:block">
-            <div class="table-container">
-                <table class="w-full border-separate border-spacing-0 table-fixed text-left">
-                    <thead class="sticky top-[64px] bg-white z-30 shadow-[0_1px_0_rgba(0,0,0,0.05)]">
+        <section class="bg-white rounded-2xl border border-slate-200 shadow-sm hidden lg:block overflow-visible">
+            <div class="table-container overflow-visible">
+                <table class="w-full border-separate border-spacing-0 table-fixed text-left data-table">
+                    <thead class="bg-white z-20">
                         <tr>
-                            <th class="w-[20%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-sort="name_cn">产品名称 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
-                            <th class="w-[15%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-sort="company">研发企业 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
-                            <th class="w-[10%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-sort="stage">最高阶段 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
-                            <th class="w-[10%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">给药途径</th>
-                            <th class="w-[8%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">频率</th>
-                            <th class="w-[12%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-sort="approval_date">预计获批/上市 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
-                            <th class="w-[10%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">主要适应症</th>
-                            <th class="w-[15%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100">最新进展</th>
+                            <th class="w-[20%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]" data-sort="name_cn">产品名称 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
+                            <th class="w-[15%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]" data-sort="company">研发企业 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
+                            <th class="w-[10%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]" data-sort="stage">最高阶段 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
+                            <th class="w-[10%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]">给药途径</th>
+                            <th class="w-[8%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]">频率</th>
+                            <th class="w-[12%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]" data-sort="approval_date">预计获批/上市 <span class="sort-icon ml-1 text-slate-300">↕</span></th>
+                            <th class="w-[10%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]">主要适应症</th>
+                            <th class="w-[15%] px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]">最新进展</th>
                         </tr>
                     </thead>
                     <tbody id="productTableBody">

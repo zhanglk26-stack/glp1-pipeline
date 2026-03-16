@@ -83,7 +83,7 @@ body {
     border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 600;
-    white-space: nowrap;
+
 }
 
 .stage-approved { background-color: #f0fdf4; color: #166534; border: 1px solid #dcfce7; }
@@ -107,21 +107,10 @@ body {
     table-layout: fixed;
 }
 
-.data-table thead th {
-    position: sticky;
-    top: 64px;
-    background: white;
-    z-index: 30;
-    padding: 0.75rem 1rem;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-bottom: 2px solid var(--border-color);
-    text-align: left;
-    box-shadow: 0 1px 0 var(--border-color);
-}
+
+
+/* Predictor view override */
+.predictor-view
 
 .data-table td {
     padding: 1rem;
@@ -227,12 +216,4 @@ input[type="checkbox"]:checked + .filter-chip {
     .mobile-only { display: none !important; }
 }
 
-/* Remove any weird markers above the table */
-.table-container::before {
-    display: none !important;
-}
-
-/* Ensure th text is aligned correctly and doesn't wrap weirdly */
-.data-table thead th {
-    white-space: nowrap;
-}
+.data-table thead th { background-color: white; z-index: 20; }
