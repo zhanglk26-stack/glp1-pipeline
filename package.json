@@ -1,0 +1,11 @@
+{
+  "name": "glp1-pipeline",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
+    "dev": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

@@ -1,0 +1,3 @@
+# Clean URL support (no .html extension)
+/predictor   /predictor.html   301
+/about       /about.html       301
