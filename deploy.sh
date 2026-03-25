@@ -21,9 +21,9 @@ echo "✅ 项目文件检查通过"
 # 统计信息
 echo ""
 echo "📊 数据统计:"
-TOTAL=$(cat data/pipeline.json | grep -c '"id":')
-CHINA=$(cat data/pipeline.json | grep -c '"country": "CN"')
-MULTI=$(cat data/pipeline.json | grep -c '双靶点\|三靶点')
+TOTAL=$(node -e "const data=require('./data/pipeline.json'); console.log((data.products || []).length)")
+CHINA=$(node -e "const data=require('./data/pipeline.json'); const foreign=['诺和诺德','礼来','阿斯利康','赛诺菲','勃林格殷格翰','强生','默沙东','葛兰素史克','诺华','Ionis','Alnylam','Altimmune','安进','vTv','百特']; console.log((data.products || []).filter(p => !foreign.some(f => (p.company || '').includes(f))).length)")
+MULTI=$(node -e "const data=require('./data/pipeline.json'); console.log((data.products || []).filter(p => (p.targets || []).length >= 2).length)")
 echo "  总产品数: $TOTAL"
 echo "  中国产品: $CHINA"
 echo "  多靶点产品: $MULTI"

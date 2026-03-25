@@ -3,9 +3,9 @@
 全球GLP-1靶点药物研发进展追踪平台 - 多靶点创新 · 中国突破
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Data](https://img.shields.io/badge/data-57%20products-green.svg)
-![China](https://img.shields.io/badge/China-25%20products-red.svg)
-![Multi-target](https://img.shields.io/badge/Multi--target-26%20products-purple.svg)
+![Data](https://img.shields.io/badge/data-52%20products-green.svg)
+![China](https://img.shields.io/badge/China-33%20products-red.svg)
+![Multi-target](https://img.shields.io/badge/Multi--target-17%20products-purple.svg)
 
 ## 🌐 在线访问
 
@@ -15,13 +15,13 @@
 
 | 指标 | 数值 |
 |------|------|
-| 总产品数 | 57 |
-| 中国产品 | 25 |
-| 全球产品 | 32 |
-| 多靶点产品 | 26 |
+| 总产品数 | 52 |
+| 中国产品 | 33 |
+| 全球产品 | 19 |
+| 多靶点产品 | 17 |
 | GCG靶点产品 | 14 |
-| 已上市 | 7 |
-| III期临床 | 18 |
+| 已上市 | 15 |
+| III期临床 | 13 |
 | NDA申报中 | 11 |
 
 ### 🎯 多靶点产品亮点
@@ -91,15 +91,18 @@ glp1-pipeline/
 ├── index.html          # 主页面
 ├── predictor.html      # 智能匹配页面
 ├── about.html          # 关于页面
+├── visualization.html  # 靶点矩阵可视化
 ├── favicon.ico         # 网站图标
 ├── css/
-│   └── style.css       # 样式文件
+│   ├── style.css       # 站点样式
+│   └── tailwind.css    # 构建产物
 ├── js/
 │   ├── app.js          # 主页面交互逻辑
 │   ├── predictor.js    # 智能匹配逻辑
 │   └── lib/            # 本地依赖库
 ├── data/
-│   ├── pipeline.json   # 主数据文件
+│   ├── pipeline.json            # 主数据文件
+│   └── predictor-profiles.json  # 匹配页补充参数
 └── README.md
 ```
 
@@ -112,9 +115,11 @@ glp1-pipeline/
 
 ### 更新步骤
 1. 编辑 `data/pipeline.json`
-2. 修改 `last_updated` 字段
-3. 提交并推送至 GitHub
-4. Cloudflare Pages 自动重新部署
+2. 如需调整匹配页专用参数，编辑 `data/predictor-profiles.json`
+3. 修改 `data/pipeline.json` 中的 `metadata.last_updated`
+4. 本地运行 `npm test`
+5. 提交并推送至 GitHub
+6. Cloudflare Pages 自动重新部署
 
 ## 🛠️ 本地开发
 
@@ -133,7 +138,7 @@ npx serve .
 
 ## 🎯 功能特性
 
-- ✅ 产品数据库（57款GLP-1产品）
+- ✅ 产品数据库（52款GLP-1产品）
 - ✅ 交互式表格（排序、搜索、筛选）
 - ✅ 多靶点产品标识（GCG三靶点⭐）
 - ✅ 中国专区（红色高亮）
@@ -180,5 +185,5 @@ MIT License - 自由使用和修改
 
 ---
 
-**数据截止日期**: 2025年3月10日  
+**数据最后更新**: 2025年3月10日  
 **司美格鲁肽中国专利到期**: 2026年3月20日

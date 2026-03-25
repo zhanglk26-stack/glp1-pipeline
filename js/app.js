@@ -1,230 +1,582 @@
+const FOREIGN_COMPANIES = [
+  '诺和诺德',
+  '礼来',
+  '阿斯利康',
+  '赛诺菲',
+  '勃林格殷格翰',
+  '强生',
+  '默沙东',
+  '葛兰素史克',
+  '诺华',
+  'Ionis',
+  'Alnylam',
+  'Altimmune',
+  '安进',
+  'vTv',
+  '百特'
+];
+
+const STAGE_ORDER = {
+  approved: 6,
+  nda: 5,
+  phase3: 4,
+  phase2: 3,
+  phase1: 2,
+  preclinical: 1,
+  discontinued: 0,
+  unknown: 0
+};
+
+const INDICATION_ALIASES = {
+  NASH: 'MASH',
+  MASH: 'MASH',
+  CKD: 'CKD',
+  '慢性肾病': 'CKD'
+};
+
 const state = {
-products: [],
-filteredProducts: [],
-sortField: 'approval_date',
-sortDirection: 'asc'
-};function isChineseCompany(company) {
-if (!company) return false;const foreign = ['诺和诺德', '礼来', '阿斯利康', '赛诺菲', '勃林格殷格翰', '强生', '默沙东', '葛兰素史克', '诺华', 'Ionis', 'Alnylam', 'Altimmune', '安进', 'vTv', '百特'];return !foreign.some(fc => company.includes(fc));}
-const stageWeights = {
-'已上市': 6,
-'NDA': 5,
-'III期': 4,
-'II期': 3,
-'I期': 2,
-'临床前': 1,
-'终止开发': 1
-};async function init() {
-try {
-const response = await fetch('data/pipeline.json');const data = await response.json();state.products = data.products || [];state.filteredProducts = [...state.products];updateStats();sortProducts('approval_date', false);renderData();setupEventListeners();const lastUpdatedEl = document.getElementById('lastUpdated');if (lastUpdatedEl) {
-lastUpdatedEl.textContent = data.last_updated || '--';}
-} catch (error) {
-console.error('Failed to load data:', error);const tbody = document.getElementById('productTableBody');if (tbody) {
-tbody.innerHTML = '<tr><td colspan="8" class="text-center py-8 text-red-400">数据加载失败，请刷新页面重试</td></tr>';}
+  products: [],
+  filteredProducts: [],
+  sortField: 'approval_date',
+  sortDirection: 'asc'
+};
+
+function isChineseCompany(company) {
+  if (!company) return false;
+  return !FOREIGN_COMPANIES.some((foreignCompany) => company.includes(foreignCompany));
 }
+
+function normalizeStage(stage) {
+  const value = String(stage || '').trim();
+
+  if (!value) return 'unknown';
+  if (value.includes('退市') || value.includes('终止')) return 'discontinued';
+  if (value.includes('已上市')) return 'approved';
+  if (value.includes('NDA') || value.includes('申报')) return 'nda';
+  if (/III|Ⅲ|3期/.test(value)) return 'phase3';
+  if (/II|Ⅱ|2期/.test(value)) return 'phase2';
+  if (/I|Ⅰ|1期/.test(value)) return 'phase1';
+  if (value.includes('临床前')) return 'preclinical';
+
+  return 'unknown';
 }
-function updateStats() {
-const products = state.products;function animateNumber(id, target, duration = 1500) {
-const el = document.getElementById(id);if (!el) return;const start = 0;const increment = target / (duration / 16);let current = start;const timer = setInterval(() => {
-current += increment;if (current >= target) {
-el.textContent = target;clearInterval(timer);} else {
-el.textContent = Math.floor(current);}
-}, 16);}
-animateNumber('totalProducts', products.length);const approved = products.filter(p => p.stage === '已上市').length;animateNumber('approvedCount', approved);const china = products.filter(p => isChineseCompany(p.company)).length;animateNumber('chinaCount', china);const multiTarget = products.filter(p => (p.targets && p.targets.length >= 2)).length;animateNumber('multiTargetCount', multiTarget);}
-function renderData() {
-renderTable();renderCards();updateFilterCount();}
-function renderTable() {
-const tbody = document.getElementById('productTableBody');if (!tbody) return;const products = state.filteredProducts;if (products.length === 0) {
-tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-12 text-center text-slate-400 font-medium">未找到符合条件的产品</td></tr>';return;}
-tbody.innerHTML = products.map(product => {
-const targetsHtml = (product.targets || []).map(t =>
-`<span class="target-badge mr-1">${t.replace('R', '')}</span>`
-).join('');return `
-<tr class="hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
-<td class="px-4 py-4 text-sm">
-<div class="flex flex-col">
-<div class="flex items-center flex-wrap gap-1 mb-1">
-<span class="font-bold text-blue-600 hover:text-blue-700 cursor-pointer transition-colors" onclick="showNewsModal(${product.id})">${product.name_cn}</span>
-</div>
-<div class="flex flex-wrap">${targetsHtml}</div>
-</div>
-</td>
-<td class="px-4 py-4">
-<span class="text-slate-900 font-semibold text-sm">${product.company}</span>
-</td>
-<td class="px-4 py-4">
-<span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
-</td>
-<td class="px-4 py-4 text-sm text-slate-600">
-${product.administration || '-'}
-</td>
-<td class="px-4 py-4 text-sm text-slate-600">
-${product.frequency || '-'}
-</td>
-<td class="px-4 py-4 text-sm text-slate-900 font-medium">
-${product.approval_date || '-'}
-</td>
-<td class="px-4 py-4">
-<div class="flex flex-wrap gap-1">
-${(product.indications || []).slice(0, 2).map(ind => `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">${ind}</span>`).join('')}
-</div>
-</td>
-<td class="px-4 py-4">
-<p class="text-xs text-slate-500 line-clamp-2" title="${product.latest_update || ''}">
-${product.latest_update || '-'}
-</p>
-</td>
-</tr>
-`;}).join('');}
-function renderCards() {
-const container = document.getElementById('productCardList');if (!container) return;const products = state.filteredProducts;if (products.length === 0) {
-container.innerHTML = '<div class="py-12 text-center text-slate-400">未找到符合条件的产品</div>';return;}
-container.innerHTML = products.map(product => `
-<div class="card p-5 cursor-pointer active:scale-[0.98] transition-all" onclick="showNewsModal(${product.id})">
-<div class="flex justify-between items-start mb-3">
-<div class="flex-1">
-<h3 class="font-bold text-blue-600 text-lg leading-tight mb-1">${product.name_cn}</h3>
-<div class="text-xs font-semibold text-slate-900">${product.company}</div>
-</div>
-<div class="flex flex-col items-end gap-2">
-<span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
-<svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-</div>
-</div>
-<div class="flex flex-wrap gap-1 mb-4">
-${(product.targets || []).map(t => `<span class="target-badge">${t.replace('R', '')}</span>`).join('')}
-</div>
-<div class="grid grid-cols-2 gap-4 text-xs text-slate-500 bg-slate-50 p-3 rounded-lg">
-<div>
-<span class="block text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药途径</span>
-<span class="text-slate-900 font-semibold">${product.administration}</span>
-</div>
-<div>
-<span class="block text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药频率</span>
-<span class="text-slate-900 font-semibold">${product.frequency}</span>
-</div>
-</div>
-</div>
-`).join('');}
-function updateFilterCount() {
-const el = document.getElementById("filterCount");if (!el) return;const current = (state.filteredProducts || []).length;const total = (state.products || []).length;el.textContent = `正在显示 ${current} / ${total} 款产品`;}
+
+function getStageWeight(stage) {
+  return STAGE_ORDER[normalizeStage(stage)] ?? STAGE_ORDER.unknown;
+}
+
+function isApprovedStage(stage) {
+  return normalizeStage(stage) === 'approved';
+}
+
 function getStageClass(stage) {
-if (stage === '已上市') return 'stage-approved';if (stage.includes('NDA')) return 'stage-nda';if (stage.includes('III') || stage.includes('3')) return 'stage-phase3';if (stage.includes('II') || stage.includes('2')) return 'stage-phase2';if (stage.includes('I') || stage.includes('1')) return 'stage-phase1';return 'stage-preclinical';}
+  const normalized = normalizeStage(stage);
+
+  if (normalized === 'approved') return 'stage-approved';
+  if (normalized === 'nda') return 'stage-nda';
+  if (normalized === 'phase3') return 'stage-phase3';
+  if (normalized === 'phase2') return 'stage-phase2';
+  if (normalized === 'phase1') return 'stage-phase1';
+  return 'stage-preclinical';
+}
+
+function getLastUpdated(data) {
+  return data?.metadata?.last_updated || data?.last_updated || '--';
+}
+
+function normalizeIndicationValue(value) {
+  return INDICATION_ALIASES[value] || value;
+}
+
+function normalizeIndications(indications) {
+  return (indications || []).map(normalizeIndicationValue);
+}
+
+function getSearchableFields(product) {
+  return [
+    product.name_cn,
+    product.name_en,
+    product.company,
+    product.company_en,
+    product.commercial_name,
+    product.code_name,
+    ...(product.targets || []),
+    ...(product.indications || [])
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
+
+function parseApprovalDateValue(value) {
+  const text = String(value || '').trim();
+
+  if (!text || text === '-' || text.includes('预计') || text.includes('以后')) {
+    return null;
+  }
+
+  const match = text.match(/(\d{4})年(?:0?(\d{1,2})月)?/);
+  if (!match) return null;
+
+  const year = match[1];
+  const month = String(match[2] || '12').padStart(2, '0');
+  return Number(`${year}${month}`);
+}
+
+function animateNumber(id, target, duration = 1500) {
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  const increment = target / (duration / 16);
+  let current = 0;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+      return;
+    }
+
+    element.textContent = Math.floor(current);
+  }, 16);
+}
+
+async function init() {
+  try {
+    const response = await fetch('data/pipeline.json');
+    const data = await response.json();
+
+    state.products = data.products || [];
+    state.filteredProducts = [...state.products];
+
+    updateStats();
+    setupEventListeners();
+    sortProducts('approval_date', false);
+
+    const lastUpdatedEl = document.getElementById('lastUpdated');
+    if (lastUpdatedEl) {
+      lastUpdatedEl.textContent = getLastUpdated(data);
+    }
+  } catch (error) {
+    console.error('Failed to load data:', error);
+    const tbody = document.getElementById('productTableBody');
+    if (tbody) {
+      tbody.innerHTML =
+        '<tr><td colspan="8" class="text-center py-8 text-red-400">数据加载失败，请刷新页面重试</td></tr>';
+    }
+  }
+}
+
+function updateStats() {
+  const products = state.products;
+  animateNumber('totalProducts', products.length);
+  animateNumber(
+    'approvedCount',
+    products.filter((product) => isApprovedStage(product.stage)).length
+  );
+  animateNumber(
+    'chinaCount',
+    products.filter((product) => isChineseCompany(product.company)).length
+  );
+  animateNumber(
+    'multiTargetCount',
+    products.filter((product) => (product.targets || []).length >= 2).length
+  );
+}
+
+function renderData() {
+  renderTable();
+  renderCards();
+  updateFilterCount();
+}
+
+function renderTable() {
+  const tbody = document.getElementById('productTableBody');
+  if (!tbody) return;
+
+  const products = state.filteredProducts;
+  if (products.length === 0) {
+    tbody.innerHTML =
+      '<tr><td colspan="8" class="px-4 py-12 text-center text-slate-400 font-medium">未找到符合条件的产品</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = products
+    .map((product) => {
+      const targetsHtml = (product.targets || [])
+        .map((target) => `<span class="target-badge mr-1">${target.replace(/R$/, '')}</span>`)
+        .join('');
+
+      return `
+<tr class="hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
+  <td class="px-4 py-4 text-sm">
+    <div class="flex flex-col">
+      <div class="flex items-center flex-wrap gap-1 mb-1">
+        <span class="font-bold text-blue-600 hover:text-blue-700 cursor-pointer transition-colors" onclick="showNewsModal(${product.id})">${product.name_cn}</span>
+      </div>
+      <div class="flex flex-wrap">${targetsHtml}</div>
+    </div>
+  </td>
+  <td class="px-4 py-4">
+    <span class="text-slate-900 font-semibold text-sm">${product.company}</span>
+  </td>
+  <td class="px-4 py-4">
+    <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
+  </td>
+  <td class="px-4 py-4 text-sm text-slate-600">${product.administration || '-'}</td>
+  <td class="px-4 py-4 text-sm text-slate-600">${product.frequency || '-'}</td>
+  <td class="px-4 py-4 text-sm text-slate-900 font-medium">${product.approval_date || '-'}</td>
+  <td class="px-4 py-4">
+    <div class="flex flex-wrap gap-1">
+      ${(product.indications || [])
+        .slice(0, 2)
+        .map(
+          (indication) =>
+            `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">${indication}</span>`
+        )
+        .join('')}
+    </div>
+  </td>
+  <td class="px-4 py-4">
+    <p class="text-xs text-slate-500 line-clamp-2" title="${product.latest_update || ''}">
+      ${product.latest_update || '-'}
+    </p>
+  </td>
+</tr>`;
+    })
+    .join('');
+}
+
+function renderCards() {
+  const container = document.getElementById('productCardList');
+  if (!container) return;
+
+  const products = state.filteredProducts;
+  if (products.length === 0) {
+    container.innerHTML = '<div class="py-12 text-center text-slate-400">未找到符合条件的产品</div>';
+    return;
+  }
+
+  container.innerHTML = products
+    .map(
+      (product) => `
+<div class="card p-5 cursor-pointer active:scale-[0.98] transition-all" onclick="showNewsModal(${product.id})">
+  <div class="flex justify-between items-start mb-3">
+    <div class="flex-1">
+      <h3 class="font-bold text-blue-600 text-lg leading-tight mb-1">${product.name_cn}</h3>
+      <div class="text-xs font-semibold text-slate-900">${product.company}</div>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
+      <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-1 mb-4">
+    ${(product.targets || [])
+      .map((target) => `<span class="target-badge">${target.replace(/R$/, '')}</span>`)
+      .join('')}
+  </div>
+  <div class="grid grid-cols-2 gap-4 text-xs text-slate-500 bg-slate-50 p-3 rounded-lg">
+    <div>
+      <span class="block text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药途径</span>
+      <span class="text-slate-900 font-semibold">${product.administration || '-'}</span>
+    </div>
+    <div>
+      <span class="block text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药频率</span>
+      <span class="text-slate-900 font-semibold">${product.frequency || '-'}</span>
+    </div>
+  </div>
+</div>`
+    )
+    .join('');
+}
+
+function updateFilterCount() {
+  const element = document.getElementById('filterCount');
+  if (!element) return;
+
+  const current = state.filteredProducts.length;
+  const total = state.products.length;
+  element.textContent = `正在显示 ${current} / ${total} 款产品`;
+}
+
 function matchesSearch(product, searchTerm) {
-if (!searchTerm) return true;return (
-product.name_cn.toLowerCase().includes(searchTerm) ||
-product.company.toLowerCase().includes(searchTerm) ||
-(product.code_name && product.code_name.toLowerCase().includes(searchTerm))
-);}
+  if (!searchTerm) return true;
+  return getSearchableFields(product).includes(searchTerm);
+}
+
 function matchesStage(product, stageFilter) {
-if (stageFilter.length === 0) return true;return stageFilter.some(stage => product.stage.includes(stage));}
+  if (stageFilter.length === 0) return true;
+
+  const normalizedStage = normalizeStage(product.stage);
+  return stageFilter.some((stage) => {
+    if (stage === 'NDA') {
+      return normalizedStage === 'nda';
+    }
+    return String(product.stage || '').includes(stage);
+  });
+}
+
 function matchesIndication(product, indicationFilter) {
-if (indicationFilter.length === 0) return true;return indicationFilter.some(ind => product.indications && product.indications.includes(ind));}
+  if (indicationFilter.length === 0) return true;
+
+  const normalizedProductIndications = normalizeIndications(product.indications);
+  return indicationFilter.some((indication) =>
+    normalizedProductIndications.includes(normalizeIndicationValue(indication))
+  );
+}
+
 function matchesRoute(product, routeFilter) {
-if (routeFilter.length === 0) return true;const admin = product.administration || '注射';if (admin.includes('口服') && routeFilter.includes('口服')) return true;if (admin.includes('注射') && routeFilter.includes('注射')) return true;if (admin.includes('鼻喷') && routeFilter.includes('其他')) return true;return false;}
+  if (routeFilter.length === 0) return true;
+
+  const administration = product.administration || '注射';
+  if (administration.includes('口服') && routeFilter.includes('口服')) return true;
+  if (administration.includes('注射') && routeFilter.includes('注射')) return true;
+  if (
+    (administration.includes('鼻喷') || administration.includes('吸入') || administration.includes('透皮')) &&
+    routeFilter.includes('其他')
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 function matchesTarget(product, selectedTargets) {
-if (selectedTargets.length === 0) return true;return selectedTargets.every(t => {
-return product.targets && product.targets.some(pt => pt.toUpperCase().includes(t));});}
+  if (selectedTargets.length === 0) return true;
+
+  return selectedTargets.every((target) =>
+    (product.targets || []).some((productTarget) => productTarget.toUpperCase().includes(target))
+  );
+}
+
 function filterProducts() {
-const searchTerm = document.getElementById('searchInput').value.toLowerCase();const stageFilter = Array.from(document.querySelectorAll('.stage-cb:checked')).map(cb => cb.value);const indicationFilter = Array.from(document.querySelectorAll('.ind-cb:checked')).map(cb => cb.value);const selectedTargets = Array.from(document.querySelectorAll('.target-cb:checked')).map(cb => cb.value.toUpperCase());const routeFilter = Array.from(document.querySelectorAll('.route-cb:checked')).map(cb => cb.value);state.filteredProducts = state.products.filter(product => {
-return matchesSearch(product, searchTerm) &&
-matchesStage(product, stageFilter) &&
-matchesIndication(product, indicationFilter) &&
-matchesRoute(product, routeFilter) &&
-matchesTarget(product, selectedTargets);});if (state.sortField) {
-sortProducts(state.sortField, false);} else {
-renderData();}
+  const searchTerm = document.getElementById('searchInput')?.value.trim().toLowerCase() || '';
+  const stageFilter = Array.from(document.querySelectorAll('.stage-cb:checked')).map(
+    (checkbox) => checkbox.value
+  );
+  const indicationFilter = Array.from(document.querySelectorAll('.ind-cb:checked')).map(
+    (checkbox) => checkbox.value
+  );
+  const selectedTargets = Array.from(document.querySelectorAll('.target-cb:checked')).map(
+    (checkbox) => checkbox.value.toUpperCase()
+  );
+  const routeFilter = Array.from(document.querySelectorAll('.route-cb:checked')).map(
+    (checkbox) => checkbox.value
+  );
+
+  state.filteredProducts = state.products.filter(
+    (product) =>
+      matchesSearch(product, searchTerm) &&
+      matchesStage(product, stageFilter) &&
+      matchesIndication(product, indicationFilter) &&
+      matchesRoute(product, routeFilter) &&
+      matchesTarget(product, selectedTargets)
+  );
+
+  if (state.sortField) {
+    sortProducts(state.sortField, false);
+    return;
+  }
+
+  renderData();
 }
+
+function compareValues(a, b) {
+  return String(a || '').localeCompare(String(b || ''), 'zh-CN');
+}
+
 function sortProducts(field, toggleDirection = true) {
-if (toggleDirection) {
-if (state.sortField === field) {
-state.sortDirection = state.sortDirection === 'asc' ? 'desc' : 'asc';} else {
-state.sortField = field;state.sortDirection = 'desc';}
+  if (toggleDirection) {
+    if (state.sortField === field) {
+      state.sortDirection = state.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      state.sortField = field;
+      state.sortDirection = 'desc';
+    }
+  } else {
+    state.sortField = field;
+  }
+
+  state.filteredProducts.sort((productA, productB) => {
+    let result = 0;
+
+    if (field === 'stage') {
+      result = getStageWeight(productA.stage) - getStageWeight(productB.stage);
+    } else if (field === 'approval_date') {
+      const dateA = parseApprovalDateValue(productA.approval_date);
+      const dateB = parseApprovalDateValue(productB.approval_date);
+
+      if (dateA === null && dateB !== null) result = 1;
+      else if (dateB === null && dateA !== null) result = -1;
+      else if (dateA !== null && dateB !== null) result = dateA - dateB;
+      else result = compareValues(productA.name_cn, productB.name_cn);
+    } else {
+      result = compareValues(productA[field], productB[field]);
+    }
+
+    return state.sortDirection === 'asc' ? result : -result;
+  });
+
+  document.querySelectorAll('th[data-sort]').forEach((th) => {
+    const icon = th.querySelector('.sort-icon');
+    if (!icon) return;
+
+    if (th.dataset.sort === field) {
+      icon.textContent = state.sortDirection === 'asc' ? '↑' : '↓';
+      icon.classList.replace('text-slate-300', 'text-blue-600');
+      th.classList.add('text-blue-600');
+      return;
+    }
+
+    icon.textContent = '↕';
+    icon.classList.replace('text-blue-600', 'text-slate-300');
+    th.classList.remove('text-blue-600');
+  });
+
+  renderData();
 }
-state.filteredProducts.sort((a, b) => {
-let valA, valB;if (field === 'stage') {
-valA = stageWeights[a.stage] || 0;valB = stageWeights[b.stage] || 0;} else {
-valA = a[field] || '';valB = b[field] || '';}
-if (field === 'approval_date') {
-const parseDate = (d) => {
-if (!d || d === '-' || d.includes('预计') || d.includes('以后')) return 'ZZZZZ';const match = d.match(/(\d{4})年(\d{2})月/);if (match) return `${match[1]}${match[2]}`;return d;};const dateA = parseDate(valA);const dateB = parseDate(valB);if (dateA === 'ZZZZZ' && dateB !== 'ZZZZZ') return 1;if (dateB === 'ZZZZZ' && dateA !== 'ZZZZZ') return -1;if (dateA < dateB) return state.sortDirection === 'asc' ? -1 : 1;if (dateA > dateB) return state.sortDirection === 'asc' ? 1 : -1;return 0;}
-if (valA < valB) return state.sortDirection === 'asc' ? -1 : 1;if (valA > valB) return state.sortDirection === 'asc' ? 1 : -1;return 0;});document.querySelectorAll('th[data-sort]').forEach(th => {
-if (th.dataset.sort === field) {
-th.querySelector('.sort-icon').textContent = state.sortDirection === 'asc' ? '↑' : '↓';th.querySelector('.sort-icon').classList.replace('text-slate-300', 'text-blue-600');th.classList.add('text-blue-600');} else {
-th.querySelector('.sort-icon').textContent = '↕';th.querySelector('.sort-icon').classList.replace('text-blue-600', 'text-slate-300');th.classList.remove('text-blue-600');}
-});renderData();}
+
+function setupStickyHeader() {
+  const tableSection = document.getElementById('tableSection');
+  const tableHeader = document.getElementById('tableHeader');
+  if (!tableSection || !tableHeader) return;
+
+  const placeholder = document.createElement('div');
+  placeholder.className = 'table-header-placeholder';
+  tableSection.insertBefore(placeholder, tableSection.firstChild);
+
+  window.addEventListener('scroll', () => {
+    const rect = tableSection.getBoundingClientRect();
+    const navHeight = 64;
+
+    if (rect.top < navHeight && rect.bottom > navHeight + 100) {
+      if (!tableHeader.classList.contains('table-header-sticky')) {
+        tableHeader.classList.add('table-header-sticky');
+        placeholder.classList.add('visible');
+
+        const table = tableHeader.closest('table');
+        if (table) {
+          tableHeader.style.width = `${table.offsetWidth}px`;
+        }
+      }
+      return;
+    }
+
+    if (tableHeader.classList.contains('table-header-sticky')) {
+      tableHeader.classList.remove('table-header-sticky');
+      placeholder.classList.remove('visible');
+      tableHeader.style.width = '';
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (!tableHeader.classList.contains('table-header-sticky')) return;
+
+    const table = tableHeader.closest('table');
+    if (table) {
+      tableHeader.style.width = `${table.offsetWidth}px`;
+    }
+  });
+}
+
 function setupEventListeners() {
-document.getElementById('searchInput')?.addEventListener('input', debounce(filterProducts, 300));document.querySelectorAll('.stage-cb, .ind-cb, .target-cb, .route-cb').forEach(cb => {
-cb.addEventListener('change', filterProducts);});document.getElementById('clearFilters')?.addEventListener('click', () => {
-document.getElementById('searchInput').value = '';document.querySelectorAll('.stage-cb, .ind-cb, .target-cb, .route-cb').forEach(cb => cb.checked = false);filterProducts();});document.querySelectorAll('th[data-sort]').forEach(th => {
-th.addEventListener('click', () => sortProducts(th.dataset.sort));});document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
-document.getElementById('mobileMenu')?.classList.toggle('hidden');});document.getElementById('closeNewsModal')?.addEventListener('click', () => {
-document.getElementById('newsModal').classList.add('hidden');});document.getElementById('newsModal')?.addEventListener('click', (e) => {
-if (e.target === e.currentTarget) e.currentTarget.classList.add('hidden');});
+  document.getElementById('searchInput')?.addEventListener('input', debounce(filterProducts, 300));
 
-// Sticky table header on page scroll
-const tableSection = document.getElementById('tableSection');
-const tableHeader = document.getElementById('tableHeader');
-if (tableSection && tableHeader) {
-let placeholder = document.createElement('div');
-placeholder.className = 'table-header-placeholder';
-tableSection.insertBefore(placeholder, tableSection.firstChild);
+  document
+    .querySelectorAll('.stage-cb, .ind-cb, .target-cb, .route-cb')
+    .forEach((checkbox) => checkbox.addEventListener('change', filterProducts));
 
-window.addEventListener('scroll', () => {
-const rect = tableSection.getBoundingClientRect();
-const navHeight = 64;
+  document.getElementById('clearFilters')?.addEventListener('click', () => {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.value = '';
 
-if (rect.top < navHeight && rect.bottom > navHeight + 100) {
-// Make header sticky
-if (!tableHeader.classList.contains('table-header-sticky')) {
-tableHeader.classList.add('table-header-sticky');
-placeholder.classList.add('visible');
-// Clone the table structure for proper column widths
-const table = tableHeader.closest('table');
-if (table) {
-const ths = tableHeader.querySelectorAll('th');
-const tableWidth = table.offsetWidth;
-tableHeader.style.width = tableWidth + 'px';
-}
-}
-} else {
-// Remove sticky
-if (tableHeader.classList.contains('table-header-sticky')) {
-tableHeader.classList.remove('table-header-sticky');
-placeholder.classList.remove('visible');
-tableHeader.style.width = '';
-}
-}
-});
+    document
+      .querySelectorAll('.stage-cb, .ind-cb, .target-cb, .route-cb')
+      .forEach((checkbox) => {
+        checkbox.checked = false;
+      });
 
-// Handle window resize
-window.addEventListener('resize', () => {
-if (tableHeader.classList.contains('table-header-sticky')) {
-const table = tableHeader.closest('table');
-if (table) {
-tableHeader.style.width = table.offsetWidth + 'px';
+    filterProducts();
+  });
+
+  document.querySelectorAll('th[data-sort]').forEach((th) => {
+    th.addEventListener('click', () => sortProducts(th.dataset.sort));
+  });
+
+  document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu')?.classList.toggle('hidden');
+  });
+
+  document.getElementById('closeNewsModal')?.addEventListener('click', () => {
+    document.getElementById('newsModal')?.classList.add('hidden');
+  });
+
+  document.getElementById('newsModal')?.addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) {
+      event.currentTarget.classList.add('hidden');
+    }
+  });
+
+  setupStickyHeader();
 }
-}
-});
-}
-}
+
 function showNewsModal(productId) {
-const product = state.products.find(p => p.id === productId);if (!product) return;document.getElementById('newsModalTitle').textContent = `${product.name_cn} - 最新相关进展`;const content = document.getElementById('newsModalContent');if (!product.news || product.news.length === 0) {
-content.innerHTML = '<div class="py-12 text-center text-slate-400">暂无相关新闻进展</div>';} else {
-content.innerHTML = product.news.map(n => `
-<a href="${n.url}" target="_blank" class="block p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition-all hover:border-blue-200">
-<h4 class="font-bold text-slate-900 mb-2">${n.title}</h4>
-<div class="flex items-center text-xs text-slate-400">
-<span class="mr-3 font-semibold text-blue-500">${n.source || '新闻来源'}</span>
-<span>${n.date || ''}</span>
-</div>
-</a>
-`).join('');}
-document.getElementById('newsModal').classList.remove('hidden');}
+  const product = state.products.find((item) => item.id === productId);
+  if (!product) return;
+
+  document.getElementById('newsModalTitle').textContent = `${product.name_cn} - 最新相关进展`;
+  const content = document.getElementById('newsModalContent');
+
+  if (!product.news || product.news.length === 0) {
+    content.innerHTML = '<div class="py-12 text-center text-slate-400">暂无相关新闻进展</div>';
+  } else {
+    content.innerHTML = product.news
+      .map(
+        (news) => `
+<a href="${news.url}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition-all hover:border-blue-200">
+  <h4 class="font-bold text-slate-900 mb-2">${news.title}</h4>
+  <div class="flex items-center text-xs text-slate-400">
+    <span class="mr-3 font-semibold text-blue-500">${news.source || '新闻来源'}</span>
+    <span>${news.date || ''}</span>
+  </div>
+</a>`
+      )
+      .join('');
+  }
+
+  document.getElementById('newsModal').classList.remove('hidden');
+}
+
 function debounce(func, wait) {
-let timeout;return function executedFunction(...args) {
-const later = () => {
-clearTimeout(timeout);func(...args);};clearTimeout(timeout);timeout = setTimeout(later, wait);};}
+  let timeout;
+
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 if (typeof document !== 'undefined') {
-document.addEventListener('DOMContentLoaded', init);}
+  document.addEventListener('DOMContentLoaded', init);
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-module.exports = { isChineseCompany };}
+  module.exports = {
+    getLastUpdated,
+    getStageClass,
+    isApprovedStage,
+    isChineseCompany,
+    matchesIndication,
+    matchesSearch,
+    normalizeIndicationValue,
+    normalizeStage,
+    parseApprovalDateValue
+  };
+}

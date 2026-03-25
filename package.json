@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
-    "dev": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch"
+    "dev": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch",
+    "test": "node --test"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0"

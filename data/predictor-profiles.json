@@ -1,0 +1,90 @@
+{
+  "Tirzepatide": {
+    "brand": "穆峰达",
+    "type": "GLP-1/GIP 双靶点",
+    "conditionTags": ["obesity", "diabetes", "nash"],
+    "bmiRange": [27, 50],
+    "pricing": {
+      "monthlyOriginal": 2800,
+      "monthlyInsurance": 560,
+      "monthlyGenericExpected": 350,
+      "genericAvailable": "2028-12"
+    },
+    "weightLossCurve": {
+      "week4": 2.8,
+      "week8": 5.5,
+      "week12": 8.3,
+      "week24": 15.0,
+      "week36": 18.5,
+      "week48": 20.2
+    },
+    "advantages": ["目前全球减重效果最强", "脂肪肝改善显著", "已纳入医保"],
+    "notes": "适合追求极效减重及合并脂肪肝/糖尿病的患者"
+  },
+  "Semaglutide": {
+    "brand": "诺和盈",
+    "type": "GLP-1 单靶点",
+    "conditionTags": ["obesity", "diabetes", "cvd"],
+    "bmiRange": [27, 50],
+    "pricing": {
+      "monthlyOriginal": 2400,
+      "monthlyInsurance": 480,
+      "monthlyGenericExpected": 280,
+      "genericAvailable": "2026-04"
+    },
+    "weightLossCurve": {
+      "week4": 2.4,
+      "week8": 4.8,
+      "week12": 7.2,
+      "week24": 13.5,
+      "week36": 14.8,
+      "week48": 15.8
+    },
+    "advantages": ["心血管保护证据最充分", "仿制药2026年上市", "全球使用最广泛"],
+    "notes": "适合合并心血管疾病或追求长期用药性价比的患者"
+  },
+  "Mazdutide": {
+    "brand": "信尔美",
+    "type": "GLP-1/GCG 双靶点",
+    "conditionTags": ["obesity", "diabetes", "nash"],
+    "bmiRange": [24, 45],
+    "pricing": {
+      "monthlyOriginal": 2100,
+      "monthlyInsurance": 420,
+      "monthlyGenericExpected": null,
+      "genericAvailable": null
+    },
+    "weightLossCurve": {
+      "week4": 2.5,
+      "week8": 5.0,
+      "week12": 7.5,
+      "week24": 13.2,
+      "week36": 15.8,
+      "week48": 18.6
+    },
+    "advantages": ["首款国产双靶点创新药", "胃肠道副作用相对较小", "代谢改善综合效果优"],
+    "notes": "适合对副作用敏感或关注血脂/肝功能改善的患者"
+  },
+  "Liraglutide": {
+    "brand": "利鲁平/诺和力",
+    "type": "GLP-1 单靶点 (日制剂)",
+    "conditionTags": ["obesity", "diabetes"],
+    "bmiRange": [27, 50],
+    "pricing": {
+      "monthlyOriginal": 1600,
+      "monthlyInsurance": 320,
+      "monthlyGenericExpected": 150,
+      "genericAvailable": "已上市"
+    },
+    "weightLossCurve": {
+      "week4": 1.8,
+      "week8": 3.5,
+      "week12": 5.2,
+      "week24": 9.0,
+      "week36": 10.0,
+      "week48": 10.5
+    },
+    "advantages": ["价格最亲民", "可随时停药 (短效)", "临床可及性极高"],
+    "notes": "适合预算有限或需短期控制权 (如备孕前) 的患者"
+  }
+}

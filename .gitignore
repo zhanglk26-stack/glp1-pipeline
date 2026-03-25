@@ -42,3 +42,4 @@ Thumbs.db
 # Project specific
 node_modules/
 css/tailwind.css
+tmpclaude-*

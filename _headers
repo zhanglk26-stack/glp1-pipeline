@@ -15,3 +15,7 @@
 # Cache pipeline data for 1 day (updated monthly)
 /data/pipeline.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+
+# Cache predictor profiles for 1 day
+/data/predictor-profiles.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
