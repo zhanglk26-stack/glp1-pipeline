@@ -2,6 +2,7 @@
   const NAV_ITEMS = [
     { key: 'index', href: 'index.html', label: '概览与数据库' },
     { key: 'visualization', href: 'visualization.html', label: '靶点矩阵' },
+    { key: 'competitor-analysis', href: 'competitor-analysis.html', label: '竞品分析' },
     { key: 'predictor', href: 'predictor.html', label: '智能匹配' },
     { key: 'about', href: 'about.html', label: '关于' }
   ];
@@ -20,7 +21,7 @@
 
   function renderHeader(activePage, tagline = '') {
     const taglineHtml = tagline
-      ? `<span class="hidden lg:block text-xs text-slate-400 border-l border-slate-200 pl-4 py-1">${tagline}</span>`
+      ? `<span class="hidden lg:block text-xs border-l border-slate-200 pl-4 py-1 font-bold" style="color: #1e293b !important;">${tagline}</span>`
       : '';
 
     return `
@@ -50,7 +51,7 @@
       return `
 <footer class="bg-white border-t border-slate-200 mt-12 py-8">
   <div class="max-w-[1400px] mx-auto px-4 text-center">
-    <p class="text-slate-400 text-xs">© 2025 GLP-1 Pipeline Tracker. 数据最后更新: <span id="lastUpdated">--</span></p>
+    <p class="text-slate-400 text-xs">© 2026 GLP-1 Pipeline Tracker. 数据最后更新: <span id="lastUpdated">--</span></p>
     <p class="text-slate-300 text-[10px] mt-2">数据来源于公开披露信息，仅供学术交流与参考，不作为医疗或投资依据。</p>
   </div>
 </footer>`;
@@ -59,7 +60,7 @@
     return `
 <footer class="bg-white border-t border-slate-200 mt-12 py-8">
   <div class="max-w-[1400px] mx-auto px-4 text-center">
-    <p class="text-slate-400 text-xs">© 2025 GLP-1 Pipeline Tracker. All rights reserved.</p>
+    <p class="text-slate-400 text-xs">© 2026 GLP-1 Pipeline Tracker. All rights reserved.</p>
   </div>
 </footer>`;
   }
