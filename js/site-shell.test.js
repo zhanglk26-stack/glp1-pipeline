@@ -6,8 +6,8 @@ const { renderHeader, renderFooter } = require('./site-shell.js');
 test('renderHeader highlights the active desktop nav item', () => {
   const header = renderHeader('predictor');
 
-  assert.match(header, /predictor\.html" class="text-slate-900 hover:text-blue-600 font-semibold transition-colors"/);
-  assert.match(header, /index\.html" class="text-slate-600 hover:text-blue-600 font-semibold transition-colors"/);
+  assert.match(header, /href="\/predictor" class="text-slate-900 hover:text-blue-600 font-semibold transition-colors"/);
+  assert.match(header, /href="\/" class="text-slate-600 hover:text-blue-600 font-semibold transition-colors"/);
 });
 
 test('renderHeader includes mobile navigation and optional tagline', () => {

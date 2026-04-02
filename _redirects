@@ -1,3 +1,2 @@
-# Clean URL support (no .html extension)
-/predictor   /predictor.html   301
-/about       /about.html       301
+# Cloudflare Pages serves clean URLs automatically for static HTML files.
+# Keep this file empty to avoid redirect loops with pretty URL canonicalization.

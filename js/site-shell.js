@@ -1,10 +1,10 @@
 (function () {
   const NAV_ITEMS = [
-    { key: 'index', href: 'index.html', label: '概览与数据库' },
-    { key: 'visualization', href: 'visualization.html', label: '靶点矩阵' },
-    { key: 'competitor-analysis', href: 'competitor-analysis.html', label: '竞品分析' },
-    { key: 'predictor', href: 'predictor.html', label: '智能匹配' },
-    { key: 'about', href: 'about.html', label: '关于' }
+    { key: 'index', href: '/', label: '概览与数据库' },
+    { key: 'visualization', href: '/visualization', label: '靶点矩阵' },
+    { key: 'competitor-analysis', href: '/competitor-analysis', label: '竞品分析' },
+    { key: 'predictor', href: '/predictor', label: '智能匹配' },
+    { key: 'about', href: '/about', label: '关于' }
   ];
 
   function renderNavLinks(activePage, mobile = false) {
