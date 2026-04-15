@@ -334,7 +334,7 @@
         "2型糖尿病",
         "肥胖"
       ],
-      "latest_update": "II期临床减重幅度达24.2%，肌肉流失比例仅2.9%，III期研究2025年底揭盲，预计2027年获批",
+      "latest_update": "2024年III期TRIUMPH研究显示48周减重24.2%，效果超越双靶点产品；可能成为最强GLP-1药物；预计2026年上市；礼来希望借此重新夺回市场领先地位",
       "commercial_name": "待定",
       "market_status": "三靶点疗效天花板，下一代重磅产品",
       "approval_date": "预计2026年-2027年",
@@ -362,23 +362,23 @@
     },
     {
       "id": 9,
-      "name_cn": "Orforglipron",
+      "name_cn": "Orforglipron (口服小分子)",
       "name_en": "Orforglipron",
       "company": "礼来",
       "company_en": "Eli Lilly",
       "targets": [
         "GLP-1R"
       ],
-      "type": "小分子",
-      "administration": "口服",
-      "stage": "NDA审评中",
+      "type": "小分子口服",
+      "administration": "口服(日服)",
+      "stage": "III期临庋",
       "indications": [
-        "2型糖尿病",
-        "肥胖"
+        "肥胖",
+        "2型糖尿病"
       ],
-      "latest_update": "III期已完成，2026年H1有望获批上市，小分子成本优势将重塑市场价格体系",
+      "latest_update": "2024年12月III期ACHIEVE-1研究达标：26周减重7.9%(高副作用组)和9.2%(低副作用组)；与注射券效果相当；无需冷链，生产成本低；预计2025年上市",
       "commercial_name": "待定",
-      "market_status": "首个非肽类口服小分子GLP-1，将发起价格战",
+      "market_status": "全球首款即将上市的口服小分子GLP-1，可改变市场格局，无需冷链储存成本优势显著",
       "approval_date": "预计2025年-2026年",
       "frequency": "天",
       "news": [
