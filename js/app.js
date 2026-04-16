@@ -13,7 +13,9 @@ const FOREIGN_COMPANIES = [
   'Altimmune',
   '安进',
   'vTv',
-  '百特'
+  '百特',
+  '辉瑞',
+  'Pfizer'
 ];
 
 const STAGE_ORDER = {

@@ -8,6 +8,8 @@ const FOREIGN_COMPANIES = [
   '默沙东',
   '葛兰素史克',
   '诺华',
+  '辉瑞',
+  'Pfizer',
   '安进',
   'Altimmune'
 ];

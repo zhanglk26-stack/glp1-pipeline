@@ -20,6 +20,7 @@ test('getCompanyType keeps biosimilar and international buckets stable', () => {
   assert.equal(getCompanyType('礼来'), 'international');
   assert.equal(getCompanyType('诺和诺德/华东医药'), 'biosimilar');
   assert.equal(getCompanyType('信达生物'), 'domestic_innovator');
+  assert.equal(getCompanyType('先为达生物/辉瑞'), 'international');
 });
 
 test('buildTargetDefinitions counts known target combinations', () => {

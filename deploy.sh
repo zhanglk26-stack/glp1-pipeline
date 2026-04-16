@@ -22,7 +22,7 @@ echo "✅ 项目文件检查通过"
 echo ""
 echo "📊 数据统计:"
 TOTAL=$(node -e "const data=require('./data/pipeline.json'); console.log((data.products || []).length)")
-CHINA=$(node -e "const data=require('./data/pipeline.json'); const foreign=['诺和诺德','礼来','阿斯利康','赛诺菲','勃林格殷格翰','强生','默沙东','葛兰素史克','诺华','Ionis','Alnylam','Altimmune','安进','vTv','百特']; console.log((data.products || []).filter(p => !foreign.some(f => (p.company || '').includes(f))).length)")
+CHINA=$(node -e "const data=require('./data/pipeline.json'); const foreign=['诺和诺德','礼来','阿斯利康','赛诺菲','勃林格殷格翰','强生','默沙东','葛兰素史克','诺华','Ionis','Alnylam','Altimmune','安进','vTv','百特','辉瑞','Pfizer']; console.log((data.products || []).filter(p => !foreign.some(f => (p.company || '').includes(f))).length)")
 MULTI=$(node -e "const data=require('./data/pipeline.json'); console.log((data.products || []).filter(p => (p.targets || []).length >= 2).length)")
 echo "  总产品数: $TOTAL"
 echo "  中国产品: $CHINA"

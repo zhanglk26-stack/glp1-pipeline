@@ -28,6 +28,7 @@ test('isChineseCompany function', async (t) => {
     await t.test('should return false if name contains a foreign company name', () => {
         assert.strictEqual(isChineseCompany('信达生物/礼来'), false);
         assert.strictEqual(isChineseCompany('诺和诺德/华东医药'), false);
+        assert.strictEqual(isChineseCompany('先为达生物/辉瑞'), false);
     });
 
     await t.test('should return false for empty, null or undefined input', () => {

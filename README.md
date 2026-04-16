@@ -3,9 +3,9 @@
 全球GLP-1靶点药物研发进展追踪平台 - 多靶点创新 · 中国突破
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Data](https://img.shields.io/badge/data-52%20products-green.svg)
-![China](https://img.shields.io/badge/China-33%20products-red.svg)
-![Multi-target](https://img.shields.io/badge/Multi--target-17%20products-purple.svg)
+![Data](https://img.shields.io/badge/data-55%20products-green.svg)
+![China](https://img.shields.io/badge/China-34%20products-red.svg)
+![Multi-target](https://img.shields.io/badge/Multi--target-19%20products-purple.svg)
 
 ## 🌐 在线访问
 
@@ -15,14 +15,14 @@
 
 | 指标 | 数值 |
 |------|------|
-| 总产品数 | 52 |
-| 中国产品 | 33 |
-| 全球产品 | 19 |
-| 多靶点产品 | 17 |
-| GCG靶点产品 | 14 |
-| 已上市 | 15 |
+| 总产品数 | 55 |
+| 中国产品 | 34 |
+| 全球产品 | 21 |
+| 多靶点产品 | 19 |
+| GCG靶点产品 | 10 |
+| 已上市 | 17 |
 | III期临床 | 13 |
-| NDA申报中 | 11 |
+| NDA申报中 | 9 |
 
 ### 🎯 多靶点产品亮点
 
@@ -38,6 +38,7 @@
 - **信达生物 玛仕度肽**: 全球首个获批的GLP-1/GCG双靶点激动剂
 - **甘李药业 GZR18**: 全球首个GLP-1双周制剂
 - **司美格鲁肽仿制药**: 10家企业已申报上市，预计2026年Q3-Q4获批
+- **先为达生物 / 辉瑞 埃诺格鲁肽（先颐达®/先维盈®）**: 全球首个获批的 cAMP 偏向型 GLP-1RA，已覆盖成人2型糖尿病与长期体重管理
 
 ## 🚀 Cloudflare Pages 部署指南
 
@@ -138,7 +139,7 @@ npx serve .
 
 ## 🎯 功能特性
 
-- ✅ 产品数据库（52款GLP-1产品）
+- ✅ 产品数据库（55款GLP-1产品）
 - ✅ 交互式表格（排序、搜索、筛选）
 - ✅ 多靶点产品标识（GCG三靶点⭐）
 - ✅ 中国专区（红色高亮）
@@ -185,5 +186,5 @@ MIT License - 自由使用和修改
 
 ---
 
-**数据最后更新**: 2025年3月10日  
+**数据最后更新**: 2026年4月17日  
 **司美格鲁肽中国专利到期**: 2026年3月20日
