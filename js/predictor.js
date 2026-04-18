@@ -4,8 +4,20 @@ const predictorState = {
   loadError: false
 };
 
+const HTML_ESCAPE_MAP = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+
 function cleanDisplayName(name) {
   return String(name || '').replace(/（.*?）/g, '').trim();
+}
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (character) => HTML_ESCAPE_MAP[character]);
 }
 
 function inferBrand(product, profile) {
@@ -106,6 +118,14 @@ function calculateBMI(weight, height) {
   return (weight / (height / 100) ** 2).toFixed(1);
 }
 
+function getBmiCategory(bmi) {
+  if (!Number.isFinite(bmi)) return '--';
+  if (bmi < 18.5) return '偏瘦';
+  if (bmi < 24) return '正常';
+  if (bmi < 28) return '超重';
+  return '肥胖';
+}
+
 function getInsuranceStatus(pricing) {
   return Number.isFinite(pricing?.monthlyInsurance);
 }
@@ -154,6 +174,7 @@ function calculateMatch() {
 
   document.getElementById('results').classList.remove('hidden');
   document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+  document.getElementById('bmiCategory').textContent = getBmiCategory(bmi);
   document.getElementById('targetWeight').textContent = `-${(weight * 0.15).toFixed(1)}kg`;
   document.getElementById('waistStatus').textContent = bmi > 28 ? '高风险' : '中等风险';
 
@@ -173,11 +194,11 @@ function renderCards(matches) {
 <div class="card p-6 ${index === 0 ? 'border-blue-600 ring-4 ring-blue-50' : ''} relative">
   ${index === 0 ? '<span class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-tighter">Best Match</span>' : ''}
   <div class="mb-4">
-    <h3 class="text-xl font-bold text-slate-900 mb-1">${match.product.name}</h3>
-    <p class="text-xs font-bold text-slate-400 uppercase">${match.product.brand} · ${match.product.company}</p>
+    <h3 class="text-xl font-bold text-slate-900 mb-1">${escapeHtml(match.product.name)}</h3>
+    <p class="text-xs font-bold text-slate-400 uppercase">${escapeHtml(match.product.brand)} · ${escapeHtml(match.product.company)}</p>
   </div>
   <div class="bg-blue-50 rounded-2xl p-4 mb-6 text-center">
-    <div class="text-3xl font-bold text-blue-600 mb-1">${match.loss}%</div>
+    <div class="text-3xl font-bold text-blue-600 mb-1">${escapeHtml(match.loss)}%</div>
     <div class="text-[10px] font-bold text-blue-400 uppercase">预期减重幅 (48周)</div>
   </div>
   <div class="space-y-3 mb-6">
@@ -186,7 +207,7 @@ function renderCards(matches) {
         (advantage) => `
     <div class="flex items-start gap-2 text-xs text-slate-600 font-medium">
       <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-      ${advantage}
+      ${escapeHtml(advantage)}
     </div>`
       )
       .join('')}
@@ -194,14 +215,14 @@ function renderCards(matches) {
   <div class="grid grid-cols-2 gap-3 mb-4 text-[11px] text-slate-500 bg-slate-50 p-3 rounded-lg">
     <div>
       <div class="text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药方式</div>
-      <div class="text-slate-900 font-semibold">${match.product.administration}</div>
+      <div class="text-slate-900 font-semibold">${escapeHtml(match.product.administration)}</div>
     </div>
     <div>
       <div class="text-[10px] uppercase font-bold text-slate-400 mb-0.5">频率 / 阶段</div>
-      <div class="text-slate-900 font-semibold">${match.product.frequency} / ${match.product.stage}</div>
+      <div class="text-slate-900 font-semibold">${escapeHtml(match.product.frequency)} / ${escapeHtml(match.product.stage)}</div>
     </div>
   </div>
-  <p class="text-[11px] text-slate-400 italic bg-slate-50 p-3 rounded-lg border border-slate-100">${match.product.notes}</p>
+  <p class="text-[11px] text-slate-400 italic bg-slate-50 p-3 rounded-lg border border-slate-100">${escapeHtml(match.product.notes)}</p>
 </div>`
     )
     .join('');
@@ -220,11 +241,11 @@ function renderCostTable(matches, duration) {
 
       return `
 <tr>
-  <td class="px-4 py-4 font-bold text-slate-900">${match.product.name}</td>
-  <td class="px-4 py-4 text-slate-600">¥${monthlyCost}</td>
-  <td class="px-4 py-4 font-bold text-blue-600">¥${(monthlyCost * months).toLocaleString()}</td>
+  <td class="px-4 py-4 font-bold text-slate-900">${escapeHtml(match.product.name)}</td>
+  <td class="px-4 py-4 text-slate-600">¥${escapeHtml(monthlyCost)}</td>
+  <td class="px-4 py-4 font-bold text-blue-600">¥${escapeHtml((monthlyCost * months).toLocaleString())}</td>
   <td class="px-4 py-4"><span class="stage-pill ${hasInsurance ? 'stage-approved' : 'stage-phase2'}">${hasInsurance ? '已纳入医保' : '未纳入医保'}</span></td>
-  <td class="px-4 py-4 text-xs text-slate-500">${match.product.pricing.genericAvailable || '创新药保护中'}</td>
+  <td class="px-4 py-4 text-xs text-slate-500">${escapeHtml(match.product.pricing.genericAvailable || '创新药保护中')}</td>
 </tr>`;
     })
     .join('');
@@ -292,6 +313,7 @@ if (typeof module !== 'undefined' && module.exports) {
     buildPredictorProducts,
     calculateMatchScore,
     cleanDisplayName,
-    inferBrand
+    inferBrand,
+    getBmiCategory
   };
 }

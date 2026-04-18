@@ -36,6 +36,14 @@ const TARGET_DEFINITIONS = [
   { key: 'GLP-1R,Insulin', label: 'Insulin组合\n复方' }
 ];
 
+const HTML_ESCAPE_MAP = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+
 const STAGE_ROWS = [
   { key: 'approved', label: '已上市' },
   { key: 'nda', label: 'NDA' },
@@ -105,6 +113,16 @@ function getColor(companyType) {
   return VIS_CONFIG.colors[companyType] || VIS_CONFIG.colors.biosimilar;
 }
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (character) => HTML_ESCAPE_MAP[character]);
+}
+
+function sanitizeUrl(value) {
+  const url = String(value || '').trim();
+  if (!/^https?:\/\//i.test(url)) return '#';
+  return encodeURI(url);
+}
+
 function buildTargetDefinitions(products) {
   const counts = {};
   for (const product of products) {
@@ -152,7 +170,7 @@ function setVisualizationError(message) {
   const container = document.getElementById('viz-container');
   if (!container) return;
 
-  container.innerHTML = `<div class="min-h-[320px] flex items-center justify-center rounded-2xl bg-slate-50 text-sm text-red-500">${message}</div>`;
+  container.innerHTML = `<div class="min-h-[320px] flex items-center justify-center rounded-2xl bg-slate-50 text-sm text-red-500">${escapeHtml(message)}</div>`;
 }
 
 function getFilteredData() {
@@ -397,16 +415,16 @@ function renderVisualizationChart() {
 
   bubbles
     .on('mouseenter', function (event, product) {
-      tooltip
+  tooltip
         .classed('hidden', false)
         .html(`
-          <div class="font-bold text-slate-900 mb-1">${product.name_cn}</div>
-          <div class="text-slate-600 text-xs mb-2">${product.company}</div>
+          <div class="font-bold text-slate-900 mb-1">${escapeHtml(product.name_cn)}</div>
+          <div class="text-slate-600 text-xs mb-2">${escapeHtml(product.company)}</div>
           <div class="flex gap-2 mb-2">
-            <span class="px-2 py-0.5 bg-slate-100 rounded text-xs">${product.stage}</span>
-            <span class="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-xs">${(product.targets || []).join('+')}</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded text-xs">${escapeHtml(product.stage)}</span>
+            <span class="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-xs">${escapeHtml((product.targets || []).join('+'))}</span>
           </div>
-          <div class="text-xs text-slate-500">${String(product.latest_update || '').substring(0, 60)}...</div>
+          <div class="text-xs text-slate-500">${escapeHtml(String(product.latest_update || '').substring(0, 60))}...</div>
         `)
         .style('left', `${event.pageX + 10}px`)
         .style('top', `${event.pageY - 10}px`);
@@ -428,23 +446,23 @@ function showDetailModal(product) {
     <div class="space-y-4">
       <div class="flex justify-between items-center">
         <span class="text-sm text-slate-500">研发企业</span>
-        <span class="font-semibold text-slate-900">${product.company}</span>
+        <span class="font-semibold text-slate-900">${escapeHtml(product.company)}</span>
       </div>
       <div class="flex justify-between items-center">
         <span class="text-sm text-slate-500">研发阶段</span>
-        <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
+        <span class="stage-pill ${getStageClass(product.stage)}">${escapeHtml(product.stage)}</span>
       </div>
       <div class="flex justify-between items-center">
         <span class="text-sm text-slate-500">作用靶点</span>
-        <span class="font-semibold text-slate-900">${(product.targets || []).join(' + ')}</span>
+        <span class="font-semibold text-slate-900">${escapeHtml((product.targets || []).join(' + '))}</span>
       </div>
       <div class="flex justify-between items-center">
         <span class="text-sm text-slate-500">给药途径</span>
-        <span class="font-semibold text-slate-900">${product.administration || '-'}</span>
+        <span class="font-semibold text-slate-900">${escapeHtml(product.administration || '-')}</span>
       </div>
       <div class="border-t pt-4">
         <div class="text-sm text-slate-500 mb-2">最新进展</div>
-        <p class="text-sm text-slate-700">${product.latest_update || '-'}</p>
+        <p class="text-sm text-slate-700">${escapeHtml(product.latest_update || '-')}</p>
       </div>
       ${
         product.news?.length
@@ -456,7 +474,7 @@ function showDetailModal(product) {
             .slice(0, 3)
             .map(
               (newsItem) =>
-                `<a href="${newsItem.url}" target="_blank" rel="noopener noreferrer" class="block text-sm text-blue-600 hover:underline">${newsItem.title}</a>`
+                `<a href="${sanitizeUrl(newsItem.url)}" target="_blank" rel="noopener noreferrer" class="block text-sm text-blue-600 hover:underline">${escapeHtml(newsItem.title)}</a>`
             )
             .join('')}
         </div>

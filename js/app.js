@@ -36,6 +36,14 @@ const INDICATION_ALIASES = {
   '慢性肾病': 'CKD'
 };
 
+const HTML_ESCAPE_MAP = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+
 const state = {
   products: [],
   filteredProducts: [],
@@ -94,6 +102,16 @@ function normalizeIndications(indications) {
   return (indications || []).map(normalizeIndicationValue);
 }
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (character) => HTML_ESCAPE_MAP[character]);
+}
+
+function sanitizeUrl(value) {
+  const url = String(value || '').trim();
+  if (!/^https?:\/\//i.test(url)) return '#';
+  return encodeURI(url);
+}
+
 function getSearchableFields(product) {
   return [
     product.name_cn,
@@ -123,6 +141,22 @@ function parseApprovalDateValue(value) {
   const year = match[1];
   const month = String(match[2] || '12').padStart(2, '0');
   return Number(`${year}${month}`);
+}
+
+function compareProductsByApprovalDate(productA, productB, sortDirection) {
+  const dateA = parseApprovalDateValue(productA.approval_date);
+  const dateB = parseApprovalDateValue(productB.approval_date);
+
+  if (dateA === null && dateB !== null) return 1;
+  if (dateB === null && dateA !== null) return -1;
+
+  if (dateA !== null && dateB !== null) {
+    const result = dateA - dateB;
+    return sortDirection === 'asc' ? result : -result;
+  }
+
+  const fallback = compareValues(productA.name_cn, productB.name_cn);
+  return sortDirection === 'asc' ? fallback : -fallback;
 }
 
 function animateNumber(id, target, duration = 1500) {
@@ -207,7 +241,7 @@ function renderTable() {
   tbody.innerHTML = products
     .map((product) => {
       const targetsHtml = (product.targets || [])
-        .map((target) => `<span class="target-badge mr-1">${target.replace(/R$/, '')}</span>`)
+        .map((target) => `<span class="target-badge mr-1">${escapeHtml(target.replace(/R$/, ''))}</span>`)
         .join('');
 
       return `
@@ -215,34 +249,34 @@ function renderTable() {
   <td class="px-4 py-4 text-sm">
     <div class="flex flex-col">
       <div class="flex items-center flex-wrap gap-1 mb-1">
-        <span class="font-bold text-blue-600 hover:text-blue-700 cursor-pointer transition-colors" onclick="showNewsModal(${product.id})">${product.name_cn}</span>
+        <span class="font-bold text-blue-600 hover:text-blue-700 cursor-pointer transition-colors" onclick="showNewsModal(${product.id})">${escapeHtml(product.name_cn)}</span>
       </div>
       <div class="flex flex-wrap">${targetsHtml}</div>
     </div>
   </td>
   <td class="px-4 py-4">
-    <span class="text-slate-900 font-semibold text-sm">${product.company}</span>
+    <span class="text-slate-900 font-semibold text-sm">${escapeHtml(product.company)}</span>
   </td>
   <td class="px-4 py-4">
-    <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
+    <span class="stage-pill ${getStageClass(product.stage)}">${escapeHtml(product.stage)}</span>
   </td>
-  <td class="px-4 py-4 text-sm text-slate-600">${product.administration || '-'}</td>
-  <td class="px-4 py-4 text-sm text-slate-600">${product.frequency || '-'}</td>
-  <td class="px-4 py-4 text-sm text-slate-900 font-medium">${product.approval_date || '-'}</td>
+  <td class="px-4 py-4 text-sm text-slate-600">${escapeHtml(product.administration || '-')}</td>
+  <td class="px-4 py-4 text-sm text-slate-600">${escapeHtml(product.frequency || '-')}</td>
+  <td class="px-4 py-4 text-sm text-slate-900 font-medium">${escapeHtml(product.approval_date || '-')}</td>
   <td class="px-4 py-4">
     <div class="flex flex-wrap gap-1">
       ${(product.indications || [])
         .slice(0, 2)
         .map(
           (indication) =>
-            `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">${indication}</span>`
+            `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">${escapeHtml(indication)}</span>`
         )
         .join('')}
     </div>
   </td>
   <td class="px-4 py-4">
-    <p class="text-xs text-slate-500 line-clamp-2" title="${product.latest_update || ''}">
-      ${product.latest_update || '-'}
+    <p class="text-xs text-slate-500 line-clamp-2" title="${escapeHtml(product.latest_update || '')}">
+      ${escapeHtml(product.latest_update || '-')}
     </p>
   </td>
 </tr>`;
@@ -266,27 +300,27 @@ function renderCards() {
 <div class="card p-5 cursor-pointer active:scale-[0.98] transition-all" onclick="showNewsModal(${product.id})">
   <div class="flex justify-between items-start mb-3">
     <div class="flex-1">
-      <h3 class="font-bold text-blue-600 text-lg leading-tight mb-1">${product.name_cn}</h3>
-      <div class="text-xs font-semibold text-slate-900">${product.company}</div>
+      <h3 class="font-bold text-blue-600 text-lg leading-tight mb-1">${escapeHtml(product.name_cn)}</h3>
+      <div class="text-xs font-semibold text-slate-900">${escapeHtml(product.company)}</div>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <span class="stage-pill ${getStageClass(product.stage)}">${product.stage}</span>
+      <span class="stage-pill ${getStageClass(product.stage)}">${escapeHtml(product.stage)}</span>
       <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </div>
   </div>
   <div class="flex flex-wrap gap-1 mb-4">
     ${(product.targets || [])
-      .map((target) => `<span class="target-badge">${target.replace(/R$/, '')}</span>`)
+      .map((target) => `<span class="target-badge">${escapeHtml(target.replace(/R$/, ''))}</span>`)
       .join('')}
   </div>
   <div class="grid grid-cols-2 gap-4 text-xs text-slate-500 bg-slate-50 p-3 rounded-lg">
     <div>
       <span class="block text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药途径</span>
-      <span class="text-slate-900 font-semibold">${product.administration || '-'}</span>
+      <span class="text-slate-900 font-semibold">${escapeHtml(product.administration || '-')}</span>
     </div>
     <div>
       <span class="block text-[10px] uppercase font-bold text-slate-400 mb-0.5">给药频率</span>
-      <span class="text-slate-900 font-semibold">${product.frequency || '-'}</span>
+      <span class="text-slate-900 font-semibold">${escapeHtml(product.frequency || '-')}</span>
     </div>
   </div>
 </div>`
@@ -407,13 +441,7 @@ function sortProducts(field, toggleDirection = true) {
     if (field === 'stage') {
       result = getStageWeight(productA.stage) - getStageWeight(productB.stage);
     } else if (field === 'approval_date') {
-      const dateA = parseApprovalDateValue(productA.approval_date);
-      const dateB = parseApprovalDateValue(productB.approval_date);
-
-      if (dateA === null && dateB !== null) result = 1;
-      else if (dateB === null && dateA !== null) result = -1;
-      else if (dateA !== null && dateB !== null) result = dateA - dateB;
-      else result = compareValues(productA.name_cn, productB.name_cn);
+      return compareProductsByApprovalDate(productA, productB, state.sortDirection);
     } else {
       result = compareValues(productA[field], productB[field]);
     }
@@ -537,11 +565,11 @@ function showNewsModal(productId) {
     content.innerHTML = product.news
       .map(
         (news) => `
-<a href="${news.url}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition-all hover:border-blue-200">
-  <h4 class="font-bold text-slate-900 mb-2">${news.title}</h4>
+<a href="${sanitizeUrl(news.url)}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition-all hover:border-blue-200">
+  <h4 class="font-bold text-slate-900 mb-2">${escapeHtml(news.title)}</h4>
   <div class="flex items-center text-xs text-slate-400">
-    <span class="mr-3 font-semibold text-blue-500">${news.source || '新闻来源'}</span>
-    <span>${news.date || ''}</span>
+    <span class="mr-3 font-semibold text-blue-500">${escapeHtml(news.source || '新闻来源')}</span>
+    <span>${escapeHtml(news.date || '')}</span>
   </div>
 </a>`
       )
@@ -579,6 +607,7 @@ if (typeof module !== 'undefined' && module.exports) {
     matchesSearch,
     normalizeIndicationValue,
     normalizeStage,
-    parseApprovalDateValue
+    parseApprovalDateValue,
+    compareProductsByApprovalDate
   };
 }

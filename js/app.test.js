@@ -4,6 +4,7 @@ const {
     getLastUpdated,
     isApprovedStage,
     isChineseCompany,
+    compareProductsByApprovalDate,
     matchesIndication,
     matchesSearch,
     normalizeStage,
@@ -94,5 +95,22 @@ test('search and indication filters', async (t) => {
         assert.strictEqual(matchesIndication(product, ['NASH']), true);
         assert.strictEqual(matchesIndication(product, ['MASH']), true);
         assert.strictEqual(matchesIndication(product, ['CKD']), false);
+    });
+});
+
+test('approval date sorting', async (t) => {
+    const older = { name_cn: 'A', approval_date: '2024年06月' };
+    const newer = { name_cn: 'B', approval_date: '2025年01月' };
+    const missing = { name_cn: 'C', approval_date: '-' };
+
+    await t.test('should keep missing dates at the end in ascending order', () => {
+        assert.strictEqual(compareProductsByApprovalDate(missing, newer, 'asc'), 1);
+        assert.strictEqual(compareProductsByApprovalDate(newer, missing, 'asc'), -1);
+    });
+
+    await t.test('should keep missing dates at the end in descending order', () => {
+        assert.strictEqual(compareProductsByApprovalDate(missing, newer, 'desc'), 1);
+        assert.strictEqual(compareProductsByApprovalDate(newer, missing, 'desc'), -1);
+        assert.ok(compareProductsByApprovalDate(newer, older, 'desc') < 0);
     });
 });

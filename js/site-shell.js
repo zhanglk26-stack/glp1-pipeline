@@ -7,6 +7,14 @@
     { key: 'about', href: '/about', label: '关于' }
   ];
 
+  const HTML_ESCAPE_MAP = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  };
+
   function renderNavLinks(activePage, mobile = false) {
     return NAV_ITEMS.map(({ key, href, label }) => {
       const isActive = key === activePage;
@@ -19,9 +27,13 @@
     }).join('');
   }
 
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (character) => HTML_ESCAPE_MAP[character]);
+  }
+
   function renderHeader(activePage, tagline = '') {
     const taglineHtml = tagline
-      ? `<span class="hidden lg:block text-xs border-l border-slate-200 pl-4 py-1 font-bold" style="color: #1e293b !important;">${tagline}</span>`
+      ? `<span class="hidden lg:block text-xs border-l border-slate-200 pl-4 py-1 font-bold" style="color: #1e293b !important;">${escapeHtml(tagline)}</span>`
       : '';
 
     return `
