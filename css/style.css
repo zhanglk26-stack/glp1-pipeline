@@ -1,167 +1,185 @@
-/* 
- * Biotech Obsidian Design System
- * ------------------------------
- * Theme: Deep Obsidian & Clinical Cyan
- * Typography: Cormorant Garamond (Serif), Outfit (Geometic Sans)
- */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,500&family=Outfit:wght@200;400;600;800&display=swap');
 
-:root {
-    /* Core Obsidian Palette */
-    --obsidian-dark: #030406;
-    --obsidian-surface: #0A0C10;
-    --obsidian-border: rgba(255, 255, 255, 0.08);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    /* Accents */
-    --clinical-cyan: #00F2FF;
-    --clinical-cyan-glow: rgba(0, 242, 255, 0.2);
-    --amber-gold: #FFB800;
-    --medical-white: #F8FAFC;
-    --ghost-slate: #94A3B8;
+/* Utility classes */
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm;
+  }
 
-    /* Effects */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-blur: blur(20px);
+  .filter-tag {
+    @apply inline-flex items-center px-[14px] py-[6px] rounded-full text-[13px] font-medium bg-slate-100 text-slate-600 border border-transparent cursor-pointer hover:bg-slate-200 transition-all duration-200 select-none;
+  }
+
+  .peer:checked ~ .filter-tag {
+    @apply bg-blue-600 text-white shadow-[0_4px_6px_-1px_rgba(59,130,246,0.3)];
+  }
+
+  .input-field {
+    @apply w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition;
+  }
+
+  .th-sticky {
+    @apply px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b-2 border-slate-100 sticky top-[64px] z-20 bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)];
+  }
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Stage pills */
+.stage-pill {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-tight;
+}
+.stage-approved { @apply bg-green-50 text-green-700 border border-green-200; }
+.stage-nda { @apply bg-amber-50 text-amber-700 border border-amber-200; }
+.stage-phase3 { @apply bg-blue-50 text-blue-700 border border-blue-200; }
+.stage-phase2 { @apply bg-purple-50 text-purple-700 border border-purple-200; }
+.stage-phase1 { @apply bg-slate-100 text-slate-600 border border-slate-200; }
+.stage-preclinical { @apply bg-slate-50 text-slate-400 border border-slate-200; }
+.stage-discontinued { @apply bg-red-50 text-red-400 border border-red-200 line-through; }
+
+/* Target badges */
+.target-badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-100;
+}
+
+/* Table styles */
+.data-table th {
+  @apply whitespace-nowrap;
+}
+
+.table-container {
+  scrollbar-width: thin;
+}
+
+.table-header-placeholder {
+  display: none;
+}
+.table-header-placeholder.visible {
+  display: block;
+  height: 48px;
+}
+
+.table-header-sticky {
+  position: sticky;
+  top: 64px;
+  z-index: 20;
+  background: white;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  pointer-events: none;
+  font-size: 13px;
+  max-width: 280px;
+  z-index: 100;
+  border: 1px solid #e2e8f0;
+}
+
+/* Visualization specific */
+.axis-label { font-size: 12px; fill: #64748b; font-weight: 500; }
+.stage-label { font-size: 13px; fill: #1e293b; font-weight: 600; }
+.target-label { font-size: 12px; fill: #1e293b; font-weight: 600; }
+.bubble { cursor: pointer; transition: all 0.3s; }
+.bubble:hover { stroke: #3b82f6; stroke-width: 3; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.grid-line { stroke: #e2e8f0; stroke-width: 1; }
+.stage-separator { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 4; }
+.filter-btn.active { background: #3b82f6; color: white; }
+
+/* ─── Biotech Obsidian Theme (competitor-analysis) ─── */
+
+:root {
+  --obsidian-dark: #030406;
+  --obsidian-surface: #0A0C10;
+  --obsidian-border: rgba(255, 255, 255, 0.08);
+  --clinical-cyan: #00F2FF;
+  --clinical-cyan-glow: rgba(0, 242, 255, 0.2);
+  --amber-gold: #FFB800;
+  --medical-white: #F8FAFC;
+  --ghost-slate: #94A3B8;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-blur: blur(20px);
 }
 
 .theme-obsidian {
-    background-color: var(--obsidian-dark);
-    color: var(--medical-white);
-    font-family: 'Outfit', -apple-system, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+  background-color: var(--obsidian-dark);
+  color: var(--medical-white);
+  font-family: 'Outfit', -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* Typography Overrides */
-.font-display {
-    font-family: 'Cormorant Garamond', serif;
-}
+.font-display { font-family: 'Cormorant Garamond', serif; }
+.font-sans { font-family: 'Outfit', sans-serif; }
 
-.font-sans {
-    font-family: 'Outfit', sans-serif;
-}
-
-/* Grain Overlay Effect */
 .grain-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-    opacity: 0.02;
-    pointer-events: none;
-    z-index: 9999;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  opacity: 0.02; pointer-events: none; z-index: 9999;
 }
 
-/* Glassmorphism Classes */
 .glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--obsidian-border);
-    border-radius: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--obsidian-border);
+  border-radius: 2rem;
 }
 
 .glow-border-cyan {
-    border-color: var(--clinical-cyan-glow);
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.05);
+  border-color: var(--clinical-cyan-glow);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.05);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 4px;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--obsidian-dark); }
+::-webkit-scrollbar-thumb { background: var(--obsidian-border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ghost-slate); }
 
-::-webkit-scrollbar-track {
-    background: var(--obsidian-dark);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--obsidian-border);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--ghost-slate);
-}
-
-/* Animation Delays */
-.stagger-reveal>* {
-    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.stagger-reveal>*:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.stagger-reveal>*:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.stagger-reveal>*:nth-child(3) {
-    animation-delay: 0.3s;
-}
+.stagger-reveal > * { animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.stagger-reveal > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-reveal > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-reveal > *:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes revealUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Matrix Table Specifics */
-.matrix-table {
-    border-collapse: separate;
-    border-spacing: 0 8px;
-}
-
+.matrix-table { border-collapse: separate; border-spacing: 0 8px; }
 .matrix-table tr td {
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 1px solid var(--obsidian-border);
-    border-bottom: 1px solid var(--obsidian-border);
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--obsidian-border);
+  border-bottom: 1px solid var(--obsidian-border);
 }
+.matrix-table tr td:first-child { border-left: 1px solid var(--obsidian-border); border-radius: 1rem 0 0 1rem; }
+.matrix-table tr td:last-child { border-right: 1px solid var(--obsidian-border); border-radius: 0 1rem 1rem 0; }
+.matrix-header th { padding: 1rem 2rem; color: var(--ghost-slate); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.3em; }
 
-.matrix-table tr td:first-child {
-    border-left: 1px solid var(--obsidian-border);
-    border-radius: 1rem 0 0 1rem;
-}
-
-.matrix-table tr td:last-child {
-    border-right: 1px solid var(--obsidian-border);
-    border-radius: 0 1rem 1rem 0;
-}
-
-.matrix-header th {
-    padding: 1rem 2rem;
-    color: var(--ghost-slate);
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-}
-
-/* SWOT Masking */
 .swot-mask-text {
-    font-size: 10rem;
-    font-weight: 800;
-    line-height: 1;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    opacity: 0.03;
-    pointer-events: none;
-    -webkit-text-stroke: 1px white;
-    color: transparent;
+  font-size: 10rem; font-weight: 800; line-height: 1;
+  position: absolute; top: -20px; right: -20px; opacity: 0.03;
+  pointer-events: none; -webkit-text-stroke: 1px white; color: transparent;
 }
+
+/* Animation on page load */
+.animate-in { animation: fadeIn 0.5s ease-out both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ─── End Obsidian Theme ─── */

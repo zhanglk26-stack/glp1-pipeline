@@ -1,12 +1,19 @@
 {
   "name": "glp1-pipeline",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
-    "dev": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch",
-    "test": "node --test"
+    "prebuild": "mkdir -p static/data && cp -r data/* static/data/ && cp favicon.ico static/ 2>/dev/null || true",
+    "dev": "npm run prebuild && vite",
+    "build": "npm run prebuild && vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/constants.test.js"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.0"
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^3.4.0",
+    "vite": "^6.0.0"
   }
 }

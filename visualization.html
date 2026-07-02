@@ -1,101 +1,65 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>靶点-阶段矩阵图谱 | GLP-1 Pipeline Tracker</title>
-    <meta name="description" content="GLP-1药物靶点与研发阶段可视化矩阵，直观展示竞争格局与创新趋势">
-    <link rel="stylesheet" href="css/tailwind.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        .viz-container { min-height: 600px; }
-        .axis-label { font-size: 12px; fill: #64748b; font-weight: 500; }
-        .stage-label { font-size: 13px; fill: #1e293b; font-weight: 600; }
-        .target-label { font-size: 12px; fill: #1e293b; font-weight: 600; }
-        .bubble { cursor: pointer; transition: all 0.3s; }
-        .bubble:hover { stroke: #3b82f6; stroke-width: 3; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
-        .tooltip {
-            position: absolute; padding: 12px; background: white; border-radius: 8px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); pointer-events: none;
-            font-size: 13px; max-width: 280px; z-index: 100; border: 1px solid #e2e8f0;
-        }
-        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
-        .grid-line { stroke: #e2e8f0; stroke-width: 1; }
-        .stage-separator { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 4; }
-        .filter-btn.active { background: #3b82f6; color: white; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>靶点-阶段矩阵图谱 | GLP-1 Pipeline Tracker</title>
+  <meta name="description" content="GLP-1药物靶点与研发阶段可视化矩阵，直观展示竞争格局与创新趋势">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans min-h-screen" data-page="visualization" data-footer="simple">
-    <div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-    <!-- 主要内容 -->
-    <main class="max-w-[1400px] mx-auto px-4 py-6">
-        <!-- 标题区 -->
-        <div class="mb-6">
-            <h1 class="text-2xl font-bold text-slate-900 mb-2">GLP-1 靶点-阶段矩阵图谱</h1>
-            <p class="text-slate-500 text-sm">X轴：靶点创新梯度 | Y轴：管线阶段 | 气泡大小：市场热度 | 颜色：公司类型</p>
-        </div>
-
-        <!-- 筛选器 -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 mb-6">
-            <div class="flex flex-wrap gap-4 items-center">
-                <span class="text-xs font-bold text-slate-400 uppercase">公司类型：</span>
-                <button class="filter-btn active px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="all">全部</button>
-                <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="international">国际大厂</button>
-                <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="domestic_innovator">国产创新</button>
-                <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="biosimilar">仿制药</button>
-            </div>
-        </div>
-
-        <!-- 可视化区域 -->
-        <div class="bg-white rounded-xl border border-slate-200 p-6">
-            <div id="viz-container" class="viz-container w-full overflow-x-auto"></div>
-        </div>
-
-        <!-- 统计信息 -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-            <div class="card p-4 text-center">
-                <div class="text-2xl font-bold text-blue-600" id="totalCount">0</div>
-                <div class="text-xs text-slate-500">显示产品数</div>
-            </div>
-            <div class="card p-4 text-center">
-                <div class="text-2xl font-bold text-green-600" id="marketCount">0</div>
-                <div class="text-xs text-slate-500">已上市/NDA</div>
-            </div>
-            <div class="card p-4 text-center">
-                <div class="text-2xl font-bold text-purple-600" id="multiCount">0</div>
-                <div class="text-xs text-slate-500">多靶点产品</div>
-            </div>
-            <div class="card p-4 text-center">
-                <div class="text-2xl font-bold text-orange-600" id="companyCount">0</div>
-                <div class="text-xs text-slate-500">参与公司</div>
-            </div>
-        </div>
-    </main>
-
-    <div id="siteFooter"></div>
-    <script src="js/site-shell.js"></script>
-
-    <!-- Tooltip -->
-    <div id="tooltip" class="tooltip hidden"></div>
-
-    <!-- 详情模态框 -->
-    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden">
-            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-                <h3 id="modalTitle" class="font-bold text-slate-900 text-lg">产品详情</h3>
-                <button id="closeModal" class="text-slate-400 hover:text-slate-600 p-1 rounded-full hover:bg-slate-200 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-            </div>
-            <div id="modalContent" class="p-6"></div>
-        </div>
+  <main class="max-w-[1400px] mx-auto px-4 py-6">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-slate-900 mb-2">GLP-1 靶点-阶段矩阵图谱</h1>
+      <p class="text-slate-500 text-sm">X轴：靶点创新梯度 | Y轴：管线阶段 | 气泡大小：市场热度 | 颜色：公司类型</p>
     </div>
 
-    <script src="js/visualization.js"></script>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 mb-6">
+      <div class="flex flex-wrap gap-4 items-center">
+        <span class="text-xs font-bold text-slate-400 uppercase">公司类型：</span>
+        <button class="filter-btn active px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="all">全部</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="international">国际大厂</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="domestic_innovator">国产创新</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-filter="biosimilar">仿制药</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-slate-200 p-6">
+      <div id="viz-container" class="viz-container w-full overflow-x-auto" style="min-height:600px"></div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+      <div class="card p-4 text-center"><div class="text-2xl font-bold text-blue-600" id="totalCount">0</div><div class="text-xs text-slate-500">显示产品数</div></div>
+      <div class="card p-4 text-center"><div class="text-2xl font-bold text-green-600" id="marketCount">0</div><div class="text-xs text-slate-500">已上市/NDA</div></div>
+      <div class="card p-4 text-center"><div class="text-2xl font-bold text-purple-600" id="multiCount">0</div><div class="text-xs text-slate-500">多靶点产品</div></div>
+      <div class="card p-4 text-center"><div class="text-2xl font-bold text-orange-600" id="companyCount">0</div><div class="text-xs text-slate-500">参与公司</div></div>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <!-- Tooltip -->
+  <div id="tooltip" class="tooltip hidden"></div>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+        <h3 id="modalTitle" class="font-bold text-slate-900 text-lg">产品详情</h3>
+        <button id="closeModal" class="text-slate-400 hover:text-slate-600 p-1 rounded-full hover:bg-slate-200 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="modalContent" class="p-6"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/pages/visualization.js"></script>
 </body>
 </html>

@@ -43,3 +43,5 @@ Thumbs.db
 node_modules/
 css/tailwind.css
 tmpclaude-*
+static/data/
+dist/
