@@ -1,4 +1,5 @@
 // Visualization page — refactored to ES modules
+import '../../css/style.css';
 import { mountSiteShell } from '../shared/site-shell.js';
 import { escapeHtml, sanitizeUrl } from '../shared/utils.js';
 import { getCompanyType, normalizeStage, getStageClass, STAGE_ROWS } from '../shared/constants.js';

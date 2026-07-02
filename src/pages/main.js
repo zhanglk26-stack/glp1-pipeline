@@ -1,4 +1,5 @@
 // Main database page — refactored to ES modules
+import '../../css/style.css';
 import { mountSiteShell } from '../shared/site-shell.js';
 import { escapeHtml, sanitizeUrl, debounce, animateNumber } from '../shared/utils.js';
 import {

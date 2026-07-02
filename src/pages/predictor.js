@@ -1,4 +1,5 @@
 // Predictor page — refactored to ES modules
+import '../../css/style.css';
 import { mountSiteShell } from '../shared/site-shell.js';
 import { escapeHtml } from '../shared/utils.js';
 

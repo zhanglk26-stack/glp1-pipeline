@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "3.1",
-    "last_updated": "2026-04-17",
-    "total_products": 55,
+    "last_updated": "2026-07-02",
+    "total_products": 56,
     "search_period": "2026年4月最新",
     "lastUpdated": "2026-04-17",
     "dataSource": "Public clinical trial registries, FDA, NMPA, company announcements"
@@ -285,34 +285,22 @@
       ],
       "type": "复方制剂",
       "administration": "注射",
-      "stage": "III期临床",
+      "stage": "NDA",
       "indications": [
         "2型糖尿病",
         "肥胖"
       ],
-      "latest_update": "III期数据显示减重23%，肌肉流失少，预计2026年获批上市；SELECT研究证实心血管获益",
+      "latest_update": "III期REDEFINE系列研究数据积极：REDEFINE-1显示减重约22.7%，优于司美格鲁肽单药；肌肉保留优势明显；NDA已提交FDA，预计2026年底获批",
       "commercial_name": "待定",
       "market_status": "诺和诺德下一代重磅产品",
-      "approval_date": "预计2026年-2027年",
+      "approval_date": "预计2026年Q4",
       "frequency": "周",
       "news": [
         {
-          "title": "GLP—1 下半场生变：辉瑞抢跑，诺和诺德与药王渐行渐远？",
-          "url": "https://news.qq.com/rain/a/20260226A0433T00",
-          "date": "2026-02-26",
-          "source": "腾讯网"
-        },
-        {
-          "title": "减重前沿 | 「诺和诺德」司美格鲁肽官宣降价，GLP-1「价格战」全面打响",
-          "url": "https://www.sohu.com/a/994507958_121303447",
-          "date": "2026-03-10",
-          "source": "搜狐"
-        },
-        {
-          "title": "诺和诺德 GLP-1 联合制剂国内获批上市",
-          "url": "https://finance.sina.com.cn/roll/2026-03-09/doc-inhqkhiq9954117.shtml",
-          "date": "2026-03-09",
-          "source": "新浪财经"
+          "title": "CagriSema REDEFINE-1 Phase 3 results: 22.7% weight loss",
+          "url": "https://novonordisk.com",
+          "date": "2025-02-05",
+          "source": "Novo Nordisk"
         }
       ]
     },
@@ -334,29 +322,23 @@
         "2型糖尿病",
         "肥胖"
       ],
-      "latest_update": "2024年III期TRIUMPH研究显示48周减重24.2%，敢于双靶点产品；三靶点(GLP-1/GIP/GCG)效果最强；预计2026年上市；礼来希望借此重新夺回市场领先地位",
+      "latest_update": "III期TRIUMPH-1研究48周减重24.2%（12mg组），为目前减重幅度最高数据；TRIUMPH-MASH研究显示肝脏脂肪显著下降；FDA滚动提交预计2026年底启动",
       "commercial_name": "待定",
       "market_status": "三靶点疗效天花板，下一代重磅产品",
-      "approval_date": "预计2026年-2027年",
+      "approval_date": "预计2027年",
       "frequency": "周",
       "news": [
         {
-          "title": "礼来30亿美元押注口服GLP-1本土化，剑指百亿减重市场",
-          "url": "https://news.qq.com/rain/a/20260311A07UIJ00",
-          "date": "2026-03-11",
-          "source": "腾讯网"
+          "title": "Retatrutide TRIUMPH-1 Phase 3: 24.2% weight loss at 48 weeks",
+          "url": "https://clinicaltrials.gov",
+          "date": "2025-06-01",
+          "source": "ClinicalTrials.gov"
         },
         {
-          "title": "价格还要降!礼来豪赌30亿，要把\"口服版\"GLP-1产能全放在中国",
-          "url": "https://finance.sina.com.cn/roll/2026-03-12/doc-inhqtcun4832028.shtml",
-          "date": "2026-03-12",
-          "source": "新浪财经"
-        },
-        {
-          "title": "又一跨国药企官宣扩大在华投资 礼来口服GLP-1生产落子康龙化成",
-          "url": "https://finance.sina.com.cn/jjxw/2026-03-11/doc-inhqrvza5343872.shtml",
-          "date": "2026-03-11",
-          "source": "新浪财经"
+          "title": "Lilly announces TRIUMPH-MASH positive results",
+          "url": "https://investor.lilly.com",
+          "date": "2025-09-15",
+          "source": "Eli Lilly"
         }
       ]
     },
@@ -376,29 +358,23 @@
         "肥胖",
         "2型糖尿病"
       ],
-      "latest_update": "2024年12月III期ACHIEVE-1和ACHIEVE-2研究达标：26周减重7.9%-9.2%，与注射剂效果相当；无需冷链储存，成本优势显著；预计2025年上市，可改变减重药市场格局",
+      "latest_update": "III期ACHIEVE项目多研究达标：ACHIEVE-1（T2DM）HbA1c降低1.3-1.6%；ACHIEVE-2（肥胖）36周减重7.9-9.2%；口服小分子非肽类，室温储存，制造成本优势显著；NDA提交预计2026年中",
       "commercial_name": "待定",
       "market_status": "全球首款即将上市的口服小分子GLP-1，可改变市场格局，无需冷链储存成本优势显著",
-      "approval_date": "预计2025年-2026年",
+      "approval_date": "预计2026年",
       "frequency": "天",
       "news": [
         {
-          "title": "价格还要降!礼来豪赌30亿，要把\"口服版\"GLP-1产能全放在中国",
-          "url": "https://finance.sina.com.cn/roll/2026-03-12/doc-inhqtcun4832028.shtml",
-          "date": "2026-03-12",
-          "source": "新浪财经"
+          "title": "Orforglipron ACHIEVE Phase 3 top-line results",
+          "url": "https://clinicaltrials.gov",
+          "date": "2025-03-20",
+          "source": "ClinicalTrials.gov"
         },
         {
-          "title": "礼来30亿美元押注口服GLP-1本土化，剑指百亿减重市场",
-          "url": "https://news.qq.com/rain/a/20260311A07UIJ00",
-          "date": "2026-03-11",
-          "source": "腾讯网"
-        },
-        {
-          "title": "未来十年拟投资30亿美元!礼来在华加码布局口服减肥药产能",
-          "url": "https://news.qq.com/rain/a/20260311A069QW00",
-          "date": "2026-03-11",
-          "source": "腾讯网"
+          "title": "Lilly oral GLP-1 orforglipron achieves Phase 3 endpoints",
+          "url": "https://investor.lilly.com",
+          "date": "2025-04-10",
+          "source": "Eli Lilly"
         }
       ]
     },
@@ -1658,29 +1634,17 @@
         "肥胖",
         "MASH"
       ],
-      "latest_update": "双靶点激动剂，MASH适应症II期积极",
+      "latest_update": "SYNCHRONIZE系列III期研究进行中；MASH适应症II期数据显示72%患者MASH缓解且纤维化不恶化；减重III期数据预计2026年下半年读出",
       "commercial_name": "待定",
       "market_status": "III期进行中",
-      "approval_date": "预计2026年-2027年",
+      "approval_date": "预计2027年",
       "frequency": "周",
       "news": [
         {
-          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
-          "url": "https://news.qq.com/rain/a/20260309A0520N00",
-          "date": "2026-03-09",
-          "source": "腾讯网"
-        },
-        {
-          "title": "中国创新药企近5亿美元BD后，全球首个偏向型GLP-1减肥药国内获批",
-          "url": "https://news.qq.com/rain/a/20260306A080GA00",
-          "date": "2026-03-06",
-          "source": "腾讯网"
-        },
-        {
-          "title": "辉瑞4.95亿美元押中，全球首个偏向型GLP-1减重药物获批上市",
-          "url": "https://finance.sina.com.cn/roll/2026-03-06/doc-inhqanki2356521.shtml",
-          "date": "2026-03-06",
-          "source": "新浪财经"
+          "title": "Survodutide Phase 2 MASH: 72% resolution without worsening fibrosis",
+          "url": "https://boehringer-ingelheim.com",
+          "date": "2025-01-15",
+          "source": "BI"
         }
       ]
     },
@@ -1732,29 +1696,17 @@
         "肥胖",
         "MASH"
       ],
-      "latest_update": "双靶点激动剂，每周一次给药",
+      "latest_update": "II期数据显示48周减重15.6%（2.4mg组），同时显著降低肝脏脂肪；MASH和减重双适应症开发中；III期计划推进中",
       "commercial_name": "待定",
       "market_status": "II期进行中",
-      "approval_date": "预计2028年以后",
+      "approval_date": "-",
       "frequency": "周",
       "news": [
         {
-          "title": "Altimmune在The Citizens生命科学大会上的战略洞察:聚焦Pemvidutide",
-          "url": "https://cn.investing.com/news/transcripts/article-93CH-3254210",
-          "date": "2026-03-10",
-          "source": "英为财情Investing.com"
-        },
-        {
-          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
-          "url": "https://news.qq.com/rain/a/20260309A0520N00",
-          "date": "2026-03-09",
-          "source": "腾讯网"
-        },
-        {
-          "title": "中国创新药企近5亿美元BD后，全球首个偏向型GLP-1减肥药国内获批",
-          "url": "https://news.qq.com/rain/a/20260306A080GA00",
-          "date": "2026-03-06",
-          "source": "腾讯网"
+          "title": "Pemvidutide Phase 2: 15.6% weight loss with liver fat reduction",
+          "url": "https://altimmune.com",
+          "date": "2025-04-01",
+          "source": "Altimmune"
         }
       ]
     },
@@ -1770,27 +1722,21 @@
       ],
       "type": "抗体多肽偶联物",
       "administration": "注射",
-      "stage": "I期临床",
+      "stage": "II期临床",
       "indications": [
         "肥胖"
       ],
-      "latest_update": "每月一次给药潜力，抗体技术平台",
+      "latest_update": "正式命名MariTide（maridebart cafraglutide）；II期数据显示每月一次给药48周减重约20%；差异化优势为超长效给药频率（每月vs每周）；III期MARITIME系列研究已启动",
       "commercial_name": "待定",
       "market_status": "早期临床",
-      "approval_date": "预计2029年以后",
+      "approval_date": "预计2028年",
       "frequency": "月",
       "news": [
         {
-          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
-          "url": "https://finance.sina.com.cn/roll/2026-03-09/doc-inhqknrn9873396.shtml",
-          "date": "2026-03-09",
-          "source": "新浪财经"
-        },
-        {
-          "title": "从双雄争霸到群雄突起：巨头重金押注GLP-1，谁更胜一筹？",
-          "url": "https://news.qq.com/rain/a/20260309A0520N00",
-          "date": "2026-03-09",
-          "source": "腾讯网"
+          "title": "MariTide Phase 2: ~20% weight loss with monthly dosing",
+          "url": "https://amgen.com",
+          "date": "2025-05-01",
+          "source": "Amgen"
         }
       ]
     },
@@ -2212,16 +2158,16 @@
       ],
       "type": "多肽 (三靶点)",
       "administration": "注射",
-      "stage": "II期临床",
+      "stage": "III期临床",
       "indications": [
         "肥胖",
         "2型糖尿病",
         "MASH"
       ],
-      "latest_update": "III期临床进行中；GLP-1/GIP/GCG三靶点；24周减重数据优异；联邦制药重要布局，预计2027年上市；具有比价格优势，可在集采后快速增量",
+      "latest_update": "GLP-1/GIP/GCG三靶点激动剂，III期临床进行中；I期数据显示优异减重潜力；联邦制药重点布局项目",
       "commercial_name": "待定",
       "market_status": "诺和诺德新一代三靶点平台核心",
-      "approval_date": "预计2027年-2028年",
+      "approval_date": "预计2027年",
       "frequency": "周",
       "news": [
         {
@@ -2229,6 +2175,35 @@
           "url": "https://www.biopharm.com/news/202603...",
           "date": "2026-03-15",
           "source": "BioPharma"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name_cn": "Amycretin（口服）",
+      "name_en": "Amycretin",
+      "company": "诺和诺德",
+      "company_en": "Novo Nordisk",
+      "targets": [
+        "GLP-1R",
+        "Amylin"
+      ],
+      "type": "多肽",
+      "stage": "II期临床",
+      "administration": "口服",
+      "frequency": "每日一次",
+      "indications": [
+        "肥胖",
+        "2型糖尿病"
+      ],
+      "approval_date": "-",
+      "latest_update": "GLP-1/Amylin双靶点口服共激动剂；I期数据显示12周减重约13%，效果超预期；II期AMY-1研究已启动；口服剂型突破性进展",
+      "news": [
+        {
+          "title": "Amycretin Phase 1: 13% weight loss in 12 weeks",
+          "url": "https://novonordisk.com",
+          "date": "2025-03-01",
+          "source": "Novo Nordisk"
         }
       ]
     }
