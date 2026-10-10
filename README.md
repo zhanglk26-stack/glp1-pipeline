@@ -3,9 +3,9 @@
 全球GLP-1靶点药物研发进展追踪平台 - 多靶点创新 · 中国突破
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Data](https://img.shields.io/badge/data-55%20products-green.svg)
+![Data](https://img.shields.io/badge/data-56%20products-green.svg)
 ![China](https://img.shields.io/badge/China-34%20products-red.svg)
-![Multi-target](https://img.shields.io/badge/Multi--target-19%20products-purple.svg)
+![Multi-target](https://img.shields.io/badge/Multi--target-20%20products-purple.svg)
 
 ## 🌐 在线访问
 
@@ -15,14 +15,14 @@
 
 | 指标 | 数值 |
 |------|------|
-| 总产品数 | 55 |
+| 总产品数 | 56 |
 | 中国产品 | 34 |
-| 全球产品 | 21 |
-| 多靶点产品 | 19 |
+| 全球产品 | 17 |
+| 多靶点产品 | 20 |
 | GCG靶点产品 | 10 |
 | 已上市 | 17 |
 | III期临床 | 13 |
-| NDA申报中 | 9 |
+| NDA申报中 | 10 |
 
 ### 🎯 多靶点产品亮点
 
